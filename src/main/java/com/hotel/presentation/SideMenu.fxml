@@ -20,7 +20,5 @@
                 <StringRessources fx:constant="CHAMBRE"/>
             </text>
         </Label>
-
-
     </JFXListView>
 </StackPane>

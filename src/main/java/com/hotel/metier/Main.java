@@ -22,7 +22,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 @FXMLController(value = "/main/java/com/hotel/presentation/Main.fxml", title = StringRessources.TITRE)
-public class MainController implements Observer {
+public class Main implements Observer {
 
     @FXMLViewFlowContext
     private ViewFlowContext context;
@@ -82,7 +82,7 @@ public class MainController implements Observer {
         // create the inner flow and content
         context = new ViewFlowContext();
         // set the default controller
-        Flow innerFlow = new Flow(HomeController.class);
+        Flow innerFlow = new Flow(Home.class);
 
         flowHandler = innerFlow.createHandler(context);
         context.register("ContentFlowHandler", flowHandler);
@@ -91,7 +91,7 @@ public class MainController implements Observer {
         context.register("ContentPane", drawer.getContent().get(0));
 
         // side controller will add links to the content flow
-        Flow sideMenuFlow = new Flow(SideMenuController.class);
+        Flow sideMenuFlow = new Flow(SideMenu.class);
         sideMenuFlowHandler = sideMenuFlow.createHandler(context);
         drawer.setSidePane(sideMenuFlowHandler.start(new AnimatedFlowContainer(Duration.millis(320), ContainerAnimations.SWIPE_LEFT)));
 

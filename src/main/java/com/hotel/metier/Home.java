@@ -13,10 +13,11 @@ import javax.annotation.PostConstruct;
 
 
 @FXMLController(value = "/main/java/com/hotel/presentation/Home.fxml", title = "")
-public class HomeController {
+public class Home {
 
     @FXMLViewFlowContext
     private ViewFlowContext context;
+
     @FXML
     private StackPane root;
     @FXML
