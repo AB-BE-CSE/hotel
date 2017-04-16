@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import main.java.com.hotel.metier.StringRessources?>
+<?import java.lang.String?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root" xmlns="http://javafx.com/javafx/2.2">
+    <styleClass>
+        <String fx:value="side-menu"/>
+    </styleClass>
+    <JFXListView fx:id="sideList">
+        <Label fx:id="button" >
+            <text>
+                <StringRessources fx:constant="ACCUEIL"/>
+            </text>
+        </Label>
+        <Label fx:id="button2" >
+            <text>
+                <StringRessources fx:constant="CHAMBRE"/>
+            </text>
+        </Label>
+    </JFXListView>
+</StackPane>
