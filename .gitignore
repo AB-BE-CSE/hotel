@@ -1,4 +1,8 @@
-
+.idea/
+lib/
+out/
+build/
+*.jar
 *pdf
 *.log
 *.rar
