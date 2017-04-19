@@ -6,3 +6,4 @@ build/
 *pdf
 *.log
 *.rar
+/bin/

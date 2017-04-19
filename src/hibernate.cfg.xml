@@ -9,6 +9,13 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hotel</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <mapping class="main.java.com.hotel.model.Chambre"/>
+        <mapping class="main.java.com.hotel.model.Chambre"/>
+        <mapping class="main.java.com.hotel.model.Categorie"/>
+        <mapping class="main.java.com.hotel.model.Client"/>
+        <mapping class="main.java.com.hotel.model.Facture"/>
+        <mapping class="main.java.com.hotel.model.Reservation"/>
+        <mapping class="main.java.com.hotel.model.Utilisateur"/>
 
     </session-factory>
 </hibernate-configuration>

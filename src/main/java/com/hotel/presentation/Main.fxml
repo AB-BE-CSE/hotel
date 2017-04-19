@@ -29,9 +29,7 @@
                     </leftItems>
                     <rightItems>
                         <JFXTextField fx:id="search"
-                                      maxWidth="427.0" minWidth="427.0" prefHeight="45.0" prefWidth="427.0"
-                        >
-
+                                      maxWidth="427.0" minWidth="427.0" prefHeight="45.0" prefWidth="427.0">
                             <promptText>
                                 <StringRessources fx:constant="RECHERCHE"/>
                             </promptText>
