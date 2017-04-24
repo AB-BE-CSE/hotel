@@ -82,7 +82,7 @@ public class Main implements Observer {
         // create the inner flow and content
         context = new ViewFlowContext();
         // set the default controller
-        Flow innerFlow = new Flow(Home.class);
+        Flow innerFlow = new Flow(ReservationController.class);
 
         flowHandler = innerFlow.createHandler(context);
         context.register("ContentFlowHandler", flowHandler);

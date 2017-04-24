@@ -6,7 +6,6 @@ package main.java.com.hotel.metier;
 public class StringRessources {
     public static final String ENREGISTRER = "ENTREGISTRER";
     public static final String ANNULER = "ANNULER";
-    public static final String ACCUEIL = "ACCUEIL";
     public static final String CONTACT = "Contactez-nous";
     public static final String QUIT = "Quitter";
     public static final String TITRE = "HOTEL";
@@ -17,7 +16,11 @@ public class StringRessources {
     public static final String ADRESSE = "Adresse";
     public static final String TEL = "Tél";
     public static final String RECHERCHE = "Recherche";
-    public static final String CHAMBRE = "CHAMBRE";
+    public static final String CHAMBRE = "Chambre";
+    public static final String CLIENT = "Client";
+    public static final String COMPTE = "Compte";
+    public static final String RESERVATION = "Reservation";
+    public static final String HISTORIQUE = "Historique";
 
 
 

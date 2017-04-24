@@ -12,8 +12,8 @@ import javafx.scene.layout.StackPane;
 import javax.annotation.PostConstruct;
 
 
-@FXMLController(value = "/main/java/com/hotel/presentation/Home.fxml", title = "")
-public class Home {
+@FXMLController(value = "/main/java/com/hotel/presentation/Reservation.fxml", title = "")
+public class ReservationController {
 
     @FXMLViewFlowContext
     private ViewFlowContext context;
@@ -25,7 +25,6 @@ public class Home {
 
     @PostConstruct
     public void init() throws FlowException, VetoException {
-
 
     }
 

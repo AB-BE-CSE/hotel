@@ -1,5 +1,4 @@
 .idea/
-lib/
 out/
 build/
 *.jar
@@ -7,3 +6,8 @@ build/
 *.log
 *.rar
 /bin/
+*.classpath
+*.project
+*.eml
+*.userlibraries
+
