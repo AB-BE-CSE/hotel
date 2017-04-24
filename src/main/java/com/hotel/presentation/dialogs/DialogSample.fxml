@@ -1,0 +1,57 @@
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<JFXDialog xmlns:fx="http://javafx.com/fxml/1"
+           xmlns="http://javafx.com/javafx/8"
+           fx:controller="main.java.com.ismarten.ecole.controller.dialogs.EmployeDialogController" fx:id="dialog">
+    <JFXDialogLayout>
+        <heading>
+            <Label>
+                <text>
+                    <StringRessources fx:constant="TITRE"/>
+                </text>
+            </Label>
+        </heading>
+        <body>
+            <VBox spacing="30">
+
+                <JFXTextField maxWidth="200" fx:id="nom" labelFloat="true">
+                    <promptText>
+                        <StringRessources fx:constant="NOM"/>
+                    </promptText>
+
+                </JFXTextField>
+                <JFXTextField maxWidth="200" fx:id="prenom" labelFloat="true">
+                    <promptText>
+                        <StringRessources fx:constant="PRENOM"/>
+                    </promptText>
+
+                </JFXTextField>
+                <JFXTextField maxWidth="200" fx:id="salaire" labelFloat="true">
+                    <promptText>
+                        <StringRessources fx:constant="SALAIRE"/>
+                    </promptText>
+
+                </JFXTextField>
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                </padding>
+            </VBox>
+
+        </body>
+        <actions>
+            <JFXButton styleClass="dialog-accept" onAction="#enregistrer">
+                <text>
+                    <StringRessources fx:constant="ENREGISTRER"/>
+                </text>
+            </JFXButton>
+            <JFXButton styleClass="dialog-accept" onAction="#annuler">
+                <text>
+                    <StringRessources fx:constant="ANNULER"/>
+
+                </text>
+            </JFXButton>
+        </actions>
+    </JFXDialogLayout>
+</JFXDialog>
