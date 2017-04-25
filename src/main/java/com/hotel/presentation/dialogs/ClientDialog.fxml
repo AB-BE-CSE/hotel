@@ -1,0 +1,34 @@
+<?import com.jfoenix.controls.*?>
+<?import main.java.com.hotel.metier.StringRessources?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<JFXDialog xmlns:fx="http://javafx.com/fxml/1"
+           xmlns="http://javafx.com/javafx/8"
+           fx:controller="main.java.com.hotel.metier.dialogs.ClientDialogController" fx:id="dialog">
+    <JFXDialogLayout>
+        <heading>
+            <Label>
+                <text>
+                    <StringRessources fx:constant="TITRE"/>
+                </text>
+            </Label>
+        </heading>
+        <body>
+
+        </body>
+        <actions>
+            <JFXButton styleClass="dialog-accept" onAction="#enregistrer">
+                <text>
+                    <StringRessources fx:constant="ENREGISTRER"/>
+                </text>
+            </JFXButton>
+            <JFXButton styleClass="dialog-accept" onAction="#annuler">
+                <text>
+                    <StringRessources fx:constant="ANNULER"/>
+
+                </text>
+            </JFXButton>
+        </actions>
+    </JFXDialogLayout>
+</JFXDialog>

@@ -5,10 +5,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.*?>
+<?import main.java.com.hotel.metier.StringRessources?>
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root"
            xmlns="http://javafx.com/javafx/2.2" >
     <AnchorPane fx:id="content">
         <children>
+            <JFXButton fx:id="ajouterClient" styleClass="animated-option-button" AnchorPane.bottomAnchor="10" AnchorPane.rightAnchor="20">
+                <text>
+                    <StringRessources fx:constant="PLUS"/>
+                </text>
+            </JFXButton>
 
         </children>
     </AnchorPane>

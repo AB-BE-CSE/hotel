@@ -1,5 +1,6 @@
 package main.java.com.hotel.metier;
 
+import com.jfoenix.controls.JFXButton;
 import io.datafx.controller.FXMLController;
 import io.datafx.controller.flow.FlowException;
 import io.datafx.controller.flow.context.FXMLViewFlowContext;
@@ -8,6 +9,7 @@ import io.datafx.controller.util.VetoException;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import main.java.com.hotel.metier.dialogs.ClientDialogController;
 
 import javax.annotation.PostConstruct;
 
@@ -22,9 +24,15 @@ public class ClientController {
     private StackPane root;
     @FXML
     private AnchorPane content;
+    @FXML
+    private JFXButton ajouterClient;
 
     @PostConstruct
     public void init() throws FlowException, VetoException {
+        ajouterClient.setButtonType(JFXButton.ButtonType.RAISED);
+        ajouterClient.setOnAction(e -> {
+            ClientDialogController.getInstance().ouvrir((StackPane) context.getRegisteredObject("ContentPane"));
+        });
 
     }
 
