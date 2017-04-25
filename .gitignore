@@ -2,10 +2,10 @@
 out/
 build/
 *.jar
-*pdf
+*.pdf
 *.log
 *.rar
-/bin/
+/bin
 *.classpath
 *.project
 *.eml
