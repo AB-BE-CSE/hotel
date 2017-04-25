@@ -11,12 +11,12 @@ import java.io.IOException;
 /**
  * Created by Admin on 22/03/2017.
  */
-public class DialogSample {
-    private static DialogSample dialogSample = null;
+public class HistoriqueDialogController {
+    private static HistoriqueDialogController historiqueDialogController = null;
     @FXML
     private JFXDialog dialog;
 
-    public DialogSample() {
+    public HistoriqueDialogController() {
         Platform.runLater(() -> {
 
             clear();
@@ -26,18 +26,18 @@ public class DialogSample {
         });
     }
 
-    public static DialogSample getInstance() {
-        if (dialogSample == null) {
-            FXMLLoader fxmlLoader = new FXMLLoader(DialogSample.class
-                    .getResource("/main/java/com/hotel/presentation/dialogs/DialogSample.fxml"));
+    public static HistoriqueDialogController getInstance() {
+        if (historiqueDialogController == null) {
+            FXMLLoader fxmlLoader = new FXMLLoader(HistoriqueDialogController.class
+                    .getResource("/main/java/com/hotel/presentation/dialogs/HistoriqueDialog.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            dialogSample = fxmlLoader.getController();
+            historiqueDialogController = fxmlLoader.getController();
         }
-        return dialogSample;
+        return historiqueDialogController;
 
     }
 
