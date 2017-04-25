@@ -10,6 +10,7 @@ import io.datafx.controller.util.VetoException;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import main.java.com.hotel.metier.dialogs.ChambreDialogController;
 
 import javax.annotation.PostConstruct;
 
@@ -26,13 +27,15 @@ public class ChambreController {
     @FXML
     private AnchorPane content;
     @FXML
-    private JFXButton button;
-    @FXML
-    private JFXTextField field;
+    private JFXButton ajouterChambre;
+
 
     @PostConstruct
     public void init() throws FlowException, VetoException {
-
+        ajouterChambre.setButtonType(JFXButton.ButtonType.RAISED);
+        ajouterChambre.setOnAction(e -> {
+            ChambreDialogController.getInstance().ouvrir((StackPane) context.getRegisteredObject("ContentPane"));
+        });
     }
 
 
