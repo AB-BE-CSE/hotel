@@ -13,9 +13,6 @@
             <JFXButton  fx:id="ajouterChambre" styleClass="animated-option-button" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="20">
                 <text>
                     <StringRessources fx:constant="PLUS"/>
-                    <!--
-                        commentaire
-                    -->
                 </text>
 
             </JFXButton>

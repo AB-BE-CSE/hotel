@@ -22,9 +22,8 @@ public class StringRessources {
     public static final String RESERVATION = "Reservation";
     public static final String HISTORIQUE = "Historique";
     public static final String PLUS = "+";
-
-
-
-
+    public static final String CAPACITE = "Capacité";
+    public static final String NUM ="Num";
+    public static final String CATEGORIE ="Catégorie";
 }
 
