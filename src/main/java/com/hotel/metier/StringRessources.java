@@ -4,6 +4,7 @@ package main.java.com.hotel.metier;
  * Created by Admin on 21/03/2017.
  */
 public class StringRessources {
+
     public static final String ENREGISTRER = "ENTREGISTRER";
     public static final String ANNULER = "ANNULER";
     public static final String CONTACT = "Contactez-nous";
@@ -22,9 +23,8 @@ public class StringRessources {
     public static final String RESERVATION = "Reservation";
     public static final String HISTORIQUE = "Historique";
     public static final String PLUS = "+";
-
-
-
-
+    public static final String CAPACITE = "Capacité";
+    public static final String NUM ="Num";
+    public static final String CATEGORIE ="Catégorie";
 }
 

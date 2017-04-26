@@ -1,6 +1,8 @@
 package main.java.com.hotel.metier.dialogs;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +17,15 @@ public class ChambreDialogController {
     private static ChambreDialogController chambreDialogController = null;
     @FXML
     private JFXDialog dialog;
+
+    @FXML
+    private JFXTextField chambre;
+    @FXML
+    private JFXTextField num;
+    @FXML
+    private JFXTextField capacite;
+    @FXML
+    private JFXComboBox categorie;
 
     public ChambreDialogController() {
         Platform.runLater(() -> {

@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.text.Font?>
 <JFXDialog xmlns:fx="http://javafx.com/fxml/1"
            xmlns="http://javafx.com/javafx/8"
            fx:controller="main.java.com.hotel.metier.dialogs.ChambreDialogController" fx:id="dialog">
@@ -19,7 +20,40 @@
             </Label>
         </heading>
         <body>
+            <VBox  prefWidth="300.0" spacing="35.0">
+                <children>
+                    <JFXTextField fx:id="chambre" labelFloat="true" >
 
+                        <promptText>
+                            <StringRessources fx:constant="CHAMBRE"/>
+                        </promptText>
+                    </JFXTextField>
+
+                    <JFXTextField fx:id="num" labelFloat="true" >
+
+                        <promptText>
+                            <StringRessources fx:constant="NUM"/>
+                        </promptText>
+                    </JFXTextField>
+
+                    <JFXTextField fx:id="capacite" labelFloat="true">
+
+                        <promptText>
+                            <StringRessources fx:constant="CAPACITE"/>
+                        </promptText>
+                    </JFXTextField>
+
+                    <JFXComboBox fx:id="categorie" focusColor="#425dad" labelFloat="true" >
+                        <promptText>
+                            <StringRessources fx:constant="CATEGORIE"/>
+                        </promptText>
+                    </JFXComboBox>
+
+                </children>
+                <padding>
+                    <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                </padding>
+            </VBox>
 
         </body>
         <actions>
