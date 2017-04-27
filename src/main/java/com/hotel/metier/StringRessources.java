@@ -26,5 +26,13 @@ public class StringRessources {
     public static final String CAPACITE = "Capacité";
     public static final String NUM ="Num";
     public static final String CATEGORIE ="Catégorie";
+    public static final String NOMCATEGORIE ="Nom de la catégorie";
+    public static final String PRIX ="Prix";
+    public static final String DESCRIPTION ="Déscription";
+    public static final String NOMBRECHAMBREAJOUTER="Nombre de chambre à ajouter";
+    public static final String NUMDEBUT="Nombre de début";
+    public static final String NUMFIN ="Nombre de fin";
+    public static final String ETAGE ="Etage";
+
 }
 
