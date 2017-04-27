@@ -37,11 +37,9 @@ public class Utilisateur implements java.io.Serializable {
 		this.taype = taype;
 		this.username = username;
 		this.password = password;
-
 	}
 
 	@Id
-
 	@Column(name = "idU", unique = true, nullable = false)
 	public int getIdU() {
 		return this.idU;
