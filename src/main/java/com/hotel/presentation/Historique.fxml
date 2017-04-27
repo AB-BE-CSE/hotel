@@ -43,9 +43,14 @@
                             <Insets top="15.0"/>
                         </VBox.margin>
                     </HBox>
-                    <TableView fx:id="tableHisto" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                    <TableView fx:id="historiqueTable"  VBox.vgrow="ALWAYS">
                         <columns>
                             <TableColumn fx:id="idReservationColumn" prefWidth="75.0">
+                                <text>
+                                    <StringRessources fx:constant="NUM"/>
+                                </text>
+                            </TableColumn>
+                            <TableColumn fx:id="userColumn" prefWidth="75.0">
                                 <text>
                                     <StringRessources fx:constant="NUM"/>
                                 </text>

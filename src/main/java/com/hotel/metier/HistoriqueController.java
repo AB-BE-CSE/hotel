@@ -34,9 +34,11 @@ public class HistoriqueController {
     @FXML
     private Label totalLabel;
     @FXML
-    private TableView tableHisto;
+    private TableView historiqueTable;
     @FXML
     private TableColumn idReservationColumn;
+    @FXML
+    private TableColumn userColumn;
     @FXML
     private TableColumn clientColumn;
     @FXML
