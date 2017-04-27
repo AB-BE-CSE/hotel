@@ -21,6 +21,9 @@ public class StringRessources {
     public static final String COMPTE = "Compte";
     public static final String RESERVATION = "Reservation";
     public static final String HISTORIQUE = "Historique";
+    public static final String PLUS = "+";
+    public static final String MULTI = "*";
+    public static final String MINUS = "-";
 
 
 

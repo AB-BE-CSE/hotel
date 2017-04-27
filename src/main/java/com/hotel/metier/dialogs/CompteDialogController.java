@@ -1,6 +1,9 @@
 package main.java.com.hotel.metier.dialogs;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,12 +14,25 @@ import java.io.IOException;
 /**
  * Created by Admin on 22/03/2017.
  */
-public class DialogSample {
-    private static DialogSample dialogSample = null;
+public class CompteDialogController {
+    private static CompteDialogController compteDialogController = null;
     @FXML
     private JFXDialog dialog;
-
-    public DialogSample() {
+    @FXML
+    private JFXTextField nomDuCompte;
+    @FXML
+    private JFXPasswordField password;
+    @FXML
+    private JFXPasswordField confirmPass;
+    @FXML
+    private JFXComboBox type;
+    @FXML
+    private JFXTextField nom;
+    @FXML
+    private JFXTextField prenom;
+    @FXML
+    private JFXTextField numTel;
+    public CompteDialogController() {
         Platform.runLater(() -> {
 
             clear();
@@ -26,18 +42,18 @@ public class DialogSample {
         });
     }
 
-    public static DialogSample getInstance() {
-        if (dialogSample == null) {
-            FXMLLoader fxmlLoader = new FXMLLoader(DialogSample.class
-                    .getResource("/main/java/com/hotel/presentation/dialogs/DialogSample.fxml"));
+    public static CompteDialogController getInstance() {
+        if (compteDialogController == null) {
+            FXMLLoader fxmlLoader = new FXMLLoader(CompteDialogController.class
+                    .getResource("/main/java/com/hotel/presentation/dialogs/CompteDialog.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            dialogSample = fxmlLoader.getController();
+            compteDialogController = fxmlLoader.getController();
         }
-        return dialogSample;
+        return compteDialogController;
 
     }
 
