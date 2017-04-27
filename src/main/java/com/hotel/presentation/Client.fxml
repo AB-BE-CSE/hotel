@@ -6,10 +6,44 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.*?>
 <?import main.java.com.hotel.metier.StringRessources?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root"
            xmlns="http://javafx.com/javafx/2.2" >
     <AnchorPane fx:id="content">
         <children>
+            <TableView fx:id="tableClient"  AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0">
+                <columns>
+                    <TableColumn fx:id="nomColumn" prefWidth="75.0">
+                        <text>
+                            <StringRessources fx:constant="NOM"></StringRessources>
+                        </text>
+                    </TableColumn>
+                    <TableColumn fx:id="prenomColumn" prefWidth="75.0">
+                        <text>
+                            <StringRessources fx:constant="PRENOM"/>
+                        </text>
+                    </TableColumn>
+                    <TableColumn fx:id="dateNaissColumn" prefWidth="75.0">
+                        <text>
+                            <StringRessources fx:constant="DATENAISSANCE"></StringRessources>
+                        </text>
+                    </TableColumn>
+                    <TableColumn fx:id="numTelColumn" prefWidth="75.0" >
+                        <text>
+                            <StringRessources fx:constant="NUMTEL"></StringRessources>
+                        </text>
+                    </TableColumn>
+                    <TableColumn fx:id="numPieceEntiteColumn" prefWidth="75.0" >
+                        <text>
+                            <StringRessources fx:constant="NUMPIECEENTITE"></StringRessources>
+                        </text>
+                    </TableColumn>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+            </TableView>
             <JFXButton fx:id="ajouterClient" styleClass="animated-option-button" AnchorPane.bottomAnchor="10" AnchorPane.rightAnchor="20">
                 <text>
                     <StringRessources fx:constant="PLUS"/>

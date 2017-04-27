@@ -22,6 +22,10 @@ public class StringRessources {
     public static final String RESERVATION = "Reservation";
     public static final String HISTORIQUE = "Historique";
     public static final String PLUS = "+";
+    public static final String DATENAISSANCE = "Date de naissance";
+    public static final String NUMTEL = "Num. téléphone";
+    public static final String NUMPIECEENTITE = "Num. p. entité";
+
 
 
 

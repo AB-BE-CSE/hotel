@@ -15,7 +15,25 @@
             </Label>
         </heading>
         <body>
+            <VBox  prefWidth="300.0" spacing="30">
+                <children>
+                    <JFXTextField labelFloat="true" prefHeight="25.0" prefWidth="394.0" promptText="Nom">
 
+                    </JFXTextField>
+                    <JFXTextField labelFloat="true" promptText="Prénom">
+
+                    </JFXTextField>
+                    <JFXTextField labelFloat="true" promptText="Date de naissance">
+
+                    </JFXTextField>
+                    <JFXTextField labelFloat="true" promptText="Numéro de téléphone">
+
+                    </JFXTextField>
+                    <JFXTextField labelFloat="true" promptText="Numéro d'une pièce d'identité">
+
+                    </JFXTextField>
+                </children>
+            </VBox>
         </body>
         <actions>
             <JFXButton styleClass="dialog-accept" onAction="#enregistrer">
