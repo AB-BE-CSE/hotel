@@ -1,17 +1,20 @@
 package main.java.com.hotel.metier;
 
-import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDatePicker;
 import io.datafx.controller.FXMLController;
 import io.datafx.controller.flow.FlowException;
 import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import io.datafx.controller.util.VetoException;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import main.java.com.hotel.metier.dialogs.HistoriqueDialogController;
 
 import javax.annotation.PostConstruct;
+
 
 
 @FXMLController(value = "/main/java/com/hotel/presentation/Historique.fxml", title = "")
@@ -25,16 +28,28 @@ public class HistoriqueController {
     @FXML
     private AnchorPane content;
     @FXML
-    private JFXButton ajout;
+    private JFXDatePicker dateDebutPicker;
+    @FXML
+    private JFXDatePicker dateFinPicker;
+    @FXML
+    private Label totalLabel;
+    @FXML
+    private TableView tableHisto;
+    @FXML
+    private TableColumn idReservationColumn;
+    @FXML
+    private TableColumn clientColumn;
+    @FXML
+    private TableColumn dateArriveeColumn;
+    @FXML
+    private TableColumn dateSorieColumn;
+    @FXML
+    private TableColumn totalColumn;
+
 
     @PostConstruct
     public void init() throws FlowException, VetoException {
-        // l'ombre d boutton//
-        ajout.setButtonType(JFXButton.ButtonType.RAISED);
-        // attribuer une action a ce boutton
-        ajout.setOnAction(event -> {
-            HistoriqueDialogController.getInstance().ouvrir((StackPane) context.getRegisteredObject("ContentPane"));
-        });
+
 
     }
 
