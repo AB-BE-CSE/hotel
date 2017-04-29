@@ -22,19 +22,19 @@
         <body>
             <VBox  prefWidth="300.0" spacing="35.0">
                 <children>
-                    <JFXTextField fx:id="nomCategorie">
+                    <JFXTextField labelFloat="true" fx:id="nomCategorie">
                         <promptText>
                             <StringRessources fx:constant="NOMCATEGORIE"/>
                         </promptText>
                     </JFXTextField>
 
-                    <JFXTextField  fx:id="prix">
+                    <JFXTextField labelFloat="true" fx:id="prix">
                         <promptText>
                             <StringRessources fx:constant="PRIX"/>
                         </promptText>
                     </JFXTextField>
 
-                    <JFXTextField fx:id="description" >
+                    <JFXTextField labelFloat="true" fx:id="description" >
                         <promptText>
                             <StringRessources fx:constant="DESCRIPTION"/>
                         </promptText>
