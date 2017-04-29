@@ -31,13 +31,14 @@ public class ChambreDialogController {
     @FXML
     private JFXTextField capacite;
     @FXML
-    private JFXTextField etage;
+    private JFXTextField Etage;
     @FXML
     private JFXComboBox categorie;
 
 
     public ChambreDialogController() {
         Platform.runLater(() -> {
+            dialog.setTransitionType(JFXDialog.DialogTransition.BOTTOM);
             clear();
             dialog.setOnDialogClosed(e -> {
                 clear();
@@ -84,9 +85,7 @@ public class ChambreDialogController {
 
     private void clear() {
         nbrchambre.setText("");
-        numDebut.setText("");
-        numFIN.setText("");
-        etage.setText("");
+//TODO
         categorie.setValue(null);
     }
 }
