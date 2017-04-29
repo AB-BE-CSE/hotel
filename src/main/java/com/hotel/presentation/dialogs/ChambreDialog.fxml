@@ -40,7 +40,7 @@
                             </promptText>
                     </JFXTextField>
 
-                    <JFXTextField labelFloat="true" fx:id="Etage"  >
+                    <JFXTextField labelFloat="true" fx:id="etage"  >
                             <promptText>
                                 <StringRessources fx:constant="ETAGE"/>
                             </promptText>
@@ -48,9 +48,9 @@
 
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                         <children>
-                            <JFXComboBox labelFloat="true" promptText="Catégorie" >
+                            <JFXComboBox labelFloat="true" fx:id="categorie" >
                                 <promptText>
-                                    <StringRessources fx:constant="CAPACITE"/>
+                                    <StringRessources fx:constant="CATEGORIE"/>
                                 </promptText>
                             </JFXComboBox>
                             <JFXButton text="+" onAction="#ouvrirCategorieDialog"/>

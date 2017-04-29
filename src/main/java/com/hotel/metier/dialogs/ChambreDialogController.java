@@ -1,17 +1,13 @@
 package main.java.com.hotel.metier.dialogs;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXTextField;
-import io.datafx.controller.flow.FlowException;
-import io.datafx.controller.util.VetoException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 
 /**
@@ -29,9 +25,7 @@ public class ChambreDialogController {
     @FXML
     private JFXTextField numFIN;
     @FXML
-    private JFXTextField capacite;
-    @FXML
-    private JFXTextField Etage;
+    private JFXTextField etage;
     @FXML
     private JFXComboBox categorie;
 
