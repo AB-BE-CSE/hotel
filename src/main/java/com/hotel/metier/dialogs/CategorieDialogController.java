@@ -1,5 +1,6 @@
 package main.java.com.hotel.metier.dialogs;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXTextField;
@@ -13,26 +14,26 @@ import java.io.IOException;
 /**
  * Created by Admin on 22/03/2017.
  */
-public class ChambreDialogController {
-    private static ChambreDialogController chambreDialogController = null;
+public class CategorieDialogController {
+    private static CategorieDialogController categorieDialogController = null;
     @FXML
     private JFXDialog dialog;
 
     @FXML
-    private JFXTextField nbrchambre;
+    private JFXTextField nomCategorie;
+
     @FXML
-    private JFXTextField numDebut;
+    private JFXTextField prix;
+
     @FXML
-    private JFXTextField numFIN;
-    @FXML
-    private JFXTextField etage;
-    @FXML
-    private JFXComboBox categorie;
+    private JFXTextField description;
 
 
-    public ChambreDialogController() {
+
+
+    public CategorieDialogController() {
         Platform.runLater(() -> {
-            dialog.setTransitionType(JFXDialog.DialogTransition.BOTTOM);
+
             clear();
             dialog.setOnDialogClosed(e -> {
                 clear();
@@ -40,18 +41,18 @@ public class ChambreDialogController {
         });
     }
 
-    public static ChambreDialogController getInstance() {
-        if (chambreDialogController == null) {
-            FXMLLoader fxmlLoader = new FXMLLoader(ChambreDialogController.class
-                    .getResource("/main/java/com/hotel/presentation/dialogs/ChambreDialog.fxml"));
+    public static CategorieDialogController getInstance() {
+        if (categorieDialogController == null) {
+            FXMLLoader fxmlLoader = new FXMLLoader(CategorieDialogController.class
+                    .getResource("/main/java/com/hotel/presentation/dialogs/CategorieDialog.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            chambreDialogController = fxmlLoader.getController();
+            categorieDialogController = fxmlLoader.getController();
         }
-        return chambreDialogController;
+        return categorieDialogController;
 
     }
 
@@ -67,19 +68,12 @@ public class ChambreDialogController {
         dialog.close();
     }
 
-    @FXML
-    private void ouvrirCategorieDialog() {
-        CategorieDialogController.getInstance().ouvrir(dialog.getDialogContainer());
-    }
-
     public void ouvrir(StackPane stackPane) {
         dialog.show(stackPane);
 
     }
 
     private void clear() {
-        nbrchambre.setText("");
-//TODO
-        categorie.setValue(null);
+
     }
 }

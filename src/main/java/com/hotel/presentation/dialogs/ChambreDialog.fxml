@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
 <JFXDialog xmlns:fx="http://javafx.com/fxml/1"
            xmlns="http://javafx.com/javafx/8"
            fx:controller="main.java.com.hotel.metier.dialogs.ChambreDialogController" fx:id="dialog">
@@ -20,35 +21,41 @@
             </Label>
         </heading>
         <body>
-            <VBox  prefWidth="300.0" spacing="35.0">
+            <VBox prefHeight="400.0" prefWidth="400.0" spacing="35.0">
                 <children>
-                    <JFXTextField fx:id="chambre" labelFloat="true" >
-
+                    <JFXTextField labelFloat="true" fx:id="nbrchambre" >
                         <promptText>
-                            <StringRessources fx:constant="CHAMBRE"/>
+                            <StringRessources fx:constant="NOMBRECHAMBREAJOUTER"/>
                         </promptText>
                     </JFXTextField>
 
-                    <JFXTextField fx:id="num" labelFloat="true" >
-
-                        <promptText>
-                            <StringRessources fx:constant="NUM"/>
-                        </promptText>
+                    <JFXTextField labelFloat="true" fx:id="numDebut">
+                            <promptText>
+                                <StringRessources fx:constant="NUMDEBUT"/>
+                            </promptText>
+                    </JFXTextField >
+                    <JFXTextField labelFloat="true" fx:id="numFIN"  >
+                            <promptText>
+                                <StringRessources fx:constant="NUMFIN"/>
+                            </promptText>
                     </JFXTextField>
 
-                    <JFXTextField fx:id="capacite" labelFloat="true">
-
-                        <promptText>
-                            <StringRessources fx:constant="CAPACITE"/>
-                        </promptText>
+                    <JFXTextField labelFloat="true" fx:id="etage"  >
+                            <promptText>
+                                <StringRessources fx:constant="ETAGE"/>
+                            </promptText>
                     </JFXTextField>
 
-                    <JFXComboBox fx:id="categorie" focusColor="#425dad" labelFloat="true" >
-                        <promptText>
-                            <StringRessources fx:constant="CATEGORIE"/>
-                        </promptText>
-                    </JFXComboBox>
-
+                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                        <children>
+                            <JFXComboBox labelFloat="true" fx:id="categorie" >
+                                <promptText>
+                                    <StringRessources fx:constant="CATEGORIE"/>
+                                </promptText>
+                            </JFXComboBox>
+                            <JFXButton text="+" onAction="#ouvrirCategorieDialog"/>
+                        </children>
+                    </HBox>
                 </children>
                 <padding>
                     <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
@@ -65,7 +72,6 @@
             <JFXButton styleClass="dialog-accept" onAction="#annuler">
                 <text>
                     <StringRessources fx:constant="ANNULER"/>
-
                 </text>
             </JFXButton>
         </actions>
