@@ -38,7 +38,6 @@ public class ChambreDialogController {
 
     public ChambreDialogController() {
         Platform.runLater(() -> {
-            dialog.setTransitionType(JFXDialog.DialogTransition.BOTTOM);
             clear();
             dialog.setOnDialogClosed(e -> {
                 clear();
