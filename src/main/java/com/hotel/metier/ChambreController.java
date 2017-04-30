@@ -9,6 +9,7 @@ import io.datafx.controller.util.VetoException;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import main.java.com.hotel.metier.dialogs.ChambreDialogController;
 
 import javax.annotation.PostConstruct;
 
@@ -30,7 +31,9 @@ public class ChambreController {
 
     @PostConstruct
     public void init() throws FlowException, VetoException {
-
+        ajouterChambre.setOnAction(event -> {
+            ChambreDialogController.getInstance().ouvrir((StackPane)context.getRegisteredObject("ContentPane"));
+        });
     }
 
 

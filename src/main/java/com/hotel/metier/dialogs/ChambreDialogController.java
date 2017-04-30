@@ -28,10 +28,9 @@ public class ChambreDialogController {
     private JFXTextField numDebut;
     @FXML
     private JFXTextField numFIN;
+
     @FXML
-    private JFXTextField capacite;
-    @FXML
-    private JFXTextField Etage;
+    private JFXTextField etage;
     @FXML
     private JFXComboBox categorie;
 
@@ -84,7 +83,9 @@ public class ChambreDialogController {
 
     private void clear() {
         nbrchambre.setText("");
-//TODO
+        numFIN.setText("");
+        numDebut.setText("");
+        etage.setText("");
         categorie.setValue(null);
     }
 }
