@@ -143,4 +143,20 @@ public class Utilisateur implements java.io.Serializable {
     public StringProperty usernameProperty() {
         return username;
     }
+
+    public enum Type {
+        ADMIN("ADMIN"),
+        CHEF("CHEF"),
+        RECEPTIONISTE("RECEPTIONISTE");
+        private final String type;
+
+        private Type(String type) {
+            this.type = type;
+        }
+
+        @Override
+        public String toString() {
+            return type;
+        }
+    }
 }

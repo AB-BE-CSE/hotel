@@ -24,9 +24,11 @@ public class StringRessources {
     public static final String PLUS = "+";
     public static final String User_Details="User Details";
     public static final String TYPE="Type";
-    public static final String USER = "User";
+    public static final String USER = "Nom du compte";
     public static final String CATEGORIE = "CATEGORIE";
     public static final String FACTURE = "FACTURE";
+    public static final String PASSWORD ="Tapez votre mots de passe";
+    public static final String CONFIRMPASSWORD="Confimez votre mots de passe";
 
 
 

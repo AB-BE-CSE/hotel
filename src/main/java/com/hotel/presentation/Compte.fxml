@@ -27,7 +27,7 @@
                                 <columns>
                                     <TableColumn prefWidth="149.0">
                                         <text>
-                                            <StringRessources fx:constant="COMPTE"/>
+                                            <StringRessources fx:constant="USER"/>
                                         </text>
                                     </TableColumn>
                                     <TableColumn prefWidth="146.0">
@@ -68,6 +68,7 @@
                                     </Label>
                                     <Label prefHeight="17.0" prefWidth="160.0" GridPane.rowIndex="2">
                                         <text>
+
                                             <StringRessources fx:constant="TEL"/>
                                         </text>
                                     </Label>
