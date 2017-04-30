@@ -1,5 +1,5 @@
 package main.java.com.hotel.model;
-// Generated 19 avr. 2017 12:27:09 by Hibernate Tools 5.2.0.CR1
+// Generated 30 avr. 2017 02:56:43 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.*;
 
@@ -10,74 +10,74 @@ import javax.persistence.*;
 @Table(name = "chambre", catalog = "hotel")
 public class Chambre implements java.io.Serializable {
 
-	private int idC;
-	private Categorie categorie;
-	private Integer numr;
-	private Integer etage;
-	private Boolean chack;
+    private int idChambre;
+    private Categorie categorie;
+    private Integer numeroChambre;
+    private Integer etage;
+    private Boolean check;
 
-	public Chambre() {
-	}
+    public Chambre() {
+    }
 
-	public Chambre(int idC) {
-		this.idC = idC;
-	}
+    public Chambre(int idChambre) {
+        this.idChambre = idChambre;
+    }
 
-	public Chambre(int idC, Categorie categorie, Integer numr, Integer etage, Boolean chack) {
-		this.idC = idC;
-		this.categorie = categorie;
-		this.numr = numr;
-		this.etage = etage;
-		this.chack = chack;
+    public Chambre(int idChambre, Categorie categorie, Integer numeroChambre, Integer etage, Boolean check) {
+        this.idChambre = idChambre;
+        this.categorie = categorie;
+        this.numeroChambre = numeroChambre;
+        this.etage = etage;
+        this.check = check;
+    }
 
-	}
+    @Id
 
-	@Id
+    @Column(name = "idChambre", unique = true, nullable = false)
+    public int getIdChambre() {
+        return this.idChambre;
+    }
 
-	@Column(name = "idC", unique = true, nullable = false)
-	public int getIdC() {
-		return this.idC;
-	}
+    public void setIdChambre(int idChambre) {
+        this.idChambre = idChambre;
+    }
 
-	public void setIdC(int idC) {
-		this.idC = idC;
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_categorie")
+    public Categorie getCategorie() {
+        return this.categorie;
+    }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_categorie")
-	public Categorie getCategorie() {
-		return this.categorie;
-	}
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
 
-	public void setCategorie(Categorie categorie) {
-		this.categorie = categorie;
-	}
+    @Column(name = "numeroChambre")
+    public Integer getNumeroChambre() {
+        return this.numeroChambre;
+    }
 
-	@Column(name = "numr")
-	public Integer getNumr() {
-		return this.numr;
-	}
+    public void setNumeroChambre(Integer numeroChambre) {
+        this.numeroChambre = numeroChambre;
+    }
 
-	public void setNumr(Integer numr) {
-		this.numr = numr;
-	}
+    @Column(name = "etage")
+    public Integer getEtage() {
+        return this.etage;
+    }
 
-	@Column(name = "etage")
-	public Integer getEtage() {
-		return this.etage;
-	}
+    public void setEtage(Integer etage) {
+        this.etage = etage;
+    }
 
-	public void setEtage(Integer etage) {
-		this.etage = etage;
-	}
+    @Column(name = "check")
+    public Boolean getCheck() {
+        return this.check;
+    }
 
-	@Column(name = "chack")
-	public Boolean getChack() {
-		return this.chack;
-	}
+    public void setCheck(Boolean check) {
+        this.check = check;
+    }
 
-	public void setChack(Boolean chack) {
-		this.chack = chack;
-	}
 
 }

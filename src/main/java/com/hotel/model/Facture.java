@@ -1,5 +1,5 @@
 package main.java.com.hotel.model;
-// Generated 19 avr. 2017 12:27:09 by Hibernate Tools 5.2.0.CR1
+// Generated 30 avr. 2017 02:56:43 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,45 +11,33 @@ import java.util.Date;
 @Table(name = "facture", catalog = "hotel")
 public class Facture implements java.io.Serializable {
 
-	private int idP;
-	private Reservation reservation;
+	private int idFacture;
 	private Date datePaiement;
 	private Double somme;
 
 	public Facture() {
 	}
 
-	public Facture(int idP, Reservation reservation) {
-		this.idP = idP;
-		this.reservation = reservation;
+	public Facture(int idFacture) {
+		this.idFacture = idFacture;
 	}
 
-	public Facture(int idP, Reservation reservation, Date datePaiement, Double somme) {
-		this.idP = idP;
-		this.reservation = reservation;
+	public Facture(int idFacture, Date datePaiement, Double somme) {
+		this.idFacture = idFacture;
 		this.datePaiement = datePaiement;
 		this.somme = somme;
+
 	}
 
 	@Id
 
-	@Column(name = "idP", unique = true, nullable = false)
-	public int getIdP() {
-		return this.idP;
+	@Column(name = "idFacture", unique = true, nullable = false)
+	public int getIdFacture() {
+		return this.idFacture;
 	}
 
-	public void setIdP(int idP) {
-		this.idP = idP;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idR", nullable = false)
-	public Reservation getReservation() {
-		return this.reservation;
-	}
-
-	public void setReservation(Reservation reservation) {
-		this.reservation = reservation;
+	public void setIdFacture(int idFacture) {
+		this.idFacture = idFacture;
 	}
 
 	@Temporal(TemporalType.DATE)
@@ -70,5 +58,6 @@ public class Facture implements java.io.Serializable {
 	public void setSomme(Double somme) {
 		this.somme = somme;
 	}
+
 
 }

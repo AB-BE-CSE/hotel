@@ -1,5 +1,5 @@
 package main.java.com.hotel.model;
-// Generated 19 avr. 2017 12:27:09 by Hibernate Tools 5.2.0.CR1
+// Generated 30 avr. 2017 02:56:43 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,45 +13,44 @@ import javax.persistence.Table;
 @Table(name = "utilisateur", catalog = "hotel")
 public class Utilisateur implements java.io.Serializable {
 
-	private int idU;
+	private int idUser;
 	private String nom;
 	private String prenom;
-	private String numTel;
-	private String taype;
+	private String tel;
+	private String type;
 	private String username;
 	private String password;
+
 
 	public Utilisateur() {
 	}
 
-	public Utilisateur(int idU) {
-		this.idU = idU;
+	public Utilisateur(int idUser) {
+		this.idUser = idUser;
 	}
 
-	public Utilisateur(int idU, String nom, String prenom, String numTel, String taype, String username,
-			String password) {
-		this.idU = idU;
+	public Utilisateur(int idUser, String nom, String prenom, String tel, String type, String username, String password) {
+		this.idUser = idUser;
 		this.nom = nom;
 		this.prenom = prenom;
-		this.numTel = numTel;
-		this.taype = taype;
+		this.tel = tel;
+		this.type = type;
 		this.username = username;
 		this.password = password;
-
 	}
 
 	@Id
 
-	@Column(name = "idU", unique = true, nullable = false)
-	public int getIdU() {
-		return this.idU;
+	@Column(name = "idUser", unique = true, nullable = false)
+	public int getIdUser() {
+		return this.idUser;
 	}
 
-	public void setIdU(int idU) {
-		this.idU = idU;
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
 	}
 
-	@Column(name = "nom", length = 50)
+	@Column(name = "nom", length = 20)
 	public String getNom() {
 		return this.nom;
 	}
@@ -60,7 +59,7 @@ public class Utilisateur implements java.io.Serializable {
 		this.nom = nom;
 	}
 
-	@Column(name = "prenom", length = 50)
+	@Column(name = "prenom", length = 20)
 	public String getPrenom() {
 		return this.prenom;
 	}
@@ -69,22 +68,22 @@ public class Utilisateur implements java.io.Serializable {
 		this.prenom = prenom;
 	}
 
-	@Column(name = "numTel", length = 50)
-	public String getNumTel() {
-		return this.numTel;
+	@Column(name = "tel", length = 15)
+	public String getTel() {
+		return this.tel;
 	}
 
-	public void setNumTel(String numTel) {
-		this.numTel = numTel;
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 
-	@Column(name = "taype", length = 50)
-	public String getTaype() {
-		return this.taype;
+	@Column(name = "type", length = 2)
+	public String getType() {
+		return this.type;
 	}
 
-	public void setTaype(String taype) {
-		this.taype = taype;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	@Column(name = "username", length = 45)

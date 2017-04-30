@@ -1,9 +1,7 @@
 package main.java.com.hotel.model;
-// Generated 19 avr. 2017 12:27:09 by Hibernate Tools 5.2.0.CR1
+// Generated 30 avr. 2017 02:56:43 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -18,16 +16,15 @@ public class Categorie implements java.io.Serializable {
 	private String nom;
 	private String description;
 	private Double prix;
-	private Set<Chambre> chambres = new HashSet(0);
 
 	public Categorie() {
 	}
 
-	public Categorie(String nom, String description, Double prix, Set chambres) {
+	public Categorie(String nom, String description, Double prix) {
 		this.nom = nom;
 		this.description = description;
 		this.prix = prix;
-		this.chambres = chambres;
+
 	}
 
 	@Id
@@ -69,13 +66,5 @@ public class Categorie implements java.io.Serializable {
 		this.prix = prix;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categorie")
-	public Set<Chambre> getChambres() {
-		return this.chambres;
-	}
-
-	public void setChambres(Set<Chambre> chambres) {
-		this.chambres = chambres;
-	}
 
 }
