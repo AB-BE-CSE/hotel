@@ -52,7 +52,7 @@
                             </TableColumn>
                             <TableColumn fx:id="userColumn" prefWidth="75.0">
                                 <text>
-                                    <StringRessources fx:constant="NUM"/>
+                                    <StringRessources fx:constant="USER"/>
                                 </text>
                             </TableColumn>
                             <TableColumn fx:id="clientColumn" prefWidth="75.0">

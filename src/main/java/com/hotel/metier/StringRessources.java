@@ -28,6 +28,7 @@ public class StringRessources {
     public static final String DATEARRIVEE = "Date Arrivée";
     public static final String DATESORTIE = "Date Sortie";
     public static final String TOTAL = "Total";
+    public static final String USER = "User";
 
 
 }
