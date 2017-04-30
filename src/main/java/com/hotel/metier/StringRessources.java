@@ -23,6 +23,7 @@ public class StringRessources {
     public static final String RESERVATION = "Reservation";
     public static final String HISTORIQUE = "Historique";
     public static final String PLUS = "+";
+
     public static final String CAPACITE = "Capacité";
     public static final String NUM ="Num";
     public static final String CATEGORIE ="Catégorie";
@@ -33,6 +34,13 @@ public class StringRessources {
     public static final String NUMDEBUT="Nombre de début";
     public static final String NUMFIN ="Nombre de fin";
     public static final String ETAGE ="Etage";
+
+    public static final String USER = "USER";
+    public static final String FACTURE = "FACTURE";
+
+
+
+
 
 }
 

@@ -5,9 +5,13 @@ build/
 *.pdf
 *.log
 *.rar
-/bin/
+/bin
 *.classpath
 *.project
 *.eml
 *.userlibraries
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 *.iml
