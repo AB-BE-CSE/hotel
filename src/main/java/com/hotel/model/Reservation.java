@@ -1,6 +1,10 @@
 package main.java.com.hotel.model;
 // Generated 30 avr. 2017 02:56:43 by Hibernate Tools 5.2.0.CR1
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -13,43 +17,52 @@ import java.util.Date;
 @Table(name = "reservation", catalog = "hotel")
 public class Reservation implements java.io.Serializable {
 
-    private int idReservation;
+    private IntegerProperty idReservation;
     private Chambre chambre;
     private Client client;
     private Facture facture;
     private Utilisateur utilisateur;
-    private Date dateReservation;
-    private Date dateArrive;
-    private Date dateSortie;
+    private ObjectProperty<Date> dateReservation;
+    private ObjectProperty<Date>  dateArrive;
+    private ObjectProperty<Date>  dateSortie;
 
     public Reservation() {
+        this.idReservation = new SimpleIntegerProperty();
+
+        this.dateReservation = new SimpleObjectProperty<>();
+        this.dateArrive = new SimpleObjectProperty<>();
+        this.dateSortie = new SimpleObjectProperty<>();
     }
 
     public Reservation(int idReservation) {
-        this.idReservation = idReservation;
+        this.idReservation = new SimpleIntegerProperty(idReservation);
+
+        this.dateReservation = new SimpleObjectProperty<>();
+        this.dateArrive = new SimpleObjectProperty<>();
+        this.dateSortie = new SimpleObjectProperty<>();
     }
 
     public Reservation(int idReservation, Chambre chambre, Client client, Facture facture, Utilisateur utilisateur,
                        Date dateReservation, Date dateArrive, Date dateSortie) {
-        this.idReservation = idReservation;
+        this.idReservation = new SimpleIntegerProperty(idReservation);
         this.chambre = chambre;
         this.client = client;
         this.facture = facture;
         this.utilisateur = utilisateur;
-        this.dateReservation = dateReservation;
-        this.dateArrive = dateArrive;
-        this.dateSortie = dateSortie;
+        this.dateReservation = new SimpleObjectProperty<>(dateReservation);
+        this.dateArrive = new SimpleObjectProperty<>(dateArrive);
+        this.dateSortie = new SimpleObjectProperty<>(dateSortie);
     }
 
     @Id
 
     @Column(name = "idReservation", unique = true, nullable = false)
     public int getIdReservation() {
-        return this.idReservation;
+        return this.idReservation.get();
     }
 
     public void setIdReservation(int idReservation) {
-        this.idReservation = idReservation;
+        this.idReservation.set(idReservation);
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -97,31 +110,46 @@ public class Reservation implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
     @Column(name = "dateReservation", length = 10)
     public Date getDateReservation() {
-        return this.dateReservation;
+        return this.dateReservation.get();
     }
 
     public void setDateReservation(Date dateReservation) {
-        this.dateReservation = dateReservation;
+        this.dateReservation.set(dateReservation);
     }
 
     @Temporal(TemporalType.DATE)
     @Column(name = "dateArrive", length = 10)
     public Date getDateArrive() {
-        return this.dateArrive;
+        return this.dateArrive.get();
     }
 
     public void setDateArrive(Date dateArrive) {
-        this.dateArrive = dateArrive;
+        this.dateArrive.set(dateArrive);
     }
 
     @Temporal(TemporalType.DATE)
     @Column(name = "dateSortie", length = 10)
     public Date getDateSortie() {
-        return this.dateSortie;
+        return this.dateSortie.get();
     }
 
     public void setDateSortie(Date dateSortie) {
-        this.dateSortie = dateSortie;
+        this.dateSortie.set(dateSortie);
     }
 
+    public IntegerProperty idReservationProperty() {
+        return idReservation;
+    }
+
+    public ObjectProperty<Date> dateReservationProperty() {
+        return dateReservation;
+    }
+
+    public ObjectProperty<Date> dateArriveProperty() {
+        return dateArrive;
+    }
+
+    public ObjectProperty<Date> dateSortieProperty() {
+        return dateSortie;
+    }
 }

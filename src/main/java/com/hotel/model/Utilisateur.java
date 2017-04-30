@@ -1,6 +1,11 @@
 package main.java.com.hotel.model;
 // Generated 30 avr. 2017 02:56:43 by Hibernate Tools 5.2.0.CR1
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,97 +18,129 @@ import javax.persistence.Table;
 @Table(name = "utilisateur", catalog = "hotel")
 public class Utilisateur implements java.io.Serializable {
 
-	private int idUser;
-	private String nom;
-	private String prenom;
-	private String tel;
-	private String type;
-	private String username;
-	private String password;
+    private IntegerProperty idUser;
+    private StringProperty nom;
+    private StringProperty prenom;
+    private StringProperty tel;
+    private StringProperty type;
+    private StringProperty username;
+    private String password;
 
 
-	public Utilisateur() {
-	}
+    public Utilisateur() {
+        this.idUser = new SimpleIntegerProperty();
+        this.nom = new SimpleStringProperty();
+        this.prenom = new SimpleStringProperty();
+        this.tel = new SimpleStringProperty();
+        this.type = new SimpleStringProperty();
+        this.username = new SimpleStringProperty();
+    }
 
-	public Utilisateur(int idUser) {
-		this.idUser = idUser;
-	}
+    public Utilisateur(int idUser) {
+        this.idUser = new SimpleIntegerProperty(idUser);
+        this.nom = new SimpleStringProperty();
+        this.prenom = new SimpleStringProperty();
+        this.tel = new SimpleStringProperty();
+        this.type = new SimpleStringProperty();
+        this.username = new SimpleStringProperty();
+    }
 
-	public Utilisateur(int idUser, String nom, String prenom, String tel, String type, String username, String password) {
-		this.idUser = idUser;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.tel = tel;
-		this.type = type;
-		this.username = username;
-		this.password = password;
-	}
+    public Utilisateur(int idUser, String nom, String prenom, String tel, String type, String username, String password) {
+        this.idUser = new SimpleIntegerProperty(idUser);
+        this.nom = new SimpleStringProperty(nom);
+        this.prenom = new SimpleStringProperty(prenom);
+        this.tel = new SimpleStringProperty(tel);
+        this.type = new SimpleStringProperty(type);
+        this.username = new SimpleStringProperty(username);
+        this.password = password;
+    }
 
-	@Id
+    @Id
 
-	@Column(name = "idUser", unique = true, nullable = false)
-	public int getIdUser() {
-		return this.idUser;
-	}
+    @Column(name = "idUser", unique = true, nullable = false)
+    public int getIdUser() {
+        return this.idUser.get();
+    }
 
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
-	}
+    public void setIdUser(int idUser) {
+        this.idUser.set(idUser);
+    }
 
-	@Column(name = "nom", length = 20)
-	public String getNom() {
-		return this.nom;
-	}
+    @Column(name = "nom", length = 20)
+    public String getNom() {
+        return this.nom.get();
+    }
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    public void setNom(String nom) {
+        this.nom.set(nom);
+    }
 
-	@Column(name = "prenom", length = 20)
-	public String getPrenom() {
-		return this.prenom;
-	}
+    @Column(name = "prenom", length = 20)
+    public String getPrenom() {
+        return this.prenom.get();
+    }
 
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
+    public void setPrenom(String prenom) {
+        this.prenom.set(prenom);
+    }
 
-	@Column(name = "tel", length = 15)
-	public String getTel() {
-		return this.tel;
-	}
+    @Column(name = "tel", length = 15)
+    public String getTel() {
+        return this.tel.get();
+    }
 
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
+    public void setTel(String tel) {
+        this.tel.set(tel);
+    }
 
-	@Column(name = "type", length = 2)
-	public String getType() {
-		return this.type;
-	}
+    @Column(name = "type", length = 2)
+    public String getType() {
+        return this.type.get();
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public void setType(String type) {
+        this.type.set(type);
+    }
 
-	@Column(name = "username", length = 45)
-	public String getUsername() {
-		return this.username;
-	}
+    @Column(name = "username", length = 45)
+    public String getUsername() {
+        return this.username.get();
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public void setUsername(String username) {
+        this.username.set(username);
+    }
 
-	@Column(name = "password", length = 64)
-	public String getPassword() {
-		return this.password;
-	}
+    @Column(name = "password", length = 64)
+    public String getPassword() {
+        return this.password;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
+    public IntegerProperty idUserProperty() {
+        return idUser;
+    }
 
+    public StringProperty nomProperty() {
+        return nom;
+    }
 
+    public StringProperty prenomProperty() {
+        return prenom;
+    }
+
+    public StringProperty telProperty() {
+        return tel;
+    }
+
+    public StringProperty typeProperty() {
+        return type;
+    }
+
+    public StringProperty usernameProperty() {
+        return username;
+    }
 }

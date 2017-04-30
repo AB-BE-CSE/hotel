@@ -1,6 +1,8 @@
 package main.java.com.hotel.model;
 // Generated 30 avr. 2017 02:56:43 by Hibernate Tools 5.2.0.CR1
 
+import javafx.beans.property.*;
+
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -12,59 +14,82 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Table(name = "categorie", catalog = "hotel")
 public class Categorie implements java.io.Serializable {
 
-	private Integer idCategorie;
-	private String nom;
-	private String description;
-	private Double prix;
+    private IntegerProperty idCategorie;
+    private StringProperty nom;
+    private StringProperty description;
+    private DoubleProperty prix;
 
-	public Categorie() {
-	}
+    public Categorie() {
+        idCategorie = new SimpleIntegerProperty();
+        this.nom = new SimpleStringProperty();
+        this.description = new SimpleStringProperty();
+        this.prix = new SimpleDoubleProperty();
+    }
 
-	public Categorie(String nom, String description, Double prix) {
-		this.nom = nom;
-		this.description = description;
-		this.prix = prix;
+    public Categorie(String nom, String description, Double prix) {
+        idCategorie = new SimpleIntegerProperty();
+        this.nom = new SimpleStringProperty(nom);
+        this.description = new SimpleStringProperty(description);
+        this.prix = new SimpleDoubleProperty(prix);
 
-	}
+    }
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
+    public IntegerProperty idCategorieProperty() {
+        return idCategorie;
+    }
 
-	@Column(name = "idCategorie", unique = true, nullable = false)
-	public Integer getIdCategorie() {
-		return this.idCategorie;
-	}
 
-	public void setIdCategorie(Integer idCategorie) {
-		this.idCategorie = idCategorie;
-	}
+    public StringProperty nomProperty() {
+        return nom;
+    }
 
-	@Column(name = "nom", length = 20)
-	public String getNom() {
-		return this.nom;
-	}
+    public StringProperty descriptionProperty() {
+        return description;
+    }
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    public DoubleProperty prixProperty() {
+        return prix;
+    }
 
-	@Column(name = "description", length = 20)
-	public String getDescription() {
-		return this.description;
-	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "prix", precision = 22, scale = 0)
-	public Double getPrix() {
-		return this.prix;
-	}
+    @Column(name = "idCategorie", unique = true, nullable = false)
+    public Integer getIdCategorie() {
+        return this.idCategorie.get();
+    }
 
-	public void setPrix(Double prix) {
-		this.prix = prix;
-	}
+    public void setIdCategorie(Integer idCategorie) {
+        this.idCategorie.set(idCategorie);
+    }
+
+    @Column(name = "nom", length = 20)
+    public String getNom() {
+        return this.nom.get();
+    }
+
+    public void setNom(String nom) {
+        this.nom.set(nom);
+    }
+
+    @Column(name = "description", length = 20)
+    public String getDescription() {
+        return this.description.get();
+    }
+
+    public void setDescription(String description) {
+        this.description.set(description);
+    }
+
+    @Column(name = "prix", precision = 22, scale = 0)
+    public Double getPrix() {
+        return this.prix.get();
+    }
+
+    public void setPrix(Double prix) {
+        this.prix.set(prix);
+    }
 
 
 }
