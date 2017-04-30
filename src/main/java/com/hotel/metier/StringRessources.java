@@ -25,7 +25,9 @@ public class StringRessources {
     public static final String DATENAISSANCE = "Date de naissance";
     public static final String NUMTEL = "Num. téléphone";
     public static final String NUMPIECEENTITE = "Num. p. entité";
-
+    public static final String USER = "USER";
+    public static final String CATEGORIE = "CATEGORIE";
+    public static final String FACTURE = "FACTURE";
 
 
 
