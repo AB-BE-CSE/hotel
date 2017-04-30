@@ -33,7 +33,10 @@ public class StringRessources {
     public static final String NOMBRECHAMBREAJOUTER="Nombre de chambre à ajouter";
     public static final String NUMDEBUT="Nombre de début";
     public static final String NUMFIN ="Nombre de fin";
+    public static final String ID ="ID";
+    public static final String ETAT ="Etat";
     public static final String ETAGE ="Etage";
+
 
     public static final String USER = "USER";
     public static final String FACTURE = "FACTURE";
