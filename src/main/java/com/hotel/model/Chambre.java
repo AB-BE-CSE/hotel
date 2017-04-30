@@ -1,5 +1,11 @@
 package main.java.com.hotel.model;
-// Generated 19 avr. 2017 12:27:09 by Hibernate Tools 5.2.0.CR1
+// Generated 30 avr. 2017 02:56:43 by Hibernate Tools 5.2.0.CR1
+
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 
@@ -10,74 +16,99 @@ import javax.persistence.*;
 @Table(name = "chambre", catalog = "hotel")
 public class Chambre implements java.io.Serializable {
 
-	private int idC;
-	private Categorie categorie;
-	private Integer numr;
-	private Integer etage;
-	private Boolean chack;
+    private IntegerProperty idChambre;
+    private Categorie categorie;
+    private IntegerProperty numeroChambre;
+    private IntegerProperty etage;
+    private BooleanProperty check;
 
-	public Chambre() {
-	}
+    public Chambre() {
+        this.idChambre = new SimpleIntegerProperty();
 
-	public Chambre(int idC) {
-		this.idC = idC;
-	}
+        this.numeroChambre = new SimpleIntegerProperty();
+        this.etage = new SimpleIntegerProperty();
+        this.check = new SimpleBooleanProperty();
+    }
 
-	public Chambre(int idC, Categorie categorie, Integer numr, Integer etage, Boolean chack) {
-		this.idC = idC;
-		this.categorie = categorie;
-		this.numr = numr;
-		this.etage = etage;
-		this.chack = chack;
+    public Chambre(int idChambre) {
+        this.idChambre = new SimpleIntegerProperty(idChambre);
+        this.numeroChambre = new SimpleIntegerProperty();
+        this.etage = new SimpleIntegerProperty();
+        this.check = new SimpleBooleanProperty();
+    }
 
-	}
+    public Chambre(int idChambre, Categorie categorie, Integer numeroChambre, Integer etage, Boolean check) {
+        this.idChambre = new SimpleIntegerProperty(idChambre);
+        this.categorie = categorie;
+        this.numeroChambre = new SimpleIntegerProperty(numeroChambre);
+        this.etage = new SimpleIntegerProperty(etage);
+        this.check = new SimpleBooleanProperty(check);
+    }
 
-	@Id
+    @Id
 
-	@Column(name = "idC", unique = true, nullable = false)
-	public int getIdC() {
-		return this.idC;
-	}
+    @Column(name = "idChambre", unique = true, nullable = false)
+    public int getIdChambre() {
+        return this.idChambre.get();
+    }
 
-	public void setIdC(int idC) {
-		this.idC = idC;
-	}
+    public void setIdChambre(int idChambre) {
+        this.idChambre.set(idChambre);
+    }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_categorie")
-	public Categorie getCategorie() {
-		return this.categorie;
-	}
+    @ManyToOne(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JoinColumn(name = "id_categorie")
+    public Categorie getCategorie() {
+        return this.categorie;
+    }
 
-	public void setCategorie(Categorie categorie) {
-		this.categorie = categorie;
-	}
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
 
-	@Column(name = "numr")
-	public Integer getNumr() {
-		return this.numr;
-	}
+    @Column(name = "numeroChambre")
+    public Integer getNumeroChambre() {
+        return this.numeroChambre.get();
+    }
 
-	public void setNumr(Integer numr) {
-		this.numr = numr;
-	}
+    public void setNumeroChambre(Integer numeroChambre) {
+        this.numeroChambre.set(numeroChambre);
+    }
 
-	@Column(name = "etage")
-	public Integer getEtage() {
-		return this.etage;
-	}
+    @Column(name = "etage")
+    public Integer getEtage() {
+        return this.etage.get();
+    }
 
-	public void setEtage(Integer etage) {
-		this.etage = etage;
-	}
+    public void setEtage(Integer etage) {
+        this.etage.set(etage);
+    }
 
-	@Column(name = "chack")
-	public Boolean getChack() {
-		return this.chack;
-	}
+    @Column(name = "check")
+    public Boolean getCheck() {
+        return this.check.get();
+    }
 
-	public void setChack(Boolean chack) {
-		this.chack = chack;
-	}
+    public void setCheck(Boolean check) {
+        this.check.set(check);
 
+    }
+
+    public IntegerProperty idChambreProperty() {
+        return idChambre;
+    }
+
+    public IntegerProperty numeroChambreProperty() {
+        return numeroChambre;
+    }
+
+    public IntegerProperty etageProperty() {
+        return etage;
+    }
+
+
+    public BooleanProperty checkProperty() {
+        return check;
+    }
 }

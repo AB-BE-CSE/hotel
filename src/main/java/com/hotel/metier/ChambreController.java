@@ -1,7 +1,6 @@
 package main.java.com.hotel.metier;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextField;
 import io.datafx.controller.FXMLController;
 import io.datafx.controller.flow.FlowException;
 import io.datafx.controller.flow.context.FXMLViewFlowContext;
@@ -26,9 +25,8 @@ public class ChambreController {
     @FXML
     private AnchorPane content;
     @FXML
-    private JFXButton button;
-    @FXML
-    private JFXTextField field;
+    private JFXButton ajouterChambre;
+
 
     @PostConstruct
     public void init() throws FlowException, VetoException {

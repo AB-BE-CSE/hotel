@@ -29,6 +29,10 @@ public class StringRessources {
     public static final String DATESORTIE = "Date Sortie";
     public static final String TOTAL = "Total";
     public static final String USER = "User";
+    public static final String CATEGORIE = "CATEGORIE";
+    public static final String FACTURE = "FACTURE";
+
+
 
 
 }
