@@ -1,6 +1,8 @@
 package main.java.com.hotel.model;
 // Generated 30 avr. 2017 02:56:43 by Hibernate Tools 5.2.0.CR1
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,113 +13,115 @@ import java.util.Date;
 @Table(name = "reservation", catalog = "hotel")
 public class Reservation implements java.io.Serializable {
 
-	private int idReservation;
-	private Chambre chambre;
-	private Client client;
-	private Facture facture;
-	private Utilisateur utilisateur;
-	private Date dateReservation;
-	private Date dateArrive;
-	private Date dateSortie;
+    private int idReservation;
+    private Chambre chambre;
+    private Client client;
+    private Facture facture;
+    private Utilisateur utilisateur;
+    private Date dateReservation;
+    private Date dateArrive;
+    private Date dateSortie;
 
-	public Reservation() {
-	}
+    public Reservation() {
+    }
 
-	public Reservation(int idReservation) {
-		this.idReservation = idReservation;
-	}
+    public Reservation(int idReservation) {
+        this.idReservation = idReservation;
+    }
 
-	public Reservation(int idReservation, Chambre chambre, Client client, Facture facture, Utilisateur utilisateur,
-			Date dateReservation, Date dateArrive, Date dateSortie) {
-		this.idReservation = idReservation;
-		this.chambre = chambre;
-		this.client = client;
-		this.facture = facture;
-		this.utilisateur = utilisateur;
-		this.dateReservation = dateReservation;
-		this.dateArrive = dateArrive;
-		this.dateSortie = dateSortie;
-	}
+    public Reservation(int idReservation, Chambre chambre, Client client, Facture facture, Utilisateur utilisateur,
+                       Date dateReservation, Date dateArrive, Date dateSortie) {
+        this.idReservation = idReservation;
+        this.chambre = chambre;
+        this.client = client;
+        this.facture = facture;
+        this.utilisateur = utilisateur;
+        this.dateReservation = dateReservation;
+        this.dateArrive = dateArrive;
+        this.dateSortie = dateSortie;
+    }
 
-	@Id
+    @Id
 
-	@Column(name = "idReservation", unique = true, nullable = false)
-	public int getIdReservation() {
-		return this.idReservation;
-	}
+    @Column(name = "idReservation", unique = true, nullable = false)
+    public int getIdReservation() {
+        return this.idReservation;
+    }
 
-	public void setIdReservation(int idReservation) {
-		this.idReservation = idReservation;
-	}
+    public void setIdReservation(int idReservation) {
+        this.idReservation = idReservation;
+    }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_chambre")
-	public Chambre getChambre() {
-		return this.chambre;
-	}
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_chambre")
+    public Chambre getChambre() {
+        return this.chambre;
+    }
 
-	public void setChambre(Chambre chambre) {
-		this.chambre = chambre;
-	}
+    public void setChambre(Chambre chambre) {
+        this.chambre = chambre;
+    }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_client")
-	public Client getClient() {
-		return this.client;
-	}
+    @ManyToOne(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JoinColumn(name = "id_client")
+    public Client getClient() {
+        return this.client;
+    }
 
-	public void setClient(Client client) {
-		this.client = client;
-	}
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_facture")
-	public Facture getFacture() {
-		return this.facture;
-	}
+    @ManyToOne(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JoinColumn(name = "id_facture")
+    public Facture getFacture() {
+        return this.facture;
+    }
 
-	public void setFacture(Facture facture) {
-		this.facture = facture;
-	}
+    public void setFacture(Facture facture) {
+        this.facture = facture;
+    }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_user")
-	public Utilisateur getUtilisateur() {
-		return this.utilisateur;
-	}
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_user")
+    public Utilisateur getUtilisateur() {
+        return this.utilisateur;
+    }
 
-	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
-	}
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "dateReservation", length = 10)
-	public Date getDateReservation() {
-		return this.dateReservation;
-	}
+    @Temporal(TemporalType.DATE)
+    @Column(name = "dateReservation", length = 10)
+    public Date getDateReservation() {
+        return this.dateReservation;
+    }
 
-	public void setDateReservation(Date dateReservation) {
-		this.dateReservation = dateReservation;
-	}
+    public void setDateReservation(Date dateReservation) {
+        this.dateReservation = dateReservation;
+    }
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "dateArrive", length = 10)
-	public Date getDateArrive() {
-		return this.dateArrive;
-	}
+    @Temporal(TemporalType.DATE)
+    @Column(name = "dateArrive", length = 10)
+    public Date getDateArrive() {
+        return this.dateArrive;
+    }
 
-	public void setDateArrive(Date dateArrive) {
-		this.dateArrive = dateArrive;
-	}
+    public void setDateArrive(Date dateArrive) {
+        this.dateArrive = dateArrive;
+    }
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "dateSortie", length = 10)
-	public Date getDateSortie() {
-		return this.dateSortie;
-	}
+    @Temporal(TemporalType.DATE)
+    @Column(name = "dateSortie", length = 10)
+    public Date getDateSortie() {
+        return this.dateSortie;
+    }
 
-	public void setDateSortie(Date dateSortie) {
-		this.dateSortie = dateSortie;
-	}
+    public void setDateSortie(Date dateSortie) {
+        this.dateSortie = dateSortie;
+    }
 
 }
