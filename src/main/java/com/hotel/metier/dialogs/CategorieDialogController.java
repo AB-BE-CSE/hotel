@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
+import main.java.com.hotel.model.Categorie;
 
 import java.io.IOException;
 
@@ -29,10 +30,11 @@ public class CategorieDialogController {
     private JFXTextField description;
 
 
-
-
     public CategorieDialogController() {
         Platform.runLater(() -> {
+            prix.textProperty().addListener((observable, oldValue, newValue) -> {
+                prix.validate();
+            });
 
             clear();
             dialog.setOnDialogClosed(e -> {
@@ -58,6 +60,11 @@ public class CategorieDialogController {
 
     @FXML
     private void enregistrer() {
+        if (!prix.validate())
+            return;
+        Categorie categorie = new Categorie();
+        categorie.setNom(nomCategorie.getText());
+        categorie.setPrix(Double.valueOf(prix.getText()));
 
         dialog.close();
     }

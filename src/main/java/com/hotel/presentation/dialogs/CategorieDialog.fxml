@@ -8,6 +8,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.text.Font?>
+<?import com.jfoenix.validation.NumberValidator?>
+<?import com.jfoenix.validation.DoubleValidator?>
+<?import de.jensd.fx.fontawesome.Icon?>
 <JFXDialog xmlns:fx="http://javafx.com/fxml/1"
            xmlns="http://javafx.com/javafx/8"
            fx:controller="main.java.com.hotel.metier.dialogs.CategorieDialogController" fx:id="dialog">
@@ -32,6 +35,11 @@
                         <promptText>
                             <StringRessources fx:constant="PRIX"/>
                         </promptText>
+                        <validators>
+                            <DoubleValidator message="Veuillez entrer un chiffre:">
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family: fontawesome"/>
+                            </DoubleValidator>
+                        </validators>
                     </JFXTextField>
 
                     <JFXTextField labelFloat="true" fx:id="description" >

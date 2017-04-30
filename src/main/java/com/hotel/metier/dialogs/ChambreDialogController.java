@@ -10,6 +10,11 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
+import main.java.com.hotel.metier.StringRessources;
+import main.java.com.hotel.model.Categorie;
+import main.java.com.hotel.model.Chambre;
+import main.java.com.hotel.modeldao.ChambreDAO;
+import main.java.com.hotel.modeldao.DAOFactory;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
@@ -32,11 +37,24 @@ public class ChambreDialogController {
     @FXML
     private JFXTextField etage;
     @FXML
-    private JFXComboBox categorie;
+    private JFXComboBox<Categorie> categorie;
 
 
     public ChambreDialogController() {
+
         Platform.runLater(() -> {
+            numFIN.textProperty().addListener((observable, oldValue, newValue) -> {
+                numFIN.validate();
+            });
+            numDebut.textProperty().addListener((observable, oldValue, newValue) -> {
+                numDebut.validate();
+            });
+            etage.textProperty().addListener((observable, oldValue, newValue) -> {
+                etage.validate();
+            });
+            nbrchambre.textProperty().addListener((observable, oldValue, newValue) -> {
+                nbrchambre.validate();
+            });
             clear();
             dialog.setOnDialogClosed(e -> {
                 clear();
@@ -61,8 +79,19 @@ public class ChambreDialogController {
 
     @FXML
     private void enregistrer() {
-
-        dialog.close();
+        if (!numFIN.validate() || !numDebut.validate() || !nbrchambre.validate() || !etage.validate())
+            return;
+        int fin = 0;
+        for (int i = Integer.valueOf(numDebut.getText()); i <= Integer.valueOf(numFIN.getText()); i++) {
+            Chambre chambre = new Chambre();
+            chambre.setNumeroChambre(i);
+            chambre.setEtage(Integer.valueOf(etage.getText()));
+            chambre.setCheck(false);
+            chambre.setCategorie(categorie.getValue());
+            ChambreDAO chambreDAO = (ChambreDAO) DAOFactory.getDAO(StringRessources.CHAMBRE);
+            chambreDAO.create(chambre);
+            dialog.close();
+        }
     }
 
     @FXML

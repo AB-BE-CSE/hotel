@@ -9,6 +9,9 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.layout.HBox?>
+<?import com.jfoenix.validation.NumberValidator?>
+<?import de.jensd.fx.fontawesome.Icon?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
 <JFXDialog xmlns:fx="http://javafx.com/fxml/1"
            xmlns="http://javafx.com/javafx/8"
            fx:controller="main.java.com.hotel.metier.dialogs.ChambreDialogController" fx:id="dialog">
@@ -23,32 +26,53 @@
         <body>
             <VBox prefHeight="400.0" prefWidth="400.0" spacing="35.0">
                 <children>
-                    <JFXTextField labelFloat="true" fx:id="nbrchambre" >
+                    <JFXTextField labelFloat="true" fx:id="nbrchambre">
                         <promptText>
                             <StringRessources fx:constant="NOMBRECHAMBREAJOUTER"/>
                         </promptText>
+                        <validators>
+                            <NumberValidator message="Veuillez entrer un chiffre:">
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family: fontawesome"/>
+                            </NumberValidator>
+                        </validators>
                     </JFXTextField>
 
                     <JFXTextField labelFloat="true" fx:id="numDebut">
-                            <promptText>
-                                <StringRessources fx:constant="NUMDEBUT"/>
-                            </promptText>
-                    </JFXTextField >
-                    <JFXTextField labelFloat="true" fx:id="numFIN"  >
-                            <promptText>
-                                <StringRessources fx:constant="NUMFIN"/>
-                            </promptText>
+                        <promptText>
+                            <StringRessources fx:constant="NUMDEBUT"/>
+                        </promptText>
+                        <validators>
+                            <NumberValidator message="Veuillez entrer un chiffre:">
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family: fontawesome"/>
+                            </NumberValidator>
+                        </validators>
                     </JFXTextField>
 
-                    <JFXTextField labelFloat="true" fx:id="etage"  >
-                            <promptText>
-                                <StringRessources fx:constant="ETAGE"/>
-                            </promptText>
+                    <JFXTextField labelFloat="true" fx:id="numFIN">
+                        <promptText>
+                            <StringRessources fx:constant="NUMFIN"/>
+                        </promptText>
+                        <validators>
+                            <NumberValidator message="Veuillez entrer un chiffre:">
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family: fontawesome"/>
+                            </NumberValidator>
+                        </validators>
+                    </JFXTextField>
+
+                    <JFXTextField labelFloat="true" fx:id="etage">
+                        <promptText>
+                            <StringRessources fx:constant="ETAGE"/>
+                        </promptText>
+                        <validators>
+                            <NumberValidator message="Veuillez entrer un chiffre:">
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family: fontawesome"/>
+                            </NumberValidator>
+                        </validators>
                     </JFXTextField>
 
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                         <children>
-                            <JFXComboBox labelFloat="true" fx:id="categorie" >
+                            <JFXComboBox labelFloat="true" fx:id="categorie">
                                 <promptText>
                                     <StringRessources fx:constant="CATEGORIE"/>
                                 </promptText>
@@ -58,7 +82,7 @@
                     </HBox>
                 </children>
                 <padding>
-                    <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                    <Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/>
                 </padding>
             </VBox>
 
