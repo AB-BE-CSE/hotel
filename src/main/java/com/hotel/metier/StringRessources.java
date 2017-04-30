@@ -28,6 +28,7 @@ public class StringRessources {
     public static final String USER = "USER";
     public static final String CATEGORIE = "CATEGORIE";
     public static final String FACTURE = "FACTURE";
+    public static final String MESSAGEERREUR ="erreur! veiller bien remplir l'information";
 
 
 

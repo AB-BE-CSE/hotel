@@ -3,6 +3,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
+<?import com.jfoenix.validation.NumberValidator?>
+<?import de.jensd.fx.fontawesome.Icon?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
 <JFXDialog xmlns:fx="http://javafx.com/fxml/1"
            xmlns="http://javafx.com/javafx/8"
            fx:controller="main.java.com.hotel.metier.dialogs.ClientDialogController" fx:id="dialog">
@@ -17,19 +20,64 @@
         <body>
             <VBox  prefWidth="300.0" spacing="30">
                 <children>
-                    <JFXTextField labelFloat="true" prefHeight="25.0" prefWidth="394.0" promptText="Nom">
+                    <JFXTextField fx:id="nom" labelFloat="true" prefHeight="25.0" prefWidth="394.0">
+                        <validators>
+                            <RequiredFieldValidator >
+                                <message>
+                                    <StringRessources fx:constant="MESSAGEERREUR"/>
+                                </message>
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family: FontAwesome;"/>
+                            </RequiredFieldValidator>
+
+                        </validators>
+                        <promptText>
+                            <StringRessources fx:constant="NOM"/>
+                        </promptText>
 
                     </JFXTextField>
-                    <JFXTextField labelFloat="true" promptText="Prénom">
+                    <JFXTextField  fx:id="prenom" labelFloat="true">
+                        <validators>
+                            <RequiredFieldValidator>
+                                <message>
+                                    <StringRessources fx:constant="MESSAGEERREUR"/>
+                                </message>
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family:FontAwesome;"/>
+                            </RequiredFieldValidator>
+                        </validators>
+                        <promptText>
+                            <StringRessources fx:constant="PRENOM"/>
+                        </promptText>
+                    </JFXTextField>
+                    <JFXDatePicker fx:id="date" overLay="true">
+                        <promptText>
+                            <StringRessources fx:constant="DATENAISSANCE"/>
+                        </promptText>
+                    </JFXDatePicker>
+                    <JFXTextField fx:id="numeroTel" labelFloat="true">
+                        <validators>
+                            <NumberValidator>
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family:FontAwesome;"/>
+                            </NumberValidator>
+
+                        </validators>
+                        <promptText>
+                            <StringRessources fx:constant="NUMTEL"/>
+                        </promptText>
 
                     </JFXTextField>
-                    <JFXTextField labelFloat="true" promptText="Date de naissance">
+                    <JFXTextField fx:id="numeroPieceEntite" labelFloat="true">
+                        <validators>
+                            <NumberValidator>
+                                <message>
+                                    <StringRessources fx:constant="MESSAGEERREUR"/>
+                                </message>
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family:FontAwesome;"/>
+                            </NumberValidator>
 
-                    </JFXTextField>
-                    <JFXTextField labelFloat="true" promptText="Numéro de téléphone">
-
-                    </JFXTextField>
-                    <JFXTextField labelFloat="true" promptText="Numéro d'une pièce d'identité">
+                        </validators>
+                        <promptText>
+                            <StringRessources fx:constant="NUMPIECEENTITE"/>
+                        </promptText>
 
                     </JFXTextField>
                 </children>
