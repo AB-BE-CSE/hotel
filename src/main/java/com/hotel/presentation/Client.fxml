@@ -12,7 +12,7 @@
            xmlns="http://javafx.com/javafx/2.2" >
     <AnchorPane fx:id="content">
         <children>
-            <TableView fx:id="tableClient"  AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0">
+            <TableView fx:id="tableClient"  AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="20.0">
                 <columns>
                     <TableColumn fx:id="nomColumn" prefWidth="75.0">
                         <text>
@@ -44,7 +44,7 @@
                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                 </columnResizePolicy>
             </TableView>
-            <JFXButton fx:id="ajouterClient" styleClass="animated-option-button" AnchorPane.bottomAnchor="10" AnchorPane.rightAnchor="20">
+            <JFXButton fx:id="ajouterClient" styleClass="animated-option-button" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="20">
                 <text>
                     <StringRessources fx:constant="PLUS"/>
                 </text>

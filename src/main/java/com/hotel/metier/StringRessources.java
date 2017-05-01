@@ -29,6 +29,8 @@ public class StringRessources {
     public static final String CATEGORIE = "CATEGORIE";
     public static final String FACTURE = "FACTURE";
     public static final String MESSAGEERREUR ="erreur! veiller bien remplir l'information";
+    public static final String MSG_CLIENT_SUCCES="Le client a été enregistrer avec succé";
+    public static final String MSG_CLIENT_ERREUR="L'enregistrement du client a échoué";
 
 
 

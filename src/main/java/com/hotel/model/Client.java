@@ -21,6 +21,7 @@ public class Client implements java.io.Serializable {
 	private ObjectProperty<Date> dateNaissance;
 	private StringProperty tel;
 
+
 	public Client() {
 		this.idClient = new SimpleIntegerProperty();
 		this.nom = new SimpleStringProperty();

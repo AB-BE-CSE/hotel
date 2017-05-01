@@ -8,6 +8,7 @@ import io.datafx.controller.flow.context.ViewFlowContext;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import main.java.com.hotel.metier.MainController;
 import main.java.com.hotel.modeldao.HibernateFactory;
 
 public class Main extends Application {
@@ -21,9 +22,9 @@ public class Main extends Application {
     }
 
     public void start(Stage stage) throws Exception {
-       // HibernateFactory.buildSessionFactory();
+        HibernateFactory.buildSessionFactory();
 
-        Flow flow = new Flow(main.java.com.hotel.metier.Main.class);
+        Flow flow = new Flow(MainController.class);
         DefaultFlowContainer container = new DefaultFlowContainer();
         flowContext = new ViewFlowContext();
         flowContext.register("Stage", stage);

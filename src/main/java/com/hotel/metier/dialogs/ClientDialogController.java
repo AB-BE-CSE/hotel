@@ -13,13 +13,34 @@ import main.java.com.hotel.modeldao.ClientDAO;
 import main.java.com.hotel.modeldao.DAOFactory;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Observer;
 
 /**
  * Created by Admin on 22/03/2017.
  */
 public class ClientDialogController {
+    private static List<Observer> observers = new ArrayList<>();
+
+
+    public static void addObserver(Observer obs) {
+        observers.add(obs);
+    }
+
+    public static void updateObservers(Object o) {
+        for (Observer obs : observers) {
+            obs.update(null, o);
+        }
+    }
+
+    public static void deleteObservers() {
+        observers = new ArrayList<>();
+    }
+
     private static ClientDialogController clientDialogController = null;
     @FXML
     private JFXDialog dialog;
@@ -36,7 +57,7 @@ public class ClientDialogController {
 
     public ClientDialogController() {
         Platform.runLater(() -> {
-
+            date.setValue(LocalDate.now());
             clear();
             dialog.setOnDialogClosed(e -> {
                 clear();
@@ -68,8 +89,9 @@ public class ClientDialogController {
         client.setPrenom(prenom.getText());
         client.setTel(numeroTel.getText());
         client.setDateNaissance(Date.from(date.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
-//        ClientDAO clientDAO = (ClientDAO) DAOFactory.getDAO(StringRessources.CLIENT);
-//        clientDAO.create(client);
+        ClientDAO clientDAO = (ClientDAO) DAOFactory.getDAO(StringRessources.CLIENT);
+        clientDAO.create(client);
+        updateObservers(client);
         dialog.close();
     }
 
