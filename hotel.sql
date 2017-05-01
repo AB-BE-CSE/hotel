@@ -44,7 +44,7 @@ CREATE TABLE `chambre` (
   `idChambre` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `numeroChambre` int(11) DEFAULT NULL,
   `etage` int(11) DEFAULT NULL,
-  `check` tinyint(1) DEFAULT NULL,
+  `checked` tinyint(1) DEFAULT NULL,
   `id_categorie` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`idChambre`),
   KEY `fk_id_caregorie_idx` (`id_categorie`),
@@ -83,35 +83,6 @@ CREATE TABLE `facture` (
   PRIMARY KEY (`idFacture`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `reservation`
---
-
-DROP TABLE IF EXISTS `reservation`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `reservation` (
-  `idReservation` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `dateReservation` date DEFAULT NULL,
-  `dateArrive` date DEFAULT NULL,
-  `dateSortie` date DEFAULT NULL,
-  `id_facture` int(11) DEFAULT NULL,
-  `id_user` int(11) DEFAULT NULL,
-  `id_chambre` int(11) DEFAULT NULL,
-  `id_client` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idReservation`),
-  KEY `fk_id_facture_idx` (`id_facture`),
-  KEY `fk_id_client_idx` (`id_client`),
-  KEY `fk_id_user_idx` (`id_user`),
-  KEY `fk_id_chambre_idx` (`id_chambre`),
-  CONSTRAINT `fk_id_chambre` FOREIGN KEY (`id_chambre`) REFERENCES `chambre` (`idChambre`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_id_client` FOREIGN KEY (`id_client`) REFERENCES `client` (`idClient`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_id_facture` FOREIGN KEY (`id_facture`) REFERENCES `facture` (`idFacture`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_id_user` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
 --
 -- Table structure for table `utilisateur`
 --
@@ -129,6 +100,35 @@ CREATE TABLE `utilisateur` (
   `password` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`idUser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `reservation`
+--
+
+DROP TABLE IF EXISTS `reservation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `reservation` (
+  `idReservation` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `dateReservation` date DEFAULT NULL,
+  `dateArrive` date DEFAULT NULL,
+  `dateSortie` date DEFAULT NULL,
+  `id_facture` int(11) unsigned DEFAULT NULL,
+  `id_user` int(11) unsigned DEFAULT NULL,
+  `id_chambre` int(11) unsigned DEFAULT NULL,
+  `id_client` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`idReservation`),
+  KEY `fk_id_facture_idx` (`id_facture`),
+  KEY `fk_id_client_idx` (`id_client`),
+  KEY `fk_id_user_idx` (`id_user`),
+  KEY `fk_id_chambre_idx` (`id_chambre`),
+  CONSTRAINT `fk_id_chambre` FOREIGN KEY (`id_chambre`) REFERENCES `chambre` (`idChambre`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_id_client` FOREIGN KEY (`id_client`) REFERENCES `client` (`idClient`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_id_facture` FOREIGN KEY (`id_facture`) REFERENCES `facture` (`idFacture`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_id_user` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
