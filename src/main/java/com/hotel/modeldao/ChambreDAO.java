@@ -1,5 +1,6 @@
 package main.java.com.hotel.modeldao;
 
+import main.java.com.hotel.metier.StringRessources;
 import main.java.com.hotel.model.Chambre;
 
 import java.util.ArrayList;
@@ -40,9 +41,9 @@ public class ChambreDAO extends DAO {
 
         try {
             super.saveOrUpdate(chambre);
-//            updateObservers(StringRessource.MSG_ETD_SUCCES);
+            updateObservers(StringRessources.MSG_CHAMBRE_SUCCES);
         } catch (DataAccessLayerException e) {
-//            updateObservers(StringRessources.MSG_ETD_ERREUR);
+            updateObservers(StringRessources.MSG_CHAMBRE_ERREUR);
         }
     }
 

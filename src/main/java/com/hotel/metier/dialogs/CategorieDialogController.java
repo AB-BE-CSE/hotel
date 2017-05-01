@@ -1,14 +1,15 @@
 package main.java.com.hotel.metier.dialogs;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
+import main.java.com.hotel.metier.StringRessources;
 import main.java.com.hotel.model.Categorie;
+import main.java.com.hotel.modeldao.CategorieDAO;
+import main.java.com.hotel.modeldao.DAOFactory;
 
 import java.io.IOException;
 
@@ -32,9 +33,9 @@ public class CategorieDialogController {
 
     public CategorieDialogController() {
         Platform.runLater(() -> {
-            prix.textProperty().addListener((observable, oldValue, newValue) -> {
+/*            prix.textProperty().addListener((observable, oldValue, newValue) -> {
                 prix.validate();
-            });
+            });*/
 
             clear();
             dialog.setOnDialogClosed(e -> {
@@ -60,12 +61,20 @@ public class CategorieDialogController {
 
     @FXML
     private void enregistrer() {
+        boolean erreur= false;
+        if(!nomCategorie.validate())
+            erreur =true;
         if (!prix.validate())
+            erreur = true;
+        if(erreur)
             return;
+
         Categorie categorie = new Categorie();
         categorie.setNom(nomCategorie.getText());
         categorie.setPrix(Double.valueOf(prix.getText()));
-
+        categorie.setDescription(description.getText());
+        CategorieDAO categorieDAO = (CategorieDAO) DAOFactory.getDAO(StringRessources.CATEGORIE);
+        categorieDAO.create(categorie);
         dialog.close();
     }
 

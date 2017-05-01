@@ -10,21 +10,23 @@ import javafx.scene.layout.StackPane;
 import main.java.com.hotel.metier.StringRessources;
 import main.java.com.hotel.model.Categorie;
 import main.java.com.hotel.model.Chambre;
+import main.java.com.hotel.modeldao.CategorieDAO;
 import main.java.com.hotel.modeldao.ChambreDAO;
 import main.java.com.hotel.modeldao.DAOFactory;
 
 import java.io.IOException;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * Created by Admin on 22/03/2017.
  */
-public class ChambreDialogController {
+public class ChambreDialogController implements Observer {
     private static ChambreDialogController chambreDialogController = null;
     @FXML
     private JFXDialog dialog;
 
-    @FXML
-    private JFXTextField nbrchambre;
+
     @FXML
     private JFXTextField numDebut;
     @FXML
@@ -39,6 +41,7 @@ public class ChambreDialogController {
     public ChambreDialogController() {
 
         Platform.runLater(() -> {
+/*
             numFIN.textProperty().addListener((observable, oldValue, newValue) -> {
                 numFIN.validate();
             });
@@ -48,9 +51,9 @@ public class ChambreDialogController {
             etage.textProperty().addListener((observable, oldValue, newValue) -> {
                 etage.validate();
             });
-            nbrchambre.textProperty().addListener((observable, oldValue, newValue) -> {
-                nbrchambre.validate();
-            });
+*/
+            CategorieDAO.addObserver(this);
+            categorie.getItems().addAll(((CategorieDAO) DAOFactory.getDAO(StringRessources.CATEGORIE)).findAll());
             clear();
             dialog.setOnDialogClosed(e -> {
                 clear();
@@ -75,10 +78,10 @@ public class ChambreDialogController {
 
     @FXML
     private void enregistrer() {
-        if (!numFIN.validate() || !numDebut.validate() || !nbrchambre.validate() || !etage.validate())
+        if (!numFIN.validate() || !numDebut.validate() || !etage.validate())
             return;
         int fin = Integer.valueOf(numFIN.getText());
-        for (int i = Integer.valueOf(numDebut.getText()); i <= fin ; i++) {
+        for (int i = Integer.valueOf(numDebut.getText()); i <= fin; i++) {
             Chambre chambre = new Chambre();
             chambre.setNumeroChambre(i);
             chambre.setEtage(Integer.valueOf(etage.getText()));
@@ -108,10 +111,16 @@ public class ChambreDialogController {
     }
 
     private void clear() {
-        nbrchambre.setText("");
+
         numFIN.setText("");
         numDebut.setText("");
         etage.setText("");
         categorie.setValue(null);
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        if (arg instanceof Categorie)
+            categorie.getItems().add((Categorie) arg);
     }
 }

@@ -24,18 +24,8 @@
             </Label>
         </heading>
         <body>
-            <VBox prefHeight="400.0" prefWidth="400.0" spacing="35.0">
+            <VBox prefWidth="400.0" spacing="35.0">
                 <children>
-                    <JFXTextField labelFloat="true" fx:id="nbrchambre">
-                        <promptText>
-                            <StringRessources fx:constant="NOMBRECHAMBREAJOUTER"/>
-                        </promptText>
-                        <validators>
-                            <NumberValidator message="Veuillez entrer un chiffre:">
-                                <Icon awesomeIcon="WARNING" style="-fx-font-family: fontawesome"/>
-                            </NumberValidator>
-                        </validators>
-                    </JFXTextField>
 
                     <JFXTextField labelFloat="true" fx:id="numDebut">
                         <promptText>
@@ -70,7 +60,7 @@
                         </validators>
                     </JFXTextField>
 
-                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                    <HBox prefWidth="200.0" spacing="20.0">
                         <children>
                             <JFXComboBox labelFloat="true" fx:id="categorie">
                                 <promptText>

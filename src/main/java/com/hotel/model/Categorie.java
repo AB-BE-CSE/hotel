@@ -91,5 +91,10 @@ public class Categorie implements java.io.Serializable {
         this.prix.set(prix);
     }
 
+    @Override
+    public String toString() {
+        return getNom();
+    }
+
 
 }

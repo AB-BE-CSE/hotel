@@ -36,7 +36,10 @@ public class StringRessources {
     public static final String ID ="ID";
     public static final String ETAT ="Etat";
     public static final String ETAGE ="Etage";
-
+    public static final String MSG_CHAMBRE_SUCCES="La chambre a été enregistrer avec succès ";
+    public static final String MSG_CHAMBRE_ERREUR="L'enregistrement a échoué";
+    public static final String MSG_CATEGORIE_SUCCES="La chambre a été enregistrer avec succès";
+    public static final String MSG_CATEGORIE_ERREUR="L'enregistrement a échoué";
 
     public static final String USER = "USER";
     public static final String FACTURE = "FACTURE";
