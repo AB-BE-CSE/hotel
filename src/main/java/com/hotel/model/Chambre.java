@@ -20,29 +20,29 @@ public class Chambre implements java.io.Serializable {
     private Categorie categorie;
     private IntegerProperty numeroChambre;
     private IntegerProperty etage;
-    private BooleanProperty check;
+    private BooleanProperty checked;
 
     public Chambre() {
         this.idChambre = new SimpleIntegerProperty();
 
         this.numeroChambre = new SimpleIntegerProperty();
         this.etage = new SimpleIntegerProperty();
-        this.check = new SimpleBooleanProperty();
+        this.checked = new SimpleBooleanProperty();
     }
 
     public Chambre(int idChambre) {
         this.idChambre = new SimpleIntegerProperty(idChambre);
         this.numeroChambre = new SimpleIntegerProperty();
         this.etage = new SimpleIntegerProperty();
-        this.check = new SimpleBooleanProperty();
+        this.checked = new SimpleBooleanProperty();
     }
 
-    public Chambre(int idChambre, Categorie categorie, Integer numeroChambre, Integer etage, Boolean check) {
+    public Chambre(int idChambre, Categorie categorie, Integer numeroChambre, Integer etage, Boolean checked) {
         this.idChambre = new SimpleIntegerProperty(idChambre);
         this.categorie = categorie;
         this.numeroChambre = new SimpleIntegerProperty(numeroChambre);
         this.etage = new SimpleIntegerProperty(etage);
-        this.check = new SimpleBooleanProperty(check);
+        this.checked = new SimpleBooleanProperty(checked);
     }
 
     @Id
@@ -85,13 +85,13 @@ public class Chambre implements java.io.Serializable {
         this.etage.set(etage);
     }
 
-    @Column(name = "check")
-    public Boolean getCheck() {
-        return this.check.get();
+    @Column(name = "checked")
+    public Boolean getChecked() {
+        return this.checked.get();
     }
 
-    public void setCheck(Boolean check) {
-        this.check.set(check);
+    public void setChecked(Boolean checked) {
+        this.checked.set(checked);
 
     }
 
@@ -108,7 +108,7 @@ public class Chambre implements java.io.Serializable {
     }
 
 
-    public BooleanProperty checkProperty() {
-        return check;
+    public BooleanProperty checkedProperty() {
+        return checked;
     }
 }
