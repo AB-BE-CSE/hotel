@@ -18,10 +18,12 @@
 --
 -- Table structure for table `categorie`
 --
-DROP DATABASE IF EXISTS `hotel`;
-CREATE DATABASE hotel;
-USE hotel;
 
+
+
+DROP DATABASE IF EXISTS Hotel;
+CREATE DATABASE Hotel;
+USE Hotel;
 DROP TABLE IF EXISTS `categorie`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -42,7 +44,7 @@ DROP TABLE IF EXISTS `chambre`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `chambre` (
-  `idChambre` int(11) NOT NULL,
+  `idChambre` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `numeroChambre` int(11) DEFAULT NULL,
   `etage` int(11) DEFAULT NULL,
   `check` tinyint(1) DEFAULT NULL,
@@ -61,7 +63,7 @@ DROP TABLE IF EXISTS `client`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `client` (
-  `idClient` int(11) NOT NULL,
+  `idClient` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) DEFAULT NULL,
   `prenom` varchar(50) DEFAULT NULL,
   `dateNaissance` date DEFAULT NULL,
@@ -78,7 +80,7 @@ DROP TABLE IF EXISTS `facture`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `facture` (
-  `idFacture` int(11) NOT NULL,
+  `idFacture` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `datePaiement` date DEFAULT NULL,
   `somme` double DEFAULT NULL,
   PRIMARY KEY (`idFacture`)
@@ -93,7 +95,7 @@ DROP TABLE IF EXISTS `reservation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `reservation` (
-  `idReservation` int(11) NOT NULL,
+  `idReservation` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `dateReservation` date DEFAULT NULL,
   `dateArrive` date DEFAULT NULL,
   `dateSortie` date DEFAULT NULL,
@@ -121,7 +123,7 @@ DROP TABLE IF EXISTS `utilisateur`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `utilisateur` (
-  `idUser` int(11) NOT NULL,
+  `idUser` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `nom` varchar(20) DEFAULT NULL,
   `prenom` varchar(20) DEFAULT NULL,
   `tel` varchar(15) DEFAULT NULL,
@@ -130,6 +132,7 @@ CREATE TABLE `utilisateur` (
   `password` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`idUser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
