@@ -20,10 +20,12 @@ import main.java.com.hotel.modeldao.UtilisateurDAO;
 import org.hsqldb.rights.User;
 
 import javax.annotation.PostConstruct;
+import java.util.Observable;
+import java.util.Observer;
 
 
 @FXMLController(value = "/main/java/com/hotel/presentation/Compte.fxml", title = "")
-public class CompteController {
+public class CompteController  implements Observer{
 
     @FXMLViewFlowContext
     private ViewFlowContext context;
@@ -56,9 +58,19 @@ public class CompteController {
         userColumn.setCellValueFactory(param -> param.getValue().usernameProperty());
         typeColumn.setCellValueFactory(param -> param.getValue().typeProperty());
         userTable.getItems().addAll(utilisateurDAO.findAll());
-        nomUser.setText(User.);
-
+        userTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showDetails(newValue));
+        CompteDialogController.addObserver(this);
     }
 
-
+    @Override
+    public void update(Observable observable, Object o) {
+        if (o instanceof Utilisateur){
+            userTable.getItems().add((Utilisateur) o);
+        }
+    }
+    private void showDetails(Utilisateur utilisateur){
+        nomUser.setText(utilisateur.getNom());
+        prenomUser.setText(utilisateur.getPrenom());
+        tel.setText(utilisateur.getTel());
+    }
 }

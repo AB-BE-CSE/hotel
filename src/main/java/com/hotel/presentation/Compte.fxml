@@ -58,20 +58,22 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                                 </rowConstraints>
                                 <children>
-                                    <Label fx:id="nomUser">
+                                    <Label >
                                         <text>
                                             <StringRessources fx:constant="NOM"/>
                                         </text>
                                     </Label>
-                                    <Label prefHeight="17.0" prefWidth="138.0" GridPane.rowIndex="1" fx:id="prenomUser">
+                                    <Label prefHeight="17.0" prefWidth="138.0" GridPane.rowIndex="1" >
                                         <StringRessources fx:constant="PRENOM"/>
                                     </Label>
-                                    <Label prefHeight="17.0" prefWidth="160.0" GridPane.rowIndex="2" fx:id="tel">
+                                    <Label prefHeight="17.0" prefWidth="160.0" GridPane.rowIndex="2" >
                                         <text>
-
                                             <StringRessources fx:constant="TEL"/>
                                         </text>
                                     </Label>
+                                    <Label prefHeight="17.0" prefWidth="203.0" GridPane.columnIndex="1" fx:id="nomUser" />
+                                    <Label prefHeight="17.0" prefWidth="203.0" GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="prenomUser"/>
+                                    <Label prefHeight="17.0" prefWidth="209.0" GridPane.columnIndex="1" GridPane.rowIndex="2" fx:id="tel"/>
                                 </children>
                             </GridPane>
                             <Label layoutX="99.0" layoutY="14.0" prefHeight="17.0" prefWidth="167.0"

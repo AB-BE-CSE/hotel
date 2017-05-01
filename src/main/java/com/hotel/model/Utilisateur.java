@@ -140,9 +140,7 @@ public class Utilisateur implements java.io.Serializable {
         return type;
     }
 
-    public StringProperty usernameProperty() {
-        return username;
-    }
+    public StringProperty usernameProperty() { return username; }
 
     public enum Type {
         ADMIN("ADMIN"),

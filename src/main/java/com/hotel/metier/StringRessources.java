@@ -29,6 +29,9 @@ public class StringRessources {
     public static final String FACTURE = "FACTURE";
     public static final String PASSWORD ="Tapez votre mots de passe";
     public static final String CONFIRMPASSWORD="Confimez votre mots de passe";
+    public static final String MSG_USER_SUCCES="Compte a été enregistrer avec succées";
+    public static final String MSG_USER_ERREUR="L'enreigistrement a échoué !";
+    public static final String MSG_USER_INVALIDE="Veuiller tapez le meme mot de passe !";
 
 
 

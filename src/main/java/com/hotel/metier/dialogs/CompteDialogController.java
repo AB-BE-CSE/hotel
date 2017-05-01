@@ -15,6 +15,9 @@ import main.java.com.hotel.modeldao.UtilisateurDAO;
 import org.hsqldb.rights.User;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observer;
 
 /**
  * Created by Admin on 22/03/2017.
@@ -40,13 +43,13 @@ public class CompteDialogController {
 
     public CompteDialogController() {
         Platform.runLater(() -> {
-            numTel.textProperty().addListener((observable, oldValue, newValue) -> {
-                numTel.validate();
-            });
+//            numTel.textProperty().addListener((observable, oldValue, newValue) -> {
+//                numTel.validate();
+//            });
             type.getItems().addAll(Utilisateur.Type.ADMIN.toString(), Utilisateur.Type.CHEF.toString(), Utilisateur.Type.RECEPTIONISTE.toString());
             clear();
             dialog.setOnDialogClosed(e -> {
-                clear();
+                Platform.runLater(() -> clear());
             });
         });
     }
@@ -68,10 +71,30 @@ public class CompteDialogController {
 
     @FXML
     private void enregistrer() {
-        if (!nom.validate() || !prenom.validate() || !numTel.validate() || !nomDuCompte.validate() || !password.validate() || !confirmPass.validate())
+        boolean erreur = false;
+        if (!nom.validate())
+            erreur = true;
+        if (!prenom.validate())
+            erreur = true;
+
+        if (!numTel.validate())
+            erreur = true;
+
+        if (!nomDuCompte.validate())
+            erreur = true;
+
+        if (!password.validate())
+            erreur = true;
+
+        if (!confirmPass.validate())
+            erreur = true;
+
+        if (erreur)
             return;
-        if (!password.getText().equals(confirmPass.getText()))
+        if (!password.getText().equals(confirmPass.getText())) {
+            updateObservers(StringRessources.MSG_USER_INVALIDE);
             return;
+        }
 
         Utilisateur utilisateur = new Utilisateur();
         utilisateur.setNom(nom.getText());
@@ -82,6 +105,7 @@ public class CompteDialogController {
         utilisateur.setType(type.getValue().charAt(0) + "");
         UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
         utilisateurDAO.create(utilisateur);
+        updateObservers(utilisateur);
         dialog.close();
     }
 
@@ -96,6 +120,29 @@ public class CompteDialogController {
     }
 
     private void clear() {
+        nom.setText("");
+        prenom.setText("");
+        nomDuCompte.setText("");
+        password.setText("");
+        confirmPass.setText("");
+        type.setValue("");
+        numTel.setText("");
+    }
 
+    private static List<Observer> observers = new ArrayList<>();
+
+
+    public static void addObserver(Observer obs) {
+        observers.add(obs);
+    }
+
+    public static void updateObservers(Object o) {
+        for (Observer obs : observers) {
+            obs.update(null, o);
+        }
+    }
+
+    public static void deleteObservers() {
+        observers = new ArrayList<>();
     }
 }
