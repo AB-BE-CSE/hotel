@@ -19,9 +19,10 @@
 -- Table structure for table `categorie`
 --
 
-DROP DATABASE IF EXISTS HOTEL;
-CREATE DATABASE HOTEL;
-USE HOTEL;
+
+DROP DATABASE IF EXISTS Hotel;
+CREATE DATABASE Hotel;
+USE Hotel;
 
 DROP TABLE IF EXISTS `categorie`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -131,6 +132,7 @@ CREATE TABLE `utilisateur` (
   `password` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`idUser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
