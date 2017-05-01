@@ -21,7 +21,7 @@ public class Main extends Application {
     }
 
     public void start(Stage stage) throws Exception {
-       // HibernateFactory.buildSessionFactory();
+        HibernateFactory.buildSessionFactory();
 
         Flow flow = new Flow(main.java.com.hotel.metier.Main.class);
         DefaultFlowContainer container = new DefaultFlowContainer();
@@ -43,7 +43,7 @@ public class Main extends Application {
             HibernateFactory.closeFactory();
             System.exit(0);
         });
-        stage.setOnCloseRequest(e->{
+        stage.setOnCloseRequest(e -> {
             HibernateFactory.closeFactory();
         });
         stage.setScene(scene);

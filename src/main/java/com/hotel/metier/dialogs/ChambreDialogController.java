@@ -1,11 +1,8 @@
 package main.java.com.hotel.metier.dialogs;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXTextField;
-import io.datafx.controller.flow.FlowException;
-import io.datafx.controller.util.VetoException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +13,6 @@ import main.java.com.hotel.model.Chambre;
 import main.java.com.hotel.modeldao.ChambreDAO;
 import main.java.com.hotel.modeldao.DAOFactory;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 
 /**
@@ -81,8 +77,8 @@ public class ChambreDialogController {
     private void enregistrer() {
         if (!numFIN.validate() || !numDebut.validate() || !nbrchambre.validate() || !etage.validate())
             return;
-        int fin = 0;
-        for (int i = Integer.valueOf(numDebut.getText()); i <= Integer.valueOf(numFIN.getText()); i++) {
+        int fin = Integer.valueOf(numFIN.getText());
+        for (int i = Integer.valueOf(numDebut.getText()); i <= fin ; i++) {
             Chambre chambre = new Chambre();
             chambre.setNumeroChambre(i);
             chambre.setEtage(Integer.valueOf(etage.getText()));
@@ -90,8 +86,9 @@ public class ChambreDialogController {
             chambre.setCategorie(categorie.getValue());
             ChambreDAO chambreDAO = (ChambreDAO) DAOFactory.getDAO(StringRessources.CHAMBRE);
             chambreDAO.create(chambre);
-            dialog.close();
         }
+
+        dialog.close();
     }
 
     @FXML

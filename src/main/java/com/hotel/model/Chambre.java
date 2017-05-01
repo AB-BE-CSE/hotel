@@ -88,7 +88,7 @@ public class Chambre implements java.io.Serializable {
         this.etage.set(etage);
     }
 
-    @Column(name = "check")
+    @Column(name = "checked")
     public Boolean getCheck() {
         return this.check.get();
     }
