@@ -18,6 +18,9 @@
 --
 -- Table structure for table `categorie`
 --
+DROP DATABASE IF EXISTS `hotel`;
+CREATE DATABASE hotel;
+USE hotel;
 
 DROP TABLE IF EXISTS `categorie`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

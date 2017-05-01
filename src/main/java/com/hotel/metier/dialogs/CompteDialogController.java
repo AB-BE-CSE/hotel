@@ -8,7 +8,10 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
+import main.java.com.hotel.metier.StringRessources;
 import main.java.com.hotel.model.Utilisateur;
+import main.java.com.hotel.modeldao.DAOFactory;
+import main.java.com.hotel.modeldao.UtilisateurDAO;
 import org.hsqldb.rights.User;
 
 import java.io.IOException;
@@ -76,8 +79,9 @@ public class CompteDialogController {
         utilisateur.setPrenom(prenom.getText());
         utilisateur.setPassword(password.getText());
         utilisateur.setTel(numTel.getText());
-        utilisateur.setType(type.getValue());
-
+        utilisateur.setType(type.getValue().charAt(0) + "");
+        UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
+        utilisateurDAO.create(utilisateur);
         dialog.close();
     }
 

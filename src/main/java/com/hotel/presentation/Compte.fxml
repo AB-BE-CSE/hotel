@@ -21,16 +21,16 @@
                 <items>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="250.0">
                         <children>
-                            <TableView prefHeight="398.0" prefWidth="296.0" AnchorPane.bottomAnchor="0.0"
+                            <TableView fx:id="userTable" prefHeight="398.0" prefWidth="296.0" AnchorPane.bottomAnchor="0.0"
                                        AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
                                        AnchorPane.topAnchor="0.0">
                                 <columns>
-                                    <TableColumn prefWidth="149.0">
+                                    <TableColumn fx:id="userColumn" prefWidth="149.0">
                                         <text>
                                             <StringRessources fx:constant="USER"/>
                                         </text>
                                     </TableColumn>
-                                    <TableColumn prefWidth="146.0">
+                                    <TableColumn fx:id="typeColumn" prefWidth="146.0">
                                         <text>
                                             <StringRessources fx:constant="TYPE"/>
                                         </text>
@@ -58,15 +58,15 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                                 </rowConstraints>
                                 <children>
-                                    <Label>
+                                    <Label fx:id="nomUser">
                                         <text>
                                             <StringRessources fx:constant="NOM"/>
                                         </text>
                                     </Label>
-                                    <Label prefHeight="17.0" prefWidth="138.0" GridPane.rowIndex="1">
+                                    <Label prefHeight="17.0" prefWidth="138.0" GridPane.rowIndex="1" fx:id="prenomUser">
                                         <StringRessources fx:constant="PRENOM"/>
                                     </Label>
-                                    <Label prefHeight="17.0" prefWidth="160.0" GridPane.rowIndex="2">
+                                    <Label prefHeight="17.0" prefWidth="160.0" GridPane.rowIndex="2" fx:id="tel">
                                         <text>
 
                                             <StringRessources fx:constant="TEL"/>
