@@ -18,7 +18,9 @@
                     <StringRessources fx:constant="PLUS"/>
                 </text>
             </JFXButton>
-            <TableView layoutY="86.0" prefHeight="400.0" prefWidth="700.0">
+            <TableView  layoutY="86.0" prefHeight="400.0" prefWidth="700.0" AnchorPane.rightAnchor="95" AnchorPane.bottomAnchor="20"
+            AnchorPane.leftAnchor="20"  AnchorPane.topAnchor="20">
+
                 <columns>
                     <TableColumn prefWidth="75.0">
                         <text>
@@ -56,6 +58,9 @@
                         </text>
                     </TableColumn>
                 </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
             </TableView>
         </children>
     </AnchorPane>

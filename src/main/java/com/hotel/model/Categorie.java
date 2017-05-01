@@ -73,7 +73,7 @@ public class Categorie implements java.io.Serializable {
         this.nom.set(nom);
     }
 
-    @Column(name = "description", length = 20)
+    @Column(name = "description", length = 65535)
     public String getDescription() {
         return this.description.get();
     }
