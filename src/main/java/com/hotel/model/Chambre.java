@@ -26,7 +26,7 @@ public class Chambre implements java.io.Serializable {
 
     public Chambre() {
         this.idChambre = new SimpleIntegerProperty();
-
+        categorie = new Categorie();
         this.numeroChambre = new SimpleIntegerProperty();
         this.etage = new SimpleIntegerProperty();
         this.check = new SimpleBooleanProperty();
