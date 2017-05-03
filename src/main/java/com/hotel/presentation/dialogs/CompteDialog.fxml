@@ -52,7 +52,7 @@
                                     </RequiredFieldValidator>
                                 </validators>
                             </JFXTextField>
-                            <JFXTextField fx:id="prenom" prefHeight="25.0" prefWidth="212.0" GridPane.columnIndex="1"
+                            <JFXTextField fx:id="prenom"  labelFloat="true" prefHeight="25.0" prefWidth="212.0" GridPane.columnIndex="1"
                                           GridPane.rowIndex="1">
                                 <padding>
                                     <Insets left="10.0" right="10.0"/>

@@ -95,7 +95,8 @@ public class Utilisateur implements java.io.Serializable {
 
     @Column(name = "type", length = 2)
     public String getType() {
-        return this.type.get();
+        return type.get();
+
     }
 
     public void setType(String type) {
@@ -140,7 +141,9 @@ public class Utilisateur implements java.io.Serializable {
         return type;
     }
 
-    public StringProperty usernameProperty() { return username; }
+    public StringProperty usernameProperty() {
+        return username;
+    }
 
     public enum Type {
         ADMIN("ADMIN"),

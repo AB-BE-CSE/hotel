@@ -12,7 +12,6 @@ import main.java.com.hotel.metier.StringRessources;
 import main.java.com.hotel.model.Utilisateur;
 import main.java.com.hotel.modeldao.DAOFactory;
 import main.java.com.hotel.modeldao.UtilisateurDAO;
-import org.hsqldb.rights.User;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -103,6 +102,7 @@ public class CompteDialogController {
         utilisateur.setPassword(password.getText());
         utilisateur.setTel(numTel.getText());
         utilisateur.setType(type.getValue().charAt(0) + "");
+
         UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
         utilisateurDAO.create(utilisateur);
         updateObservers(utilisateur);
