@@ -22,7 +22,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 @FXMLController(value = "/main/java/com/hotel/presentation/Main.fxml", title = StringRessources.TITRE)
-public class Main implements Observer {
+public class MainController implements Observer {
 
     @FXMLViewFlowContext
     private ViewFlowContext context;

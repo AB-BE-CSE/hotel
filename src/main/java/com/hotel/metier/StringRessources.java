@@ -23,8 +23,10 @@ public class StringRessources {
     public static final String HISTORIQUE = "Historique";
     public static final String PLUS = "+";
     public static final String USER = "USER";
+    public static final String PASSWORD = "Mot de passe";
     public static final String CATEGORIE = "CATEGORIE";
     public static final String FACTURE = "FACTURE";
+    public static final String CONNECTER = "Se connecter";
 
 
 
