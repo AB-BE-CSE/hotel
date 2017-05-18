@@ -27,6 +27,10 @@ public class StringRessources {
     public static final String CATEGORIE = "CATEGORIE";
     public static final String FACTURE = "FACTURE";
     public static final String CONNECTER = "Se connecter";
+    public static final String SUPPRIMER = "SUPPRIMER";
+    public static final String ERR_LOGIN = "Utilisateur ou mot de passe incorrect";
+
+
 
 
 

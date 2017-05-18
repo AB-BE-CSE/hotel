@@ -94,12 +94,13 @@ public class UtilisateurDAO extends DAO {
             Connection connection = HibernateFactory.getSessionFactory().
                     getSessionFactoryOptions().getServiceRegistry().
                     getService(ConnectionProvider.class).getConnection();
+
             String query = "SELECT username FROM Utilisateur where username = ?";
             try {
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setString(1, username);
                 ResultSet resultSet = preparedStatement.executeQuery();
-                return true;
+                return resultSet.first();
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -117,7 +118,7 @@ public class UtilisateurDAO extends DAO {
             Connection connection = HibernateFactory.getSessionFactory().
                     getSessionFactoryOptions().getServiceRegistry().
                     getService(ConnectionProvider.class).getConnection();
-            String query = "SELECT idUser FROM User where username = ? and password = ?";
+            String query = "SELECT idUser FROM Utilisateur where username = ? and password = ?";
             try {
                 String pw = new String(password);
                 PreparedStatement preparedStatement = connection.prepareStatement(query);

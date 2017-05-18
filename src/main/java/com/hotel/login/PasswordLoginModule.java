@@ -40,7 +40,7 @@ public class PasswordLoginModule implements LoginModule {
         callbackHandler = cbh;
         loginSuccess = false;
         username = null;
-        utilisateur = null;
+        utilisateur = new Utilisateur();
         this.options = options;
 
         clearPassword();
@@ -78,7 +78,7 @@ public class PasswordLoginModule implements LoginModule {
         UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
         if (utilisateurDAO.isExist(username)) {
             utilisateur = utilisateurDAO.isValidPassword(username, password);
-            if (utilisateur != null) {
+            if (utilisateur.getIdUser() != 0) {
                 //If userid and password match, then login is a success
                 loginSuccess = true;
                 clearPassword();
@@ -147,7 +147,7 @@ public class PasswordLoginModule implements LoginModule {
     // Private helper function to clear the password, a good programming
     // practice
     private void clearPassword() {
-        utilisateur.setPassword(null);
+
         if (password == null) {
             return;
         }

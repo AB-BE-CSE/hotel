@@ -29,7 +29,7 @@ public class Main extends Application {
         flowContext.register("Stage", stage);
         flow.createHandler(flowContext).start(container);
 
-        JFXDecorator decorator = new JFXDecorator(stage, container.getView());
+        JFXDecorator decorator = new JFXDecorator(stage, container.getView(),false,true,true);
         decorator.setCustomMaximize(true);
         Scene scene = new Scene(decorator, 400, 500);
         scene.getStylesheets().add(Main.class.getResource("/css/jfoenix-fonts.css").toExternalForm());

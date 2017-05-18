@@ -93,7 +93,7 @@ public class Utilisateur implements java.io.Serializable {
         this.tel.set(tel);
     }
 
-    @Column(name = "type", length = 2)
+    @Column(name = "type", length = 2, nullable = false)
     public String getType() {
         return this.type.get();
     }
@@ -102,7 +102,7 @@ public class Utilisateur implements java.io.Serializable {
         this.type.set(type);
     }
 
-    @Column(name = "username", length = 45)
+    @Column(name = "username", length = 20, unique = true, nullable = false)
     public String getUsername() {
         return this.username.get();
     }
@@ -111,7 +111,7 @@ public class Utilisateur implements java.io.Serializable {
         this.username.set(username);
     }
 
-    @Column(name = "password", length = 64)
+    @Column(name = "password", length = 64,updatable = false)
     public String getPassword() {
         return this.password;
     }
@@ -151,7 +151,7 @@ public class Utilisateur implements java.io.Serializable {
 
         Utilisateur that = (Utilisateur) o;
 
-        if (getIdUser() != null ? getIdUser() !=(that.getIdUser()) : that.getIdUser() != null) return false;
+        if (getIdUser() != null ? getIdUser() != (that.getIdUser()) : that.getIdUser() != null) return false;
         if (getNom() != null ? !getNom().equals(that.getNom()) : that.getNom() != null) return false;
         if (getPrenom() != null ? !getPrenom().equals(that.getPrenom()) : that.getPrenom() != null) return false;
         if (getTel() != null ? !getTel().equals(that.getTel()) : that.getTel() != null) return false;

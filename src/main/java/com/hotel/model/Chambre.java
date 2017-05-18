@@ -1,10 +1,7 @@
 package main.java.com.hotel.model;
 // Generated 30 avr. 2017 02:56:43 by Hibernate Tools 5.2.0.CR1
 
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.*;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -21,10 +18,11 @@ public class Chambre implements java.io.Serializable {
     private IntegerProperty numeroChambre;
     private IntegerProperty etage;
     private BooleanProperty checked;
+    private StringProperty description;
 
     public Chambre() {
         this.idChambre = new SimpleIntegerProperty();
-
+        description = new SimpleStringProperty();
         this.numeroChambre = new SimpleIntegerProperty();
         this.etage = new SimpleIntegerProperty();
         this.checked = new SimpleBooleanProperty();
@@ -35,14 +33,19 @@ public class Chambre implements java.io.Serializable {
         this.numeroChambre = new SimpleIntegerProperty();
         this.etage = new SimpleIntegerProperty();
         this.checked = new SimpleBooleanProperty();
+        description = new SimpleStringProperty();
+
     }
 
-    public Chambre(int idChambre, Categorie categorie, Integer numeroChambre, Integer etage, Boolean checked) {
+    public Chambre(int idChambre, Categorie categorie, Integer numeroChambre, Integer etage,
+                   Boolean checked,String description) {
         this.idChambre = new SimpleIntegerProperty(idChambre);
         this.categorie = categorie;
         this.numeroChambre = new SimpleIntegerProperty(numeroChambre);
         this.etage = new SimpleIntegerProperty(etage);
         this.checked = new SimpleBooleanProperty(checked);
+        this.description = new SimpleStringProperty(description);
+
     }
 
     @Id
@@ -66,6 +69,7 @@ public class Chambre implements java.io.Serializable {
     public void setCategorie(Categorie categorie) {
         this.categorie = categorie;
     }
+
 
     @Column(name = "numeroChambre")
     public Integer getNumeroChambre() {
@@ -93,6 +97,16 @@ public class Chambre implements java.io.Serializable {
     public void setChecked(Boolean checked) {
         this.checked.set(checked);
 
+    }
+
+
+    @Column(name = "description", length = 65535)
+    public String getDescription() {
+        return this.description.get();
+    }
+
+    public void setDescription(String description) {
+        this.description.set(description);
     }
 
     public IntegerProperty idChambreProperty() {

@@ -18,6 +18,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import main.java.com.hotel.metier.MainController;
+import main.java.com.hotel.metier.StringRessources;
 
 import javax.annotation.PostConstruct;
 import javax.security.auth.login.LoginContext;
@@ -63,25 +64,24 @@ public class LoginController {
     private void login() {
         lc = null;
         try {
-            lc = new LoginContext("JAASExample",
+            lc = new LoginContext("loginConfig",
                     new UsernamePasswordCallbackHandler(username.getText(), password.getText()));
         } catch (LoginException le) {
-            System.out.println("hellow");
+
             return;
         }
         //
         // Login
         try {
-
             lc.login();
         } catch (LoginException le) {
+            le.printStackTrace();
             if (--nbrLogin == 0) {
                 System.exit(0);
             }
-            erreur.setText("Utilisateur ou mot de passe incorrect");
+            erreur.setText(StringRessources.ERR_LOGIN);
             return;
         }
-
 
         try {
             Flow flow = new Flow(MainController.class);
@@ -99,9 +99,7 @@ public class LoginController {
         } catch (FlowException e) {
             e.printStackTrace();
         }
-
     }
-
 
     public void update(Object o) {
 //        Main.getStage().setResizable(true);
