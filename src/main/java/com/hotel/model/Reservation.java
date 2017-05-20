@@ -9,6 +9,8 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -20,13 +22,13 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Reservation implements java.io.Serializable {
 
     private IntegerProperty idReservation;
-    private Chambre chambre;
+    private Set<Chambre> chambres = new HashSet<>(0);
     private Client client;
     private Facture facture;
     private Utilisateur utilisateur;
     private ObjectProperty<Date> dateReservation;
-    private ObjectProperty<Date>  dateArrive;
-    private ObjectProperty<Date>  dateSortie;
+    private ObjectProperty<Date> dateArrive;
+    private ObjectProperty<Date> dateSortie;
 
     public Reservation() {
         this.idReservation = new SimpleIntegerProperty();
@@ -38,16 +40,15 @@ public class Reservation implements java.io.Serializable {
 
     public Reservation(int idReservation) {
         this.idReservation = new SimpleIntegerProperty(idReservation);
-
         this.dateReservation = new SimpleObjectProperty<>();
         this.dateArrive = new SimpleObjectProperty<>();
         this.dateSortie = new SimpleObjectProperty<>();
     }
 
-    public Reservation(int idReservation, Chambre chambre, Client client, Facture facture, Utilisateur utilisateur,
+    public Reservation(int idReservation, Set<Chambre> chambres, Client client, Facture facture, Utilisateur utilisateur,
                        Date dateReservation, Date dateArrive, Date dateSortie) {
         this.idReservation = new SimpleIntegerProperty(idReservation);
-        this.chambre = chambre;
+        this.chambres = chambres;
         this.client = client;
         this.facture = facture;
         this.utilisateur = utilisateur;
@@ -68,14 +69,17 @@ public class Reservation implements java.io.Serializable {
         this.idReservation.set(idReservation);
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_chambre")
-    public Chambre getChambre() {
-        return this.chambre;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "chambre_reservation", catalog = "hotel", joinColumns = {
+            @JoinColumn(name = "id_reservation", nullable = false, updatable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "id_chambre",
+                    nullable = false, updatable = false) })
+    public Set<Chambre> getChambre() {
+        return this.chambres;
     }
 
-    public void setChambre(Chambre chambre) {
-        this.chambre = chambre;
+    public void setChambre(Set<Chambre> chambres) {
+        this.chambres = chambres;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -84,6 +88,7 @@ public class Reservation implements java.io.Serializable {
     public Client getClient() {
         return this.client;
     }
+
 
     public void setClient(Client client) {
         this.client = client;

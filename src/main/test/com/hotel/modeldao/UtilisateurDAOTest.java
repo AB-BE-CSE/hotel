@@ -1,6 +1,11 @@
 package main.test.com.hotel.modeldao;
 
+import main.java.com.hotel.metier.StringRessources;
+import main.java.com.hotel.modeldao.DAOFactory;
+import main.java.com.hotel.modeldao.HibernateFactory;
+import main.java.com.hotel.modeldao.UtilisateurDAO;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,10 +15,12 @@ import org.junit.Test;
 public class UtilisateurDAOTest {
     @Before
     public void setUp() throws Exception {
+        HibernateFactory.buildIfNeeded();
     }
 
     @After
     public void tearDown() throws Exception {
+        HibernateFactory.closeFactory();
     }
 
     @Test
@@ -34,6 +41,13 @@ public class UtilisateurDAOTest {
 
     @Test
     public void findAll() throws Exception {
+    }
+
+    @Test
+    public void isExist() throws  Exception{
+        UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
+        Assert.assertTrue(utilisateurDAO.isExist("admin"));
+
     }
 
 }

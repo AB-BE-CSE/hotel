@@ -25,27 +25,28 @@ public class StringRessources {
     public static final String PLUS = "+";
 
     public static final String CAPACITE = "Capacité";
-    public static final String NUM ="Num";
-    public static final String CATEGORIE ="Catégorie";
-    public static final String NOMCATEGORIE ="Nom de la catégorie";
-    public static final String PRIX ="Prix";
-    public static final String DESCRIPTION ="Déscription";
-    public static final String NOMBRECHAMBREAJOUTER="Nombre de chambre à ajouter";
-    public static final String NUMDEBUT="Nombre de début";
-    public static final String NUMFIN ="Nombre de fin";
-    public static final String ID ="ID";
-    public static final String ETAT ="Etat";
-    public static final String ETAGE ="Etage";
-    public static final String MSG_CHAMBRE_SUCCES="La chambre a été enregistrer avec succès ";
-    public static final String MSG_CHAMBRE_ERREUR="L'enregistrement a échoué";
-    public static final String MSG_CATEGORIE_SUCCES="La chambre a été enregistrer avec succès";
-    public static final String MSG_CATEGORIE_ERREUR="L'enregistrement a échoué";
+    public static final String NUM = "Num";
+    public static final String CATEGORIE = "Catégorie";
+    public static final String NOMCATEGORIE = "Nom de la catégorie";
+    public static final String PRIX = "Prix";
+    public static final String DESCRIPTION = "Déscription";
+    public static final String NOMBRECHAMBREAJOUTER = "Nombre de chambre à ajouter";
+    public static final String NUMDEBUT = "Nombre de début";
+    public static final String NUMFIN = "Nombre de fin";
+    public static final String ID = "ID";
+    public static final String ETAT = "Etat";
+    public static final String ETAGE = "Etage";
+    public static final String MSG_CHAMBRE_SUCCES = "La chambre a été enregistrer avec succès ";
+    public static final String MSG_CHAMBRE_ERREUR = "L'enregistrement a échoué";
+    public static final String MSG_CATEGORIE_SUCCES = "La chambre a été enregistrer avec succès";
+    public static final String MSG_CATEGORIE_ERREUR = "L'enregistrement a échoué";
 
     public static final String USER = "USER";
+    public static final String PASSWORD = "Mot de passe";
     public static final String FACTURE = "FACTURE";
-
-
-
+    public static final String CONNECTER = "Se connecter";
+    public static final String SUPPRIMER = "SUPPRIMER";
+    public static final String ERR_LOGIN = "Utilisateur ou mot de passe incorrect";
 
 
 }
