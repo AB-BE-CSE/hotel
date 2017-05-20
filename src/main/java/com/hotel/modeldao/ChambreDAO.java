@@ -45,6 +45,8 @@ public class ChambreDAO extends DAO {
             updateObservers(StringRessources.MSG_CHAMBRE_SUCCES);
         } catch (DataAccessLayerException e) {
             updateObservers(StringRessources.MSG_CHAMBRE_ERREUR);
+        } catch (Exception e){
+            updateObservers(StringRessources.MSG_CHAMBRE_ERREUR);
         }
     }
 

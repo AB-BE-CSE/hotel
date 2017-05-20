@@ -62,6 +62,10 @@ public class ChambreDialogController implements Observer {
             dialog.setOnDialogClosed(e -> {
                 clear();
             });
+            dialog.setOnDialogOpened(event -> {
+                numDebut.requestFocus();
+            });
+
         });
     }
 
@@ -82,8 +86,16 @@ public class ChambreDialogController implements Observer {
 
     @FXML
     private void enregistrer() {
-        if (!numFIN.validate() || !numDebut.validate() || !etage.validate())
+        boolean erreur = false;
+        if (!numFIN.validate())
+            erreur = true;
+        if (!numDebut.validate())
+            erreur = true;
+        if (!etage.validate())
+            erreur = true;
+        if (erreur)
             return;
+
         int fin = Integer.valueOf(numFIN.getText());
         int debut = Integer.valueOf(numDebut.getText());
         int eta = Integer.valueOf(etage.getText());
@@ -92,7 +104,7 @@ public class ChambreDialogController implements Observer {
             Chambre chambre = new Chambre();
             chambre.setNumeroChambre(i);
             chambre.setEtage(Integer.valueOf(etage.getText()));
-            chambre.setCheck(false);
+            chambre.setChecked(false);
             chambre.setCategorie(categorie.getValue());
             ChambreDAO chambreDAO = (ChambreDAO) DAOFactory.getDAO(StringRessources.CHAMBRE);
             chambreDAO.create(chambre);
@@ -134,6 +146,7 @@ public class ChambreDialogController implements Observer {
     }
 
     private static List<Observer> observers = new ArrayList<>();
+
     public static void addObserver(Observer obs) {
         observers.add(obs);
     }

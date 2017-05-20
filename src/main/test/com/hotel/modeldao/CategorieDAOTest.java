@@ -29,7 +29,7 @@ public class CategorieDAOTest {
         Categorie categorie = new Categorie();
         categorie.setNom("Single");
         categorie.setPrix(2000.0);
-        categorie.setDescription("la chambre est belle lol :p ");
+
         // on va appeler notre DAO mtn, atoi ? vas y utiise catégorie dao comme on a fait le matin
         CategorieDAO  categorieDAO = (CategorieDAO) DAOFactory.getDAO(StringRessources.CATEGORIE);
         categorieDAO.create(categorie);

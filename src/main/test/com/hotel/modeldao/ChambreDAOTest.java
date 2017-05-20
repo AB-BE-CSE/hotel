@@ -28,9 +28,10 @@ public class ChambreDAOTest {
     public void create() throws Exception {
         Chambre chambre = new Chambre();
         chambre.setCategorie(null);
-        chambre.setCheck(false);
+        chambre.setChecked(false);
         chambre.setEtage(2);
         chambre.setNumeroChambre(102);
+
         ((ChambreDAO) DAOFactory.getDAO(StringRessources.CHAMBRE)).create(chambre);
 
         Assert.assertNotEquals(0,chambre.getIdChambre());

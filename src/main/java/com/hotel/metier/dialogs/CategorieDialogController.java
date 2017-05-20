@@ -31,12 +31,16 @@ public class CategorieDialogController {
     private JFXTextField description;
 
 
+
+
     public CategorieDialogController() {
         Platform.runLater(() -> {
 /*            prix.textProperty().addListener((observable, oldValue, newValue) -> {
                 prix.validate();
             });*/
-
+            dialog.setOnDialogOpened(event->{
+                nomCategorie.requestFocus();
+            });
             clear();
             dialog.setOnDialogClosed(e -> {
                 clear();

@@ -8,8 +8,10 @@ import io.datafx.controller.flow.context.ViewFlowContext;
 import io.datafx.controller.util.VetoException;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.converter.DoubleStringConverter;
@@ -25,7 +27,7 @@ import java.util.Observer;
 
 
 @FXMLController(value = "/main/java/com/hotel/presentation/Chambre.fxml", title = "")
-public class ChambreController implements Observer {
+public class ChambreController implements Observer, Gestion {
 
     @FXMLViewFlowContext
     private ViewFlowContext context;
@@ -56,9 +58,7 @@ public class ChambreController implements Observer {
 
     @PostConstruct
     public void init() throws FlowException, VetoException {
-        ajouterChambre.setOnAction(event -> {
-            ChambreDialogController.getInstance().ouvrir((StackPane) context.getRegisteredObject("ContentPane"));
-        });
+        ajouterChambre.setOnAction(event -> ajouter());
         findAll();
         idColumn.setCellValueFactory(param -> param.getValue().idChambreProperty().asObject());
         categorieColumn.setCellValueFactory(param -> param.getValue().getCategorie().nomProperty());
@@ -66,7 +66,7 @@ public class ChambreController implements Observer {
         numColumn.setCellValueFactory(param -> param.getValue().numeroChambreProperty().asObject());
         etageColumn.setCellValueFactory(param -> param.getValue().etageProperty().asObject());
         descriptionColumn.setCellValueFactory(param -> param.getValue().getCategorie().descriptionProperty());
-        etatColumn.setCellValueFactory(param -> param.getValue().checkProperty().asObject());
+        etatColumn.setCellValueFactory(param -> param.getValue().checkedProperty().asObject());
 
         chambreTableau.setEditable(true);
 
@@ -74,33 +74,45 @@ public class ChambreController implements Observer {
         numColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         numColumn.setOnEditCommit(event -> {
             Chambre chambre = event.getRowValue();
-            if (event.getNewValue()== null)
+            if (event.getNewValue() == null)
                 return;
             chambre.setNumeroChambre(event.getNewValue());
-            modifer(chambre);
+            modifier(chambre);
         });
 
         etageColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         etageColumn.setOnEditCommit(event -> {
             Chambre chambre = event.getRowValue();
             chambre.setNumeroChambre(event.getNewValue());
-            modifer(chambre);
+            modifier(chambre);
         });
 
         descriptionColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         descriptionColumn.setOnEditCommit(event -> {
             Chambre chambre = event.getRowValue();
             chambre.getCategorie().setDescription(event.getNewValue());
-            modifer(chambre);
+            modifier(chambre);
         });
 
         prixColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         prixColumn.setOnEditCommit(event -> {
             Chambre chambre = event.getRowValue();
             chambre.getCategorie().setPrix(event.getNewValue());
-            modifer(chambre);
+            modifier(chambre);
         });
         ChambreDialogController.addObserver(this);
+        DeleteContextMenu.getInstance(this);
+
+        chambreTableau.setRowFactory(tv -> {
+            TableRow<Chambre> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty() && event.getButton() == MouseButton.SECONDARY) {
+                    DeleteContextMenu.getInstance(this).show(chambreTableau, row.getItem());
+                }
+            });
+            return row;
+        });
+
     }
 
     private void findAll() {
@@ -116,9 +128,35 @@ public class ChambreController implements Observer {
         }
     }
 
-    private void modifer(Chambre chambre) {
+
+    @Override
+    public void ajouter() {
+        ChambreDialogController.getInstance().ouvrir((StackPane) context.getRegisteredObject("ContentPane"));
+    }
+
+    @Override
+    public void modifier(Object chambre) {
         // creation d'un DAO, appelle de la maéthode update
         ChambreDAO chambreDAO = (ChambreDAO) DAOFactory.getDAO(StringRessources.CHAMBRE);
-        chambreDAO.update(chambre);
+        chambreDAO.update((Chambre) chambre);
+    }
+
+    @Override
+    public void supprimer(Object toDelete) {
+        if (!(toDelete instanceof Chambre)) {
+            throw new IllegalArgumentException();
+        }
+        if (toDelete == null || ((Chambre) toDelete).getIdChambre() == 0)
+            return;
+
+        chambreTableau.getItems().remove(toDelete);
+        ChambreDAO chambreDAO = (ChambreDAO) DAOFactory.getDAO(StringRessources.CHAMBRE);
+        chambreDAO.delete((Chambre) toDelete);
+
+    }
+
+    @Override
+    public void chercher() {
+
     }
 }
