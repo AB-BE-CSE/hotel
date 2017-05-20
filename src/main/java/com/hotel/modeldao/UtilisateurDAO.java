@@ -1,8 +1,14 @@
 package main.java.com.hotel.modeldao;
 
-import main.java.com.hotel.metier.StringRessources;
 import main.java.com.hotel.model.Utilisateur;
+import main.java.com.hotel.metier.StringRessources;
+import main.java.com.hotel.login.HashPassword;
+import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observer;
@@ -83,4 +89,55 @@ public class UtilisateurDAO extends DAO {
     public List<Utilisateur> findAll() throws DataAccessLayerException {
         return super.findAll(Utilisateur.class);
     }
+
+    public boolean isExist(String username) {
+        try {
+            Connection connection = HibernateFactory.getSessionFactory().
+                    getSessionFactoryOptions().getServiceRegistry().
+                    getService(ConnectionProvider.class).getConnection();
+
+            String query = "SELECT username FROM Utilisateur where username = ?";
+            try {
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1, username);
+                ResultSet resultSet = preparedStatement.executeQuery();
+                return resultSet.first();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    public Utilisateur isValidPassword(String username, char[] password) {
+
+        try {
+            Connection connection = HibernateFactory.getSessionFactory().
+                    getSessionFactoryOptions().getServiceRegistry().
+                    getService(ConnectionProvider.class).getConnection();
+            String query = "SELECT idUser FROM Utilisateur where username = ? and password = ?";
+            try {
+                String pw = new String(password);
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1, username);
+                preparedStatement.setString(2, HashPassword.digest(pw, HashPassword.Size.S256));
+                pw = null;
+                ResultSet resultSet = preparedStatement.executeQuery();
+                if (resultSet.first()) {
+                    return find(resultSet.getInt("idUser"));
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

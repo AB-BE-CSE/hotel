@@ -16,20 +16,17 @@ public class Categorie implements java.io.Serializable {
 
     private IntegerProperty idCategorie;
     private StringProperty nom;
-    private StringProperty description;
     private DoubleProperty prix;
 
     public Categorie() {
         idCategorie = new SimpleIntegerProperty();
         this.nom = new SimpleStringProperty();
-        this.description = new SimpleStringProperty();
         this.prix = new SimpleDoubleProperty();
     }
 
-    public Categorie(String nom, String description, Double prix) {
+    public Categorie(String nom, Double prix) {
         idCategorie = new SimpleIntegerProperty();
         this.nom = new SimpleStringProperty(nom);
-        this.description = new SimpleStringProperty(description);
         this.prix = new SimpleDoubleProperty(prix);
 
     }
@@ -43,9 +40,6 @@ public class Categorie implements java.io.Serializable {
         return nom;
     }
 
-    public StringProperty descriptionProperty() {
-        return description;
-    }
 
     public DoubleProperty prixProperty() {
         return prix;
@@ -73,14 +67,6 @@ public class Categorie implements java.io.Serializable {
         this.nom.set(nom);
     }
 
-    @Column(name = "description", length = 20)
-    public String getDescription() {
-        return this.description.get();
-    }
-
-    public void setDescription(String description) {
-        this.description.set(description);
-    }
 
     @Column(name = "prix", precision = 22, scale = 0)
     public Double getPrix() {

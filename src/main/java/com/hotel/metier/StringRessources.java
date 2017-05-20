@@ -24,14 +24,21 @@ public class StringRessources {
     public static final String PLUS = "+";
     public static final String User_Details="User Details";
     public static final String TYPE="Type";
-    public static final String USER = "Nom du compte";
-    public static final String CATEGORIE = "CATEGORIE";
-    public static final String FACTURE = "FACTURE";
-    public static final String PASSWORD ="Tapez votre mots de passe";
+    public static final String CATEGORIE = "Catégorie";
+
     public static final String CONFIRMPASSWORD="Confimez votre mots de passe";
     public static final String MSG_USER_SUCCES="Compte a été enregistrer avec succées";
     public static final String MSG_USER_ERREUR="L'enreigistrement a échoué !";
     public static final String MSG_USER_INVALIDE="Veuiller tapez le meme mot de passe !";
+
+    public static final String USER = "USER";
+    public static final String PASSWORD = "Mot de passe";
+    public static final String FACTURE = "Facture";
+    public static final String CONNECTER = "Se connecter";
+    public static final String SUPPRIMER = "SUPPRIMER";
+    public static final String ERR_LOGIN = "Utilisateur ou mot de passe incorrect";
+
+
 
 
 

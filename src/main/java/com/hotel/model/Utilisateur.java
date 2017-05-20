@@ -58,7 +58,7 @@ public class Utilisateur implements java.io.Serializable {
     @GeneratedValue(strategy = IDENTITY)
 
     @Column(name = "idUser", unique = true, nullable = false)
-    public int getIdUser() {
+    public Integer getIdUser() {
         return this.idUser.get();
     }
 
@@ -93,7 +93,7 @@ public class Utilisateur implements java.io.Serializable {
         this.tel.set(tel);
     }
 
-    @Column(name = "type", length = 2)
+    @Column(name = "type", length = 2, nullable = false)
     public String getType() {
         return type.get();
 
@@ -103,7 +103,7 @@ public class Utilisateur implements java.io.Serializable {
         this.type.set(type);
     }
 
-    @Column(name = "username", length = 45)
+    @Column(name = "username", length = 20, unique = true, nullable = false)
     public String getUsername() {
         return this.username.get();
     }
@@ -112,7 +112,7 @@ public class Utilisateur implements java.io.Serializable {
         this.username.set(username);
     }
 
-    @Column(name = "password", length = 64)
+    @Column(name = "password", length = 64, updatable = false)
     public String getPassword() {
         return this.password;
     }
@@ -159,5 +159,6 @@ public class Utilisateur implements java.io.Serializable {
         public String toString() {
             return type;
         }
+
     }
 }

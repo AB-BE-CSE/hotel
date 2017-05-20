@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
+import main.java.com.hotel.login.HashPassword;
 import main.java.com.hotel.metier.StringRessources;
 import main.java.com.hotel.model.Utilisateur;
 import main.java.com.hotel.modeldao.DAOFactory;
@@ -99,7 +100,7 @@ public class CompteDialogController {
         utilisateur.setNom(nom.getText());
         utilisateur.setUsername(nomDuCompte.getText());
         utilisateur.setPrenom(prenom.getText());
-        utilisateur.setPassword(password.getText());
+        utilisateur.setPassword(HashPassword.digest(password.getText(), HashPassword.Size.S256));
         utilisateur.setTel(numTel.getText());
         utilisateur.setType(type.getValue().charAt(0) + "");
 
