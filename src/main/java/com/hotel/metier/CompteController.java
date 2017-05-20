@@ -11,11 +11,9 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import main.java.com.hotel.metier.dialogs.CompteDialogController;
@@ -29,7 +27,7 @@ import java.util.Observer;
 
 
 @FXMLController(value = "/main/java/com/hotel/presentation/Compte.fxml", title = "")
-public class CompteController implements Observer {
+public class CompteController implements Observer, Gestion {
 
     @FXMLViewFlowContext
     private ViewFlowContext context;
@@ -56,9 +54,7 @@ public class CompteController implements Observer {
     @PostConstruct
     public void init() throws FlowException, VetoException {
         ajouterCompte.setButtonType(JFXButton.ButtonType.RAISED);
-        ajouterCompte.setOnAction(e -> {
-            CompteDialogController.getInstance().ouvrir((StackPane) context.getRegisteredObject("ContentPane"));
-        });
+        ajouterCompte.setOnAction(e -> ajouter());
         UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
         userColumn.setCellValueFactory(param -> param.getValue().usernameProperty());
 //        typeColumn.setCellValueFactory(param -> param.getValue().typeProperty());
@@ -104,6 +100,15 @@ public class CompteController implements Observer {
         });
 
         CompteDialogController.addObserver(this);
+
+        userTable.setRowFactory(param -> {
+            TableRow<Utilisateur> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty() && event.getButton() == MouseButton.SECONDARY)
+                    DeleteContextMenu.getInstance(this).show(userTable, row.getItem());
+            });
+            return row;
+        });
     }
 
     @Override
@@ -119,13 +124,27 @@ public class CompteController implements Observer {
         tel.setText(utilisateur.getTel());
     }
 
-    private void modifier(Utilisateur utilisateur) {
-        UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
-        utilisateurDAO.update(utilisateur);
+
+    @Override
+    public void ajouter() {
+        CompteDialogController.getInstance().ouvrir((StackPane) context.getRegisteredObject("ContentPane"));
     }
 
-    private void supprimer(Utilisateur utilisateur) {
+    @Override
+    public void modifier(Object utilisateur) {
         UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
-        utilisateurDAO.delete(utilisateur);
+        utilisateurDAO.update((Utilisateur) utilisateur);
+    }
+
+    @Override
+    public void supprimer(Object toDelete) {
+        userTable.getItems().remove(toDelete);
+        UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
+        utilisateurDAO.delete((Utilisateur) toDelete);
+    }
+
+    @Override
+    public void chercher() {
+
     }
 }

@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.StackPane;
 import main.java.com.hotel.login.HashPassword;
 import main.java.com.hotel.metier.StringRessources;
@@ -27,7 +28,7 @@ public class CompteDialogController {
     @FXML
     private JFXDialog dialog;
     @FXML
-    private JFXTextField nomDuCompte;
+    private JFXTextField username;
     @FXML
     private JFXPasswordField password;
     @FXML
@@ -46,11 +47,21 @@ public class CompteDialogController {
 //            numTel.textProperty().addListener((observable, oldValue, newValue) -> {
 //                numTel.validate();
 //            });
+            dialog.setOnDialogOpened(e -> {
+                username.requestFocus();
+            });
             type.getItems().addAll(Utilisateur.Type.ADMIN.toString(), Utilisateur.Type.CHEF.toString(), Utilisateur.Type.RECEPTIONISTE.toString());
             clear();
             dialog.setOnDialogClosed(e -> {
                 Platform.runLater(() -> clear());
             });
+            type.getEditor().setOnKeyPressed(e -> {
+                if (e.getCode() == KeyCode.TAB) {
+                    nom.requestFocus();
+                }
+
+            });
+
         });
     }
 
@@ -80,7 +91,7 @@ public class CompteDialogController {
         if (!numTel.validate())
             erreur = true;
 
-        if (!nomDuCompte.validate())
+        if (!username.validate())
             erreur = true;
 
         if (!password.validate())
@@ -98,7 +109,7 @@ public class CompteDialogController {
 
         Utilisateur utilisateur = new Utilisateur();
         utilisateur.setNom(nom.getText());
-        utilisateur.setUsername(nomDuCompte.getText());
+        utilisateur.setUsername(username.getText());
         utilisateur.setPrenom(prenom.getText());
         utilisateur.setPassword(HashPassword.digest(password.getText(), HashPassword.Size.S256));
         utilisateur.setTel(numTel.getText());
@@ -123,7 +134,7 @@ public class CompteDialogController {
     private void clear() {
         nom.setText("");
         prenom.setText("");
-        nomDuCompte.setText("");
+        username.setText("");
         password.setText("");
         confirmPass.setText("");
         type.setValue("");
