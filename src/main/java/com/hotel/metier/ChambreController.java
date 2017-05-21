@@ -1,12 +1,18 @@
 package main.java.com.hotel.metier;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import io.datafx.controller.FXMLController;
 import io.datafx.controller.flow.FlowException;
 import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import io.datafx.controller.util.VetoException;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -17,7 +23,9 @@ import javafx.scene.layout.StackPane;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import main.java.com.hotel.metier.dialogs.ChambreDialogController;
+import main.java.com.hotel.model.Categorie;
 import main.java.com.hotel.model.Chambre;
+import main.java.com.hotel.modeldao.CategorieDAO;
 import main.java.com.hotel.modeldao.ChambreDAO;
 import main.java.com.hotel.modeldao.DAOFactory;
 
@@ -48,7 +56,7 @@ public class ChambreController implements Observer, Gestion {
     @FXML
     private TableColumn<Chambre, Integer> etageColumn;
     @FXML
-    private TableColumn<Chambre, String> categorieColumn;
+    private TableColumn<Chambre, ObjectProperty<Categorie>> categorieColumn;
     @FXML
     private TableColumn<Chambre, Double> prixColumn;
     @FXML
@@ -61,7 +69,7 @@ public class ChambreController implements Observer, Gestion {
         ajouterChambre.setOnAction(event -> ajouter());
         findAll();
         idColumn.setCellValueFactory(param -> param.getValue().idChambreProperty().asObject());
-        categorieColumn.setCellValueFactory(param -> param.getValue().getCategorie().nomProperty());
+//        categorieColumn.setCellValueFactory(param -> param.getValue().getCategorie().nomProperty());
         prixColumn.setCellValueFactory(param -> param.getValue().getCategorie().prixProperty().asObject());
         numColumn.setCellValueFactory(param -> param.getValue().numeroChambreProperty().asObject());
         etageColumn.setCellValueFactory(param -> param.getValue().etageProperty().asObject());
@@ -112,7 +120,38 @@ public class ChambreController implements Observer, Gestion {
             });
             return row;
         });
+        categorieColumn.setCellValueFactory(i -> {
+            ObjectProperty<Categorie> value = new SimpleObjectProperty(i.getValue().getCategorie());
 
+            return Bindings.createObjectBinding(() -> value);
+        });
+
+        categorieColumn.setCellFactory(col -> {
+            TableCell<Chambre, ObjectProperty<Categorie>> c = new TableCell<>();
+            final JFXComboBox<Categorie> comboBox = new JFXComboBox<>();
+            comboBox.getItems().addAll(((CategorieDAO) DAOFactory.getDAO(StringRessources.CATEGORIE)).findAll());
+
+            comboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                Chambre chambre = (Chambre) c.getTableRow().getItem();
+                if (chambre == null)
+                    return;
+
+                chambre.setCategorie(newValue);
+                modifier(chambre);
+                chambreTableau.refresh();
+
+            });
+            c.itemProperty().addListener((observable, oldValue, newValue) -> {
+                if (oldValue != null) {
+                    comboBox.valueProperty().unbindBidirectional(oldValue);
+                }
+                if (newValue != null) {
+                    comboBox.valueProperty().bindBidirectional(newValue);
+                }
+            });
+            c.graphicProperty().bind(Bindings.when(c.emptyProperty()).then((Node) null).otherwise(comboBox));
+            return c;
+        });
     }
 
     private void findAll() {
