@@ -1,0 +1,101 @@
+<?import com.jfoenix.controls.*?>
+<?import main.java.com.hotel.metier.StringRessources?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import com.jfoenix.validation.NumberValidator?>
+<?import de.jensd.fx.fontawesome.Icon?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
+<JFXDialog xmlns:fx="http://javafx.com/fxml/1"
+           xmlns="http://javafx.com/javafx/8"
+           fx:controller="main.java.com.hotel.metier.dialogs.ClientDialogController" fx:id="dialog">
+    <JFXDialogLayout>
+        <heading>
+            <Label>
+                <text>
+                    <StringRessources fx:constant="TITRE"/>
+                </text>
+            </Label>
+        </heading>
+        <body>
+            <VBox prefWidth="300.0" spacing="40">
+                <children>
+                    <JFXTextField fx:id="nom" labelFloat="true" prefHeight="25.0" prefWidth="394.0">
+                        <validators>
+                            <RequiredFieldValidator>
+                                <message>
+                                    <StringRessources fx:constant="MESSAGEERREUR"/>
+                                </message>
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family: FontAwesome;"/>
+                            </RequiredFieldValidator>
+
+                        </validators>
+                        <promptText>
+                            <StringRessources fx:constant="NOM"/>
+                        </promptText>
+
+                    </JFXTextField>
+                    <JFXTextField fx:id="prenom" labelFloat="true">
+                        <validators>
+                            <RequiredFieldValidator>
+                                <message>
+                                    <StringRessources fx:constant="MESSAGEERREUR"/>
+                                </message>
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family:FontAwesome;"/>
+                            </RequiredFieldValidator>
+                        </validators>
+                        <promptText>
+                            <StringRessources fx:constant="PRENOM"/>
+                        </promptText>
+                    </JFXTextField>
+                    <JFXDatePicker fx:id="date">
+                        <promptText>
+                            <StringRessources fx:constant="DATENAISSANCE"/>
+                        </promptText>
+                    </JFXDatePicker>
+                    <JFXTextField fx:id="numeroTel" labelFloat="true">
+                        <validators>
+                            <NumberValidator message="Entrer que des chiffres">
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family:FontAwesome;"/>
+                            </NumberValidator>
+                        </validators>
+                        <promptText>
+                            <StringRessources fx:constant="NUMTEL"/>
+                        </promptText>
+
+                    </JFXTextField>
+                    <JFXTextField fx:id="numeroPieceEntite" labelFloat="true">
+                        <validators>
+                            <NumberValidator>
+                                <message>
+                                    <StringRessources fx:constant="MESSAGEERREUR"/>
+                                </message>
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family:FontAwesome;"/>
+                            </NumberValidator>
+                        </validators>
+                        <promptText>
+                            <StringRessources fx:constant="NUMPIECEENTITE"/>
+                        </promptText>
+
+                    </JFXTextField>
+                </children>
+                <padding>
+                    <Insets left="30.0" top="30" bottom="30" right="30.0"/>
+                </padding>
+            </VBox>
+        </body>
+        <actions>
+            <JFXButton styleClass="dialog-accept" onAction="#enregistrer">
+                <text>
+                    <StringRessources fx:constant="ENREGISTRER"/>
+                </text>
+            </JFXButton>
+            <JFXButton styleClass="dialog-accept" onAction="#annuler">
+                <text>
+                    <StringRessources fx:constant="ANNULER"/>
+
+                </text>
+            </JFXButton>
+        </actions>
+    </JFXDialogLayout>
+</JFXDialog>

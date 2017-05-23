@@ -15,6 +15,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import main.java.com.hotel.model.Client;
+import main.java.com.hotel.modeldao.ClientDAO;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
@@ -22,7 +24,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 @FXMLController(value = "/main/java/com/hotel/presentation/Main.fxml", title = StringRessources.TITRE)
-public class Main implements Observer {
+public class MainController implements Observer {
 
     @FXMLViewFlowContext
     private ViewFlowContext context;
@@ -99,6 +101,7 @@ public class Main implements Observer {
 //        EtudiantDAO.addObserver(this);
 //        EmployeDAO.addObserver(this);
 //        FsessionDAO.addObserver(this);
+        ClientDAO.addObserver(this);
     }
 
     @Override
