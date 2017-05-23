@@ -6,20 +6,66 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import main.java.com.hotel.metier.StringRessources?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root"
-           xmlns="http://javafx.com/javafx/2.2" >
+           xmlns="http://javafx.com/javafx/2.2">
     <AnchorPane fx:id="content">
         <children>
-            <JFXButton  fx:id="ajouterChambre" styleClass="animated-option-button" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="20">
+            <JFXButton fx:id="ajouterChambre" styleClass="animated-option-button" AnchorPane.bottomAnchor="20"
+                       AnchorPane.rightAnchor="20" buttonType="RAISED">
                 <text>
                     <StringRessources fx:constant="PLUS"/>
-                    <!--
-                        commentaire
-                    -->
                 </text>
 
+
             </JFXButton>
+            <TableView layoutY="86.0" prefHeight="400.0" prefWidth="700.0" AnchorPane.rightAnchor="95"
+                       AnchorPane.bottomAnchor="20" fx:id="chambreTableau"
+                       AnchorPane.leftAnchor="20" AnchorPane.topAnchor="20">
+
+                <columns>
+                    <TableColumn fx:id="idColumn" prefWidth="75.0">
+                        <text>
+                            <StringRessources fx:constant="ID"/>
+                        </text>
+                    </TableColumn>
+                    <TableColumn fx:id="numColumn" prefWidth="75.0" text="Num">
+                        <text>
+                            <StringRessources fx:constant="NUM"/>
+                        </text>
+                    </TableColumn>
+                    <TableColumn fx:id="etageColumn" prefWidth="75.0">
+                        <text>
+                            <StringRessources fx:constant="ETAGE"/>
+                        </text>
+                    </TableColumn>
+                    <TableColumn fx:id="categorieColumn" prefWidth="75.0">
+                        <text>
+                            <StringRessources fx:constant="CATEGORIE"/>
+                        </text>
+                    </TableColumn>
+                    <TableColumn fx:id="prixColumn" prefWidth="75.0" text="Prix">
+                        <text>
+                            <StringRessources fx:constant="PRIX"/>
+                        </text>
+                    </TableColumn>
+                    <TableColumn fx:id="descriptionColumn" prefWidth="75.0">
+                        <text>
+                            <StringRessources fx:constant="DESCRIPTION"/>
+                        </text>
+                    </TableColumn>
+                    <TableColumn fx:id="etatColumn" prefWidth="75.0">
+                        <text>
+                            <StringRessources fx:constant="ETAT"/>
+                        </text>
+                    </TableColumn>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
         </children>
     </AnchorPane>
 </StackPane>
-

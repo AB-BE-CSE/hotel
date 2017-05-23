@@ -15,6 +15,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import main.java.com.hotel.metier.dialogs.CompteDialogController;
+import main.java.com.hotel.modeldao.UtilisateurDAO;
+import main.java.com.hotel.model.Client;
+import main.java.com.hotel.modeldao.ClientDAO;
+import main.java.com.hotel.modeldao.CategorieDAO;
+import main.java.com.hotel.modeldao.ChambreDAO;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
@@ -96,9 +102,11 @@ public class MainController implements Observer {
         drawer.setSidePane(sideMenuFlowHandler.start(new AnimatedFlowContainer(Duration.millis(320), ContainerAnimations.SWIPE_LEFT)));
 
         // add the main controller as an observer to DAO Model
-//        EtudiantDAO.addObserver(this);
-//        EmployeDAO.addObserver(this);
-//        FsessionDAO.addObserver(this);
+        UtilisateurDAO.addObserver(this);
+        CompteDialogController.addObserver(this);
+        ChambreDAO.addObserver(this);
+        CategorieDAO.addObserver(this);
+        ClientDAO.addObserver(this);
     }
 
     @Override

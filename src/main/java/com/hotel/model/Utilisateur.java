@@ -19,6 +19,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Proxy(lazy=false)
 public class Utilisateur implements java.io.Serializable {
 
+
     private IntegerProperty idUser;
     private StringProperty nom;
     private StringProperty prenom;
@@ -95,9 +96,11 @@ public class Utilisateur implements java.io.Serializable {
         this.tel.set(tel);
     }
 
-    @Column(name = "type", length = 2, nullable = false)
+    @Column(name = "type", nullable = false)
     public String getType() {
-        return this.type.get();
+
+        return type.get();
+
     }
 
     public void setType(String type) {
@@ -157,32 +160,21 @@ public class Utilisateur implements java.io.Serializable {
     }
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public enum Type {
+        ADMIN("ADMIN"),
+        CHEF("CHEF"),
+        RECEPTIONISTE("RECEPTIONISTE");
+        private final String type;
 
-        Utilisateur that = (Utilisateur) o;
+        private Type(String type) {
+            this.type = type;
+        }
 
-        if (getIdUser() != null ? getIdUser() != (that.getIdUser()) : that.getIdUser() != null) return false;
-        if (getNom() != null ? !getNom().equals(that.getNom()) : that.getNom() != null) return false;
-        if (getPrenom() != null ? !getPrenom().equals(that.getPrenom()) : that.getPrenom() != null) return false;
-        if (getTel() != null ? !getTel().equals(that.getTel()) : that.getTel() != null) return false;
-        if (getType() != null ? !getType().equals(that.getType()) : that.getType() != null) return false;
-        if (getUsername() != null ? !getUsername().equals(that.getUsername()) : that.getUsername() != null)
-            return false;
-        return getPassword() != null ? getPassword().equals(that.getPassword()) : that.getPassword() == null;
+        @Override
+        public String toString() {
+            return type;
+        }
+
     }
 
-    @Override
-    public int hashCode() {
-        int result = idUserProperty() != null ? getIdUser().hashCode() : 0;
-        result = 31 * result + (getNom() != null ? getNom().hashCode() : 0);
-        result = 31 * result + (getPrenom() != null ? getPrenom().hashCode() : 0);
-        result = 31 * result + (getTel() != null ? getTel().hashCode() : 0);
-        result = 31 * result + (getType() != null ? getType().hashCode() : 0);
-        result = 31 * result + (getUsername() != null ? getUsername().hashCode() : 0);
-        result = 31 * result + (getPassword() != null ? getPassword().hashCode() : 0);
-        return result;
-    }
 }

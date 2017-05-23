@@ -1,0 +1,3 @@
+select idR,dateArrivé,dateSortie, Nom.User, nom.Client,somme
+from Reservation,User,Client,Facture
+where idU.Reservation=idU.User  AND idCl.Reservation=idCl.Client AND idP.Reservation=idP.Facture AND Between ;

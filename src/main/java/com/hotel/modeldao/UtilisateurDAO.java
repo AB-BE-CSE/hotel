@@ -1,7 +1,8 @@
 package main.java.com.hotel.modeldao;
 
-import main.java.com.hotel.login.HashPassword;
 import main.java.com.hotel.model.Utilisateur;
+import main.java.com.hotel.metier.StringRessources;
+import main.java.com.hotel.login.HashPassword;
 import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
 
 import java.sql.Connection;
@@ -46,9 +47,9 @@ public class UtilisateurDAO extends DAO {
 
         try {
             super.saveOrUpdate(utilisateur);
-//            updateObservers(StringRessource.MSG_ETD_SUCCES);
+            updateObservers(StringRessources.MSG_USER_SUCCES);
         } catch (DataAccessLayerException e) {
-//            updateObservers(StringRessources.MSG_ETD_ERREUR);
+            updateObservers(StringRessources.MSG_USER_ERREUR);
         }
     }
 
