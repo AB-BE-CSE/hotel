@@ -18,7 +18,6 @@ public class StringRessources {
     public static final String TEL = "Tél :";
     public static final String RECHERCHE = "Recherche";
     public static final String CHAMBRE = "Chambre";
-    public static final String CLIENT = "Client";
     public static final String COMPTE = "Compte";
     public static final String RESERVATION = "Reservation";
     public static final String HISTORIQUE = "Historique";
@@ -38,7 +37,12 @@ public class StringRessources {
     public static final String NUMTEL = "Num. téléphone";
     public static final String NUMPIECEENTITE = "Num. p. entité";
 
-
+    public static final String DE = "De";
+    public static final String A = "A";
+    public static final String CLIENT = "Client";
+    public static final String DATEARRIVEE = "Date Arrivée";
+    public static final String DATESORTIE = "Date Sortie";
+    public static final String TOTAL = "Total";
     public static final String CAPACITE = "Capacité";
     public static final String NUM = "Num";
     public static final String CATEGORIE = "Catégorie";

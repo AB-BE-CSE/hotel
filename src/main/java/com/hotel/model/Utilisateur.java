@@ -17,6 +17,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Table(name = "utilisateur", catalog = "hotel")
 public class Utilisateur implements java.io.Serializable {
 
+
     private IntegerProperty idUser;
     private StringProperty nom;
     private StringProperty prenom;
@@ -162,4 +163,5 @@ public class Utilisateur implements java.io.Serializable {
         }
 
     }
+
 }

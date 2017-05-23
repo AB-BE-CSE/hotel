@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import main.java.com.hotel.login.LoginController;
+import main.java.com.hotel.metier.MainController;
 import main.java.com.hotel.modeldao.HibernateFactory;
 
 public class Main extends Application {

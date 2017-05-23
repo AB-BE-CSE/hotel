@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
+
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root"
            xmlns="http://javafx.com/javafx/2.2">
     <AnchorPane fx:id="content">
@@ -17,6 +18,8 @@
                 <text>
                     <StringRessources fx:constant="PLUS"/>
                 </text>
+
+
             </JFXButton>
             <TableView layoutY="86.0" prefHeight="400.0" prefWidth="700.0" AnchorPane.rightAnchor="95"
                        AnchorPane.bottomAnchor="20" fx:id="chambreTableau"
