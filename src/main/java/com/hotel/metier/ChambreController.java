@@ -1,21 +1,19 @@
 package main.java.com.hotel.metier;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
 import io.datafx.controller.FXMLController;
 import io.datafx.controller.flow.FlowException;
 import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import io.datafx.controller.util.VetoException;
-import javafx.beans.binding.Bindings;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
@@ -56,7 +54,7 @@ public class ChambreController implements Observer, Gestion {
     @FXML
     private TableColumn<Chambre, Integer> etageColumn;
     @FXML
-    private TableColumn<Chambre, ObjectProperty<Categorie>> categorieColumn;
+    private TableColumn<Chambre, Categorie> categorieColumn;
     @FXML
     private TableColumn<Chambre, Double> prixColumn;
     @FXML
@@ -120,37 +118,20 @@ public class ChambreController implements Observer, Gestion {
             });
             return row;
         });
-        categorieColumn.setCellValueFactory(i -> {
-            ObjectProperty<Categorie> value = new SimpleObjectProperty(i.getValue().getCategorie());
+        categorieColumn.setCellValueFactory(i -> new SimpleObjectProperty<>(i.getValue().getCategorie()));
 
-            return Bindings.createObjectBinding(() -> value);
-        });
 
-        categorieColumn.setCellFactory(col -> {
-            TableCell<Chambre, ObjectProperty<Categorie>> c = new TableCell<>();
-            final JFXComboBox<Categorie> comboBox = new JFXComboBox<>();
-            comboBox.getItems().addAll(((CategorieDAO) DAOFactory.getDAO(StringRessources.CATEGORIE)).findAll());
+        ObservableList<Categorie> categories = FXCollections.observableArrayList(
+                ((CategorieDAO) DAOFactory.getDAO(StringRessources.CATEGORIE)).findAll());
+        categorieColumn.setCellFactory(ComboBoxTableCell.forTableColumn(categories));
+        categorieColumn.setOnEditCommit(event -> {
+            Chambre chambre = (Chambre) event.getRowValue();
+            if (chambre == null)
+                return;
 
-            comboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                Chambre chambre = (Chambre) c.getTableRow().getItem();
-                if (chambre == null)
-                    return;
-
-                chambre.setCategorie(newValue);
-                modifier(chambre);
-                chambreTableau.refresh();
-
-            });
-            c.itemProperty().addListener((observable, oldValue, newValue) -> {
-                if (oldValue != null) {
-                    comboBox.valueProperty().unbindBidirectional(oldValue);
-                }
-                if (newValue != null) {
-                    comboBox.valueProperty().bindBidirectional(newValue);
-                }
-            });
-            c.graphicProperty().bind(Bindings.when(c.emptyProperty()).then((Node) null).otherwise(comboBox));
-            return c;
+            chambre.setCategorie(event.getNewValue());
+            modifier(chambre);
+            chambreTableau.refresh();
         });
     }
 
@@ -163,7 +144,9 @@ public class ChambreController implements Observer, Gestion {
     @Override
     public void update(Observable o, Object arg) {
         if (arg instanceof Chambre) {
-            chambreTableau.getItems().add((Chambre) arg);
+            Chambre chambre = (Chambre) arg;
+            if (chambre.getIdChambre() != 0)
+                chambreTableau.getItems().add((Chambre) arg);
         }
     }
 

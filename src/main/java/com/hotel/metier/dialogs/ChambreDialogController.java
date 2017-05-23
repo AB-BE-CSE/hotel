@@ -98,12 +98,12 @@ public class ChambreDialogController implements Observer {
 
         int fin = Integer.valueOf(numFIN.getText());
         int debut = Integer.valueOf(numDebut.getText());
-        int eta = Integer.valueOf(etage.getText());
+        int etage= Integer.valueOf(this.etage.getText());
 
         for (int i = debut; i <= fin; i++) {
             Chambre chambre = new Chambre();
             chambre.setNumeroChambre(i);
-            chambre.setEtage(Integer.valueOf(etage.getText()));
+            chambre.setEtage(etage);
             chambre.setChecked(false);
             chambre.setCategorie(categorie.getValue());
             ChambreDAO chambreDAO = (ChambreDAO) DAOFactory.getDAO(StringRessources.CHAMBRE);
