@@ -15,104 +15,122 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Table(name = "client", catalog = "hotel")
 public class Client implements java.io.Serializable {
 
-	private IntegerProperty idClient;
-	private StringProperty nom;
-	private StringProperty prenom;
-	private ObjectProperty<Date> dateNaissance;
-	private StringProperty tel;
 
 
-	public Client() {
-		this.idClient = new SimpleIntegerProperty();
-		this.nom = new SimpleStringProperty();
-		this.prenom = new SimpleStringProperty();
-		this.dateNaissance = new SimpleObjectProperty<>();
-		this.tel = new SimpleStringProperty();
-	}
+    private IntegerProperty idClient;
+    private StringProperty nom;
+    private StringProperty prenom;
+    private ObjectProperty<Date> dateNaissance;
+    private StringProperty tel;
+    private StringProperty numeroPieceIdentite;
 
-	public Client(int idClient) {
-		this.idClient = new SimpleIntegerProperty(idClient);
-		this.nom = new SimpleStringProperty();
-		this.prenom = new SimpleStringProperty();
-		this.dateNaissance = new SimpleObjectProperty<>();
-		this.tel = new SimpleStringProperty();
-	}
+    public Client() {
+        this.idClient = new SimpleIntegerProperty();
+        this.nom = new SimpleStringProperty();
+        this.prenom = new SimpleStringProperty();
+        this.dateNaissance = new SimpleObjectProperty<>();
+        this.tel = new SimpleStringProperty();
+        numeroPieceIdentite = new SimpleStringProperty();
+    }
 
-	public Client(int idClient, String nom, String prenom, Date dateNaissance, String tel) {
-		this.idClient = new SimpleIntegerProperty(idClient);
-		this.nom = new SimpleStringProperty(nom);
-		this.prenom = new SimpleStringProperty(prenom);
-		this.dateNaissance = new SimpleObjectProperty<>(dateNaissance);
-		this.tel = new SimpleStringProperty(tel);
+    public Client(int idClient) {
+        this.idClient = new SimpleIntegerProperty(idClient);
+        this.nom = new SimpleStringProperty();
+        this.prenom = new SimpleStringProperty();
+        this.dateNaissance = new SimpleObjectProperty<>();
+        this.tel = new SimpleStringProperty();
+        numeroPieceIdentite = new SimpleStringProperty();
+    }
 
-	}
+    public Client(int idClient, String nom, String prenom, Date dateNaissance, String tel) {
+        this.idClient = new SimpleIntegerProperty(idClient);
+        this.nom = new SimpleStringProperty(nom);
+        this.prenom = new SimpleStringProperty(prenom);
+        this.dateNaissance = new SimpleObjectProperty<>(dateNaissance);
+        this.tel = new SimpleStringProperty(tel);
+        numeroPieceIdentite = new SimpleStringProperty();
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
+    }
 
-	@Column(name = "idClient", unique = true, nullable = false)
-	public int getIdClient() {
-		return this.idClient.get();
-	}
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
 
-	public void setIdClient(int idClient) {
-		this.idClient.set(idClient);
-	}
+    @Column(name = "idClient", unique = true, nullable = false)
+    public int getIdClient() {
+        return this.idClient.get();
+    }
 
-	@Column(name = "nom", length = 50)
-	public String getNom() {
-		return this.nom.get();
-	}
+    public void setIdClient(int idClient) {
+        this.idClient.set(idClient);
+    }
 
-	public void setNom(String nom) {
-		this.nom.set(nom);
-	}
+    @Column(name = "nom", length = 20)
+    public String getNom() {
+        return this.nom.get();
+    }
 
-	@Column(name = "prenom", length = 50)
-	public String getPrenom() {
-		return this.prenom.get();
-	}
+    public void setNom(String nom) {
+        this.nom.set(nom);
+    }
 
-	public void setPrenom(String prenom) {
-		this.prenom.set(prenom);
-	}
+    @Column(name = "prenom", length = 20)
+    public String getPrenom() {
+        return this.prenom.get();
+    }
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "dateNaissance", length = 10)
-	public Date getDateNaissance() {
-		return this.dateNaissance.get();
-	}
+    public void setPrenom(String prenom) {
+        this.prenom.set(prenom);
+    }
 
-	public void setDateNaissance(Date dateNaissance) {
-		this.dateNaissance.set(dateNaissance);
-	}
+    @Temporal(TemporalType.DATE)
+    @Column(name = "dateNaissance", length = 10)
+    public Date getDateNaissance() {
+        return this.dateNaissance.get();
+    }
 
-	@Column(name = "tel", length = 15)
-	public String getTel() {
-		return this.tel.get();
-	}
+    public void setDateNaissance(Date dateNaissance) {
+        this.dateNaissance.set(dateNaissance);
+    }
 
-	public void setTel(String tel) {
-		this.tel.set(tel);
-	}
+    @Column(name = "tel", length = 10)
+    public String getTel() {
+        return this.tel.get();
+    }
 
-	public IntegerProperty idClientProperty() {
-		return idClient;
-	}
+    @Column(name = "numeroPieceIdentite", length = 25)
+    public String getNumeroPieceIdentite() {
+        return numeroPieceIdentite.get();
+    }
 
-	public StringProperty nomProperty() {
-		return nom;
-	}
+    public void setNumeroPieceIdentite(String numeroPieceIdentite) {
+        this.numeroPieceIdentite.set(numeroPieceIdentite);
+    }
 
-	public StringProperty prenomProperty() {
-		return prenom;
-	}
+    public StringProperty numeroPieceIdentiteProperty() {
+        return numeroPieceIdentite;
+    }
 
-	public ObjectProperty<Date> dateNaissanceProperty() {
-		return dateNaissance;
-	}
+    public void setTel(String tel) {
+        this.tel.set(tel);
+    }
 
-	public StringProperty telProperty() {
-		return tel;
-	}
+    public IntegerProperty idClientProperty() {
+        return idClient;
+    }
+
+    public StringProperty nomProperty() {
+        return nom;
+    }
+
+    public StringProperty prenomProperty() {
+        return prenom;
+    }
+
+    public ObjectProperty<Date> dateNaissanceProperty() {
+        return dateNaissance;
+    }
+
+    public StringProperty telProperty() {
+        return tel;
+    }
 }

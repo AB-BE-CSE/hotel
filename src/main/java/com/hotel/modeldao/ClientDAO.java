@@ -43,6 +43,7 @@ public class ClientDAO extends DAO {
             super.saveOrUpdate(client);
             updateObservers(StringRessources.MSG_CLIENT_SUCCES);
         } catch (DataAccessLayerException e) {
+            e.printStackTrace();
             updateObservers(StringRessources.MSG_CLIENT_ERREUR);
         }
     }

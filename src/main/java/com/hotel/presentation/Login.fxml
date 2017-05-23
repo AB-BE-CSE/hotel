@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.fontawesome.Icon?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import main.java.com.hotel.metier.StringRessources?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root"
+           xmlns="http://javafx.com/javafx/2.2" prefWidth="400" prefHeight="500">
+    <AnchorPane fx:id="content">
+        <children>
+            <JFXToolbar AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                        AnchorPane.topAnchor="0">
+                    <leftItems>
+                        <Label>
+                            <text>
+                                <StringRessources fx:constant="TITRE"/>
+                            </text>
+                        </Label>
+                    </leftItems>
+            </JFXToolbar>
+            <VBox
+                  style="-fx-background-color:white; -fx-padding:16px" spacing="8" alignment="CENTER"
+                  AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                  AnchorPane.topAnchor="64">
+
+                <HBox spacing="10" alignment="CENTER">
+                    <Icon awesomeIcon="USER" size="1.5em" style=";"
+                          styleClass="option-jfx-list-view-icon"/>
+                    <JFXTextField HBox.hgrow="ALWAYS" fx:id="username">
+                        <promptText>
+                            <StringRessources fx:constant="USER"/>
+                        </promptText>
+                    </JFXTextField>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER">
+                    <Icon awesomeIcon="LOCK" size="1.5em" style=";"
+                          styleClass="option-jfx-list-view-icon"/>
+                    <JFXPasswordField HBox.hgrow="ALWAYS"
+                                      onKeyPressed="#handlePasswordKeyPressed" fx:id="password">
+                        <promptText>
+                            <StringRessources fx:constant="PASSWORD"/>
+                        </promptText>
+                    </JFXPasswordField>
+                </HBox>
+
+                <Label fx:id="erreur" style="-fx-text-fill:red"/>
+
+                <JFXButton styleClass="custom-jfx-button-raised " onAction="#login">
+                    <text>
+                        <StringRessources fx:constant="CONNECTER"/>
+                    </text>
+                </JFXButton>
+
+            </VBox>
+        </children>
+    </AnchorPane>
+</StackPane>
+

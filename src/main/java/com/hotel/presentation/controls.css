@@ -358,16 +358,20 @@
 
 
 .custom-jfx-button-raised .jfx-rippler{
-	-jfx-rippler-fill: YELLOW;
+	-jfx-rippler-fill: white;
 }
+
 
 .custom-jfx-button-raised  {
 	-fx-padding: 0.7em 0.57em;
 	-fx-font-size: 14.0px;
 	-jfx-button-type: RAISED;
-	-fx-background-color: rgb(102.0,153.0,102.0);
+	-fx-background-color:  #5264AE;
 	-fx-pref-width: 200.0;
 	-fx-text-fill: WHITE;
+}
+.custom-jfx-button-raised:hover  {
+	-fx-background-color:  #12448E;
 }
 
 /*******************************************************************************

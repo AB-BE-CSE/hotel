@@ -62,6 +62,9 @@ public class ClientDialogController {
             dialog.setOnDialogClosed(e -> {
                 clear();
             });
+            dialog.setOnDialogOpened(e -> {
+                nom.requestFocus();
+            });
         });
     }
 
@@ -82,14 +85,26 @@ public class ClientDialogController {
 
     @FXML
     private void enregistrer() {
-        if (!numeroTel.validate() || !nom.validate() || !prenom.validate())
+        boolean erreur = false;
+        if (!numeroTel.validate())
+            erreur = true;
+        if (!nom.validate())
+            erreur = true;
+        if (!prenom.validate())
+            erreur = true;
+        if (!numeroPieceEntite.validate())
+            erreur = true;
+
+        if (erreur)
             return;
         Client client = new Client();
         client.setNom(nom.getText());
         client.setPrenom(prenom.getText());
         client.setTel(numeroTel.getText());
         client.setDateNaissance(Date.from(date.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        client.setNumeroPieceIdentite(numeroPieceEntite.getText());
         ClientDAO clientDAO = (ClientDAO) DAOFactory.getDAO(StringRessources.CLIENT);
+
         clientDAO.create(client);
         updateObservers(client);
         dialog.close();
@@ -106,6 +121,10 @@ public class ClientDialogController {
     }
 
     private void clear() {
-
+        nom.setText("");
+        prenom.setText("");
+        date.setValue(LocalDate.now());
+        numeroTel.setText("");
+        numeroPieceEntite.setText("");
     }
 }

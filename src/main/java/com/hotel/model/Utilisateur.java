@@ -58,7 +58,7 @@ public class Utilisateur implements java.io.Serializable {
     @GeneratedValue(strategy = IDENTITY)
 
     @Column(name = "idUser", unique = true, nullable = false)
-    public int getIdUser() {
+    public Integer getIdUser() {
         return this.idUser.get();
     }
 
@@ -93,7 +93,7 @@ public class Utilisateur implements java.io.Serializable {
         this.tel.set(tel);
     }
 
-    @Column(name = "type", length = 2)
+    @Column(name = "type", length = 2, nullable = false)
     public String getType() {
         return this.type.get();
     }
@@ -102,7 +102,7 @@ public class Utilisateur implements java.io.Serializable {
         this.type.set(type);
     }
 
-    @Column(name = "username", length = 45)
+    @Column(name = "username", length = 20, unique = true, nullable = false)
     public String getUsername() {
         return this.username.get();
     }
@@ -111,7 +111,7 @@ public class Utilisateur implements java.io.Serializable {
         this.username.set(username);
     }
 
-    @Column(name = "password", length = 64)
+    @Column(name = "password", length = 64,updatable = false)
     public String getPassword() {
         return this.password;
     }
@@ -142,5 +142,34 @@ public class Utilisateur implements java.io.Serializable {
 
     public StringProperty usernameProperty() {
         return username;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Utilisateur that = (Utilisateur) o;
+
+        if (getIdUser() != null ? getIdUser() != (that.getIdUser()) : that.getIdUser() != null) return false;
+        if (getNom() != null ? !getNom().equals(that.getNom()) : that.getNom() != null) return false;
+        if (getPrenom() != null ? !getPrenom().equals(that.getPrenom()) : that.getPrenom() != null) return false;
+        if (getTel() != null ? !getTel().equals(that.getTel()) : that.getTel() != null) return false;
+        if (getType() != null ? !getType().equals(that.getType()) : that.getType() != null) return false;
+        if (getUsername() != null ? !getUsername().equals(that.getUsername()) : that.getUsername() != null)
+            return false;
+        return getPassword() != null ? getPassword().equals(that.getPassword()) : that.getPassword() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = idUserProperty() != null ? getIdUser().hashCode() : 0;
+        result = 31 * result + (getNom() != null ? getNom().hashCode() : 0);
+        result = 31 * result + (getPrenom() != null ? getPrenom().hashCode() : 0);
+        result = 31 * result + (getTel() != null ? getTel().hashCode() : 0);
+        result = 31 * result + (getType() != null ? getType().hashCode() : 0);
+        result = 31 * result + (getUsername() != null ? getUsername().hashCode() : 0);
+        result = 31 * result + (getPassword() != null ? getPassword().hashCode() : 0);
+        return result;
     }
 }

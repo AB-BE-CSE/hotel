@@ -18,7 +18,7 @@
             </Label>
         </heading>
         <body>
-            <VBox prefWidth="300.0" spacing="30">
+            <VBox prefWidth="300.0" spacing="40">
                 <children>
                     <JFXTextField fx:id="nom" labelFloat="true" prefHeight="25.0" prefWidth="394.0">
                         <validators>
@@ -72,7 +72,6 @@
                                 </message>
                                 <Icon awesomeIcon="WARNING" style="-fx-font-family:FontAwesome;"/>
                             </NumberValidator>
-
                         </validators>
                         <promptText>
                             <StringRessources fx:constant="NUMPIECEENTITE"/>
@@ -81,7 +80,7 @@
                     </JFXTextField>
                 </children>
                 <padding>
-                    <Insets left="30.0" right="20.0"/>
+                    <Insets left="30.0" top="30" bottom="30" right="30.0"/>
                 </padding>
             </VBox>
         </body>
