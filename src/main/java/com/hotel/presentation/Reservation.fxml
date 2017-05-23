@@ -1,15 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ToggleGroup?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.Tab?>
 <?import javafx.scene.layout.*?>
+<?import main.java.com.hotel.metier.layouts.MonthPlanning?>
+<?import main.java.com.hotel.metier.layouts.OneWeekPlanning?>
+<?import main.java.com.hotel.metier.layouts.TwoWeekPlanning?>
+<?import main.java.com.hotel.metier.StringRessources?>
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root"
-           xmlns="http://javafx.com/javafx/2.2" >
+           xmlns="http://javafx.com/javafx/2.2">
     <AnchorPane fx:id="content">
         <children>
+            <JFXTabPane
+                        AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                        AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <tabs>
+                    <Tab>
+                        <text>
+                            <StringRessources fx:constant="MOIS"/>
+                        </text>
+                        <content>
+                            <AnchorPane >
+                                <children>
+                                    <MonthPlanning AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
+                                    </MonthPlanning>
+                                </children>
+                            </AnchorPane>
+                        </content>
+                    </Tab>
+                    <Tab>
+                        <text>
+                            <StringRessources fx:constant="DEUXSEMAINE"/>
+                        </text>
+                        <content>
+                            <AnchorPane >
+                                <children>
+                                    <TwoWeekPlanning AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                                     AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+                                    </TwoWeekPlanning>
+                                </children>
+                            </AnchorPane>
+                        </content>
+                    </Tab>
+                    <Tab>
+                        <text>
+                            <StringRessources fx:constant="UNESEMAINE"/>
+                        </text>
+                        <content>
+                            <AnchorPane >
+                                <children>
+                                    <OneWeekPlanning AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                                     AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+                                    </OneWeekPlanning>
+                                </children>
+                            </AnchorPane>
+                        </content>
+                    </Tab>
+                </tabs>
+            </JFXTabPane>
         </children>
     </AnchorPane>
 </StackPane>

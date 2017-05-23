@@ -1,6 +1,7 @@
 package main.test.com.hotel.modeldao;
 
 import main.java.com.hotel.metier.StringRessources;
+import main.java.com.hotel.model.Usertype;
 import main.java.com.hotel.modeldao.DAOFactory;
 import main.java.com.hotel.modeldao.HibernateFactory;
 import main.java.com.hotel.modeldao.UtilisateurDAO;
@@ -33,10 +34,15 @@ public class UtilisateurDAOTest {
 
     @Test
     public void find() throws Exception {
+        UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
+        Usertype usertype = utilisateurDAO.find(1).getUsertype();
+        Assert.assertEquals(5,usertype.getPermissions().size());
+        System.out.println(usertype.getPermissions());
     }
 
     @Test
     public void update() throws Exception {
+
     }
 
     @Test
@@ -44,7 +50,7 @@ public class UtilisateurDAOTest {
     }
 
     @Test
-    public void isExist() throws  Exception{
+    public void isExist() throws Exception {
         UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
         Assert.assertTrue(utilisateurDAO.isExist("admin"));
 

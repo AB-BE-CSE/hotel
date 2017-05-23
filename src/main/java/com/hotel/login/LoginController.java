@@ -49,6 +49,7 @@ public class LoginController {
         return lc;
     }
 
+
     @PostConstruct
     public void init() throws FlowException, VetoException {
         System.setProperty("java.security.auth.login.config", "login.config");
@@ -87,15 +88,15 @@ public class LoginController {
             Flow flow = new Flow(MainController.class);
             DefaultFlowContainer container = new DefaultFlowContainer();
             ViewFlowContext flowContext = new ViewFlowContext();
-            Stage stage = ((Stage)(context.getRegisteredObject("Stage")));
+            Stage stage = ((Stage) (context.getRegisteredObject("Stage")));
             flowContext.register("Stage", stage);
             stage.close();
 
             flow.createHandler(flowContext).start(container);
-            ((JFXDecorator)stage.getScene().getRoot()).setContent(container.getView());
+            ((JFXDecorator) stage.getScene().getRoot()).setContent(container.getView());
             stage.setHeight(700);
             stage.setWidth(900);
-            ((Stage)(context.getRegisteredObject("Stage"))).show();
+            ((Stage) (context.getRegisteredObject("Stage"))).show();
         } catch (FlowException e) {
             e.printStackTrace();
         }

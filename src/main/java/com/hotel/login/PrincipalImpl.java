@@ -36,6 +36,9 @@ public class PrincipalImpl implements Principal, Serializable {
     }
 
 
+    public Utilisateur getUser() {
+        return user;
+    }
 
     public String toString() {
         return getName();

@@ -48,9 +48,11 @@ CREATE TABLE `chambre` (
   `id_categorie` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`idChambre`),
   KEY `fk_id_caregorie_idx` (`id_categorie`),
-  CONSTRAINT `fk_id_caregorie` FOREIGN KEY (`id_categorie`) REFERENCES `categorie` (`idCategorie`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_id_caregorie` FOREIGN KEY (`id_categorie`) REFERENCES `categorie` (`idCategorie`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+
+ALTER TABLE `hotel`.`chambre`
+ADD UNIQUE INDEX `unique_chambre_etage` (`etage` ASC, `numeroChambre` ASC)  COMMENT '';
 
 
 
@@ -136,6 +138,8 @@ DROP TABLE IF EXISTS `chambre_reservation`;
 CREATE TABLE `chambre_reservation` (
   `id_chambre` int(10) unsigned NOT NULL,
   `id_reservation` int(10) unsigned NOT NULL,
+  check(id_chambre not in(select id_chambre from chambre_reservation,reservation where
+    id_reservation = idReservation and ))
   PRIMARY KEY (`id_chambre`,`id_reservation`),
   KEY `fk_id_reservation_idx` (`id_reservation`),
   CONSTRAINT `fk_id_chambre` FOREIGN KEY (`id_chambre`) REFERENCES `chambre` (`idChambre`) ON DELETE NO ACTION ON UPDATE NO ACTION,

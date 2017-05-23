@@ -1,7 +1,12 @@
 package main.java.com.hotel.modeldao;
 
+import main.java.com.hotel.login.LoginController;
 import main.java.com.hotel.model.Chambre;
+import main.java.com.hotel.model.Permission;
+import main.java.com.hotel.permission.MyPrivilegedAction;
 
+import javax.security.auth.Subject;
+import java.security.AccessControlException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observer;
@@ -39,7 +44,12 @@ public class ChambreDAO extends DAO {
     public void create(Chambre chambre) {
 
         try {
-            super.saveOrUpdate(chambre);
+            try {
+                Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("CHAMBRE", Permission.CREATE));
+                super.saveOrUpdate(chambre);
+            } catch (AccessControlException e) {
+                e.printStackTrace();
+            }
 //            updateObservers(StringRessource.MSG_ETD_SUCCES);
         } catch (DataAccessLayerException e) {
 //            updateObservers(StringRessources.MSG_ETD_ERREUR);

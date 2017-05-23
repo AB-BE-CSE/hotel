@@ -5,6 +5,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 
@@ -15,6 +16,7 @@ import static javax.persistence.GenerationType.IDENTITY;
  */
 @Entity
 @Table(name = "utilisateur", catalog = "hotel")
+@Proxy(lazy=false)
 public class Utilisateur implements java.io.Serializable {
 
     private IntegerProperty idUser;
@@ -24,7 +26,7 @@ public class Utilisateur implements java.io.Serializable {
     private StringProperty type;
     private StringProperty username;
     private String password;
-
+    private Usertype usertype;
 
     public Utilisateur() {
         this.idUser = new SimpleIntegerProperty();
@@ -111,13 +113,23 @@ public class Utilisateur implements java.io.Serializable {
         this.username.set(username);
     }
 
-    @Column(name = "password", length = 64,updatable = false)
+    @Column(name = "password", length = 64, updatable = false)
     public String getPassword() {
         return this.password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "type", nullable = false, insertable = false, updatable = false)
+    public Usertype getUsertype() {
+        return this.usertype;
+    }
+
+    public void setUsertype(Usertype usertype) {
+        this.usertype = usertype;
     }
 
     public IntegerProperty idUserProperty() {
@@ -143,6 +155,7 @@ public class Utilisateur implements java.io.Serializable {
     public StringProperty usernameProperty() {
         return username;
     }
+
 
     @Override
     public boolean equals(Object o) {

@@ -78,7 +78,7 @@ public class PasswordLoginModule implements LoginModule {
         UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
         if (utilisateurDAO.isExist(username)) {
             utilisateur = utilisateurDAO.isValidPassword(username, password);
-            if (utilisateur.getIdUser() != 0) {
+            if (utilisateur != null && utilisateur.getIdUser() != 0) {
                 //If userid and password match, then login is a success
                 loginSuccess = true;
                 clearPassword();

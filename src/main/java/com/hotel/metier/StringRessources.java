@@ -22,12 +22,15 @@ public class StringRessources {
     public static final String RESERVATION = "Reservation";
     public static final String HISTORIQUE = "Historique";
     public static final String PLUS = "+";
-    public static final String USER = "USER";
+    public static final String USER = "Utilisateur";
     public static final String PASSWORD = "Mot de passe";
     public static final String CATEGORIE = "CATEGORIE";
     public static final String FACTURE = "FACTURE";
     public static final String CONNECTER = "Se connecter";
     public static final String SUPPRIMER = "SUPPRIMER";
+    public static final String MOIS = "Mois";
+    public static final String DEUXSEMAINE = "Deux semaine";
+    public static final String UNESEMAINE = "Une semaine";
     public static final String ERR_LOGIN = "Utilisateur ou mot de passe incorrect";
 
 
