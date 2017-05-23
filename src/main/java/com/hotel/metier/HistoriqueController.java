@@ -12,9 +12,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import main.java.com.hotel.model.Reservation;
+import main.java.com.hotel.modeldao.DAOFactory;
+import main.java.com.hotel.modeldao.ReservationDAO;
 
 import javax.annotation.PostConstruct;
-
+import java.time.LocalDate;
+import java.util.Date;
 
 
 @FXMLController(value = "/main/java/com/hotel/presentation/Historique.fxml", title = "")
@@ -34,24 +38,47 @@ public class HistoriqueController {
     @FXML
     private Label totalLabel;
     @FXML
-    private TableView historiqueTable;
+    private TableView<Reservation> historiqueTable;
     @FXML
-    private TableColumn idReservationColumn;
+    private TableColumn<Reservation, Integer> idReservationColumn;
     @FXML
-    private TableColumn userColumn;
+    private TableColumn<Reservation, String> userColumn;
     @FXML
-    private TableColumn clientColumn;
+    private TableColumn<Reservation, String> clientColumn;
     @FXML
-    private TableColumn dateArriveeColumn;
+    private TableColumn<Reservation, Date> dateArriveeColumn;
     @FXML
-    private TableColumn dateSorieColumn;
+    private TableColumn<Reservation, Date> dateSorieColumn;
     @FXML
-    private TableColumn totalColumn;
+    private TableColumn<Reservation, Double> totalColumn;
 
 
     @PostConstruct
     public void init() throws FlowException, VetoException {
 
+        idReservationColumn.setCellValueFactory(param -> param.getValue().idReservationProperty().asObject());
+        userColumn.setCellValueFactory(param -> param.getValue().getUtilisateur().usernameProperty());
+        clientColumn.setCellValueFactory(param -> param.getValue().getClient().nomProperty());
+        dateArriveeColumn.setCellValueFactory(param -> param.getValue().dateArriveProperty());
+        dateSorieColumn.setCellValueFactory(param -> param.getValue().dateSortieProperty());
+        totalColumn.setCellValueFactory(param -> param.getValue().getFacture().sommeProperty().asObject());
+        dateDebutPicker.setValue(LocalDate.now());
+        dateFinPicker.setValue(LocalDate.now());
+        findBetween();
+
+        dateDebutPicker.setOnAction(e -> {
+            findBetween();
+        });
+        dateFinPicker.setOnAction(e -> {
+            findBetween();
+        });
+    }
+
+    private void findBetween() {
+
+        ReservationDAO reservationDAO = (ReservationDAO) DAOFactory.getDAO(StringRessources.RESERVATION);
+        historiqueTable.getItems().clear();
+        historiqueTable.getItems().addAll(reservationDAO.findBetween(null, null));
 
     }
 
