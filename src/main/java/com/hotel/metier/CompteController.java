@@ -97,7 +97,7 @@ public class CompteController implements Observer, Gestion {
                 Utilisateur utilisateur = (Utilisateur) c.getTableRow().getItem();
                 if (utilisateur == null)
                     return;
-                System.out.println(newValue);
+
                 utilisateur.setType(newValue.charAt(0) + "");
                 modifier(utilisateur);
 
