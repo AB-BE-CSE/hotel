@@ -5,7 +5,7 @@ package main.java.com.hotel.metier;
  */
 public interface Gestion {
     void ajouter();
-    void modifier();
-    void supprimer();
+    void modifier(Object object);
+    void supprimer(Object toDelete);
     void chercher();
 }
