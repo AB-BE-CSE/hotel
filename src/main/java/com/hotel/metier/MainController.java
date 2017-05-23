@@ -17,6 +17,8 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import main.java.com.hotel.model.Client;
 import main.java.com.hotel.modeldao.ClientDAO;
+import main.java.com.hotel.modeldao.CategorieDAO;
+import main.java.com.hotel.modeldao.ChambreDAO;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
@@ -98,8 +100,8 @@ public class MainController implements Observer {
         drawer.setSidePane(sideMenuFlowHandler.start(new AnimatedFlowContainer(Duration.millis(320), ContainerAnimations.SWIPE_LEFT)));
 
         // add the main controller as an observer to DAO Model
-//        EtudiantDAO.addObserver(this);
-//        EmployeDAO.addObserver(this);
+        ChambreDAO.addObserver(this);
+        CategorieDAO.addObserver(this);
 //        FsessionDAO.addObserver(this);
         ClientDAO.addObserver(this);
     }

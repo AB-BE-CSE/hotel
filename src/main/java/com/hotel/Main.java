@@ -33,6 +33,7 @@ public class Main extends Application {
         JFXDecorator decorator = new JFXDecorator(stage, container.getView(), false, true, true);
         decorator.setCustomMaximize(true);
         Scene scene = new Scene(decorator, 400, 500);
+
         scene.getStylesheets().add(Main.class.getResource("/css/jfoenix-fonts.css").toExternalForm());
         scene.getStylesheets().add(Main.class.getResource("/css/jfoenix-design.css").toExternalForm());
         scene.getStylesheets().add(Main.class.getResource("/main/java/com/hotel/presentation/controls.css").toExternalForm());
@@ -46,7 +47,6 @@ public class Main extends Application {
         });
         stage.setScene(scene);
         stage.show();
-
 
     }
 

@@ -1,0 +1,76 @@
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import main.java.com.hotel.metier.StringRessources?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.text.Font?>
+<?import com.jfoenix.validation.NumberValidator?>
+<?import com.jfoenix.validation.DoubleValidator?>
+<?import de.jensd.fx.fontawesome.Icon?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
+<JFXDialog xmlns:fx="http://javafx.com/fxml/1"
+           xmlns="http://javafx.com/javafx/8"
+           fx:controller="main.java.com.hotel.metier.dialogs.CategorieDialogController" fx:id="dialog">
+    <JFXDialogLayout>
+        <heading>
+            <Label>
+                <text>
+                    <StringRessources fx:constant="TITRE"/>
+                </text>
+            </Label>
+        </heading>
+        <body>
+            <VBox  prefWidth="300.0" spacing="35.0">
+                <children>
+                    <JFXTextField labelFloat="true" fx:id="nomCategorie">
+                        <validators>
+                            <RequiredFieldValidator message="Veuillez entrer un chiffre">
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family: fontawesome"/>
+                            </RequiredFieldValidator>
+                        </validators>
+                        <promptText>
+                            <StringRessources fx:constant="NOMCATEGORIE"/>
+                        </promptText>
+                    </JFXTextField>
+
+                    <JFXTextField labelFloat="true" fx:id="prix">
+                        <promptText>
+                            <StringRessources fx:constant="PRIX"/>
+                        </promptText>
+                        <validators>
+                            <DoubleValidator message="Veuillez entrer un chiffre">
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family: fontawesome"/>
+                            </DoubleValidator>
+                        </validators>
+                    </JFXTextField>
+
+                    <JFXTextField labelFloat="true" fx:id="description" >
+
+                        <promptText>
+                            <StringRessources fx:constant="DESCRIPTION"/>
+                        </promptText>
+                    </JFXTextField>
+                </children>
+
+            </VBox>
+        </body>
+
+        <actions>
+            <JFXButton styleClass="dialog-accept" onAction="#enregistrer">
+                <text>
+                    <StringRessources fx:constant="ENREGISTRER"/>
+                </text>
+            </JFXButton>
+            <JFXButton styleClass="dialog-accept" onAction="#annuler">
+                <text>
+                    <StringRessources fx:constant="ANNULER"/>
+
+                </text>
+            </JFXButton>
+        </actions>
+    </JFXDialogLayout>
+</JFXDialog>

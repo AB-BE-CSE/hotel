@@ -1,6 +1,5 @@
 package main.java.com.hotel.metier;
 
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
@@ -21,6 +20,7 @@ public class DeleteContextMenu {
     private DeleteContextMenu() {
         cm = new ContextMenu();
         supp = new MenuItem(StringRessources.SUPPRIMER);
+        supp.setOnAction(event -> gestion.supprimer(toDelete));
 
         cm.getItems().add(supp);
         supp.setOnAction(e -> gestion.supprimer(toDelete));
@@ -30,6 +30,7 @@ public class DeleteContextMenu {
         if (deleteContextMenu == null)
             deleteContextMenu = new DeleteContextMenu();
         deleteContextMenu.gestion = gestion;
+
         return deleteContextMenu;
     }
 
