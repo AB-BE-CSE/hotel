@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXListView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <?import main.java.com.hotel.metier.*?>
-<StackPane fx:id="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root" xmlns="http://javafx.com/javafx/8">
 
     <AnchorPane fx:id="content" prefHeight="199.0" prefWidth="260.0">
         <children>
@@ -38,9 +37,10 @@
                             </TableView>
                         </children>
                     </AnchorPane>
-                    <AnchorPane >
+                    <AnchorPane>
                         <children>
-                            <VBox AnchorPane.rightAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="10" AnchorPane.bottomAnchor="10">
+                            <VBox AnchorPane.rightAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="10"
+                                  AnchorPane.bottomAnchor="10">
                                 <Label textAlignment="CENTER">
                                     <text>
                                         <StringRessources fx:constant="User_Details"/>
@@ -91,29 +91,29 @@
                                         <Insets left="10.0"/>
                                     </VBox.margin>
                                 </GridPane>
-                                <TableView layoutX="3.0" layoutY="172.0" prefHeight="390.0" prefWidth="290.0">
+                                <TableView fx:id="permissions" layoutX="3.0" layoutY="172.0" prefHeight="390.0" prefWidth="290.0">
                                     <columns>
-                                        <TableColumn prefWidth="56.0">
+                                        <TableColumn fx:id="function" prefWidth="56.0">
                                             <text>
                                                 <StringRessources fx:constant="FUNCTION"/>
                                             </text>
                                         </TableColumn>
-                                        <TableColumn prefWidth="59.0">
+                                        <TableColumn fx:id="select" prefWidth="59.0">
                                             <text>
                                                 <StringRessources fx:constant="SELECT"/>
                                             </text>
                                         </TableColumn>
-                                        <TableColumn prefWidth="55.0" >
+                                        <TableColumn fx:id="create" prefWidth="55.0">
                                             <text>
                                                 <StringRessources fx:constant="CREATE"/>
                                             </text>
                                         </TableColumn>
-                                        <TableColumn prefWidth="52.0" >
+                                        <TableColumn fx:id="update" prefWidth="52.0">
                                             <text>
                                                 <StringRessources fx:constant="UPDATE"/>
                                             </text>
                                         </TableColumn>
-                                        <TableColumn prefWidth="67.0" >
+                                        <TableColumn fx:id="delete" prefWidth="67.0">
                                             <text>
                                                 <StringRessources fx:constant="DELETE"/>
                                             </text>

@@ -18,6 +18,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import main.java.com.hotel.metier.dialogs.CompteDialogController;
+import main.java.com.hotel.model.Permission;
 import main.java.com.hotel.model.Utilisateur;
 import main.java.com.hotel.modeldao.DAOFactory;
 import main.java.com.hotel.modeldao.UtilisateurDAO;
@@ -51,6 +52,20 @@ public class CompteController implements Observer, Gestion {
     private Label prenomUser;
     @FXML
     private Label tel;
+
+
+    @FXML
+    private TableView<Permission> permissions;
+    @FXML
+    private TableColumn<Permission, String> select;
+    @FXML
+    private TableColumn<Permission, String> create;
+    @FXML
+    private TableColumn<Permission, String> update;
+    @FXML
+    private TableColumn<Permission, String> delete;
+    @FXML
+    private TableColumn<Permission, String> function;
 
     @PostConstruct
     public void init() throws FlowException, VetoException {
@@ -124,14 +139,47 @@ public class CompteController implements Observer, Gestion {
             });
             return row;
         });
+
+
+        // permissions table
+        select.setCellValueFactory(param -> {
+            if (param.getValue().getRead())
+                return new SimpleStringProperty("OUI");
+            else
+                return new SimpleStringProperty("NON");
+        });
+        create.setCellValueFactory(param -> {
+            if (param.getValue().getCreate())
+                return new SimpleStringProperty("OUI");
+            else
+                return new SimpleStringProperty("NON");
+        });
+        delete.setCellValueFactory(param -> {
+            if (param.getValue().getDelet())
+                return new SimpleStringProperty("OUI");
+            else
+                return new SimpleStringProperty("NON");
+        });
+        update.setCellValueFactory(param -> {
+            if (param.getValue().getUpdat())
+                return new SimpleStringProperty("OUI");
+            else
+                return new SimpleStringProperty("NON");
+        });
+        function.setCellValueFactory(param -> {
+                return new SimpleStringProperty(param.getValue().getId().getInformation());
+        });
+
     }
 
     @Override
     public void update(Observable observable, Object o) {
         if (o instanceof Utilisateur) {
-            Utilisateur utilisateur =(Utilisateur) o;
-            if (utilisateur.getIdUser()!=0)
-            userTable.getItems().add((Utilisateur) o);
+            Utilisateur utilisateur = (Utilisateur) o;
+            if (utilisateur.getIdUser() != 0){
+                UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
+                userTable.getItems().add(utilisateurDAO.find(utilisateur.getIdUser()));
+            }
         }
     }
 
@@ -139,6 +187,9 @@ public class CompteController implements Observer, Gestion {
         nomUser.setText(utilisateur.getNom());
         prenomUser.setText(utilisateur.getPrenom());
         tel.setText(utilisateur.getTel());
+        permissions.getItems().clear();
+        permissions.getItems().addAll(utilisateur.getUsertype().getPermissions());
+
     }
 
 

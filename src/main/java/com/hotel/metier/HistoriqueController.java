@@ -48,7 +48,7 @@ public class HistoriqueController {
     @FXML
     private TableColumn<Reservation, Date> dateArriveeColumn;
     @FXML
-    private TableColumn<Reservation, Date> dateSorieColumn;
+    private TableColumn<Reservation, Date> dateSortieColumn;
     @FXML
     private TableColumn<Reservation, Double> totalColumn;
 
@@ -60,7 +60,7 @@ public class HistoriqueController {
         userColumn.setCellValueFactory(param -> param.getValue().getUtilisateur().usernameProperty());
         clientColumn.setCellValueFactory(param -> param.getValue().getClient().nomProperty());
         dateArriveeColumn.setCellValueFactory(param -> param.getValue().dateArriveProperty());
-        dateSorieColumn.setCellValueFactory(param -> param.getValue().dateSortieProperty());
+        dateSortieColumn.setCellValueFactory(param -> param.getValue().dateSortieProperty());
         totalColumn.setCellValueFactory(param -> param.getValue().getFacture().sommeProperty().asObject());
         dateDebutPicker.setValue(LocalDate.now());
         dateFinPicker.setValue(LocalDate.now());
@@ -78,7 +78,7 @@ public class HistoriqueController {
 
         ReservationDAO reservationDAO = (ReservationDAO) DAOFactory.getDAO(StringRessources.RESERVATION);
         historiqueTable.getItems().clear();
-        historiqueTable.getItems().addAll(reservationDAO.findBetween(null, null));
+//        historiqueTable.getItems().addAll(reservationDAO.findBetween(null, null));
 
     }
 
