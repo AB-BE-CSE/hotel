@@ -16,24 +16,27 @@ public class DeleteContextMenu {
     private MenuItem supp;
     private Gestion gestion;
     private Object toDelete;
-    private DeleteContextMenu() {
 
+    private DeleteContextMenu() {
         cm = new ContextMenu();
         supp = new MenuItem(StringRessources.SUPPRIMER);
-        supp.setOnAction(e->gestion.supprimer(toDelete));
-        cm.getItems().add(supp);
+        supp.setOnAction(e -> gestion.supprimer(toDelete));
+        supp.setOnAction(event -> gestion.supprimer(toDelete));
 
+        cm.getItems().add(supp);
+        supp.setOnAction(e -> gestion.supprimer(toDelete));
     }
 
     public static DeleteContextMenu getInstance(Gestion gestion) {
         if (deleteContextMenu == null)
             deleteContextMenu = new DeleteContextMenu();
+        deleteContextMenu.gestion = gestion;
 
         deleteContextMenu.gestion = gestion;
         return deleteContextMenu;
     }
 
-    public void show(Node node,Object toDelete) {
+    public void show(Node node, Object toDelete) {
         this.toDelete = toDelete;
         node.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             if (e.getButton() == MouseButton.SECONDARY)

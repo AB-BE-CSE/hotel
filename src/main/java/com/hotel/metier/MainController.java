@@ -17,6 +17,10 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import main.java.com.hotel.metier.dialogs.CompteDialogController;
 import main.java.com.hotel.modeldao.UtilisateurDAO;
+import main.java.com.hotel.model.Client;
+import main.java.com.hotel.modeldao.ClientDAO;
+import main.java.com.hotel.modeldao.CategorieDAO;
+import main.java.com.hotel.modeldao.ChambreDAO;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
@@ -100,6 +104,9 @@ public class MainController implements Observer {
         // add the main controller as an observer to DAO Model
         UtilisateurDAO.addObserver(this);
         CompteDialogController.addObserver(this);
+        ChambreDAO.addObserver(this);
+        CategorieDAO.addObserver(this);
+        ClientDAO.addObserver(this);
     }
 
     @Override

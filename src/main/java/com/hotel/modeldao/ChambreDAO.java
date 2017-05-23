@@ -1,5 +1,7 @@
 package main.java.com.hotel.modeldao;
 
+import main.java.com.hotel.metier.StringRessources;
+import main.java.com.hotel.model.Categorie;
 import main.java.com.hotel.model.Chambre;
 
 import java.util.ArrayList;
@@ -40,9 +42,11 @@ public class ChambreDAO extends DAO {
 
         try {
             super.saveOrUpdate(chambre);
-//            updateObservers(StringRessource.MSG_ETD_SUCCES);
+            updateObservers(StringRessources.MSG_CHAMBRE_SUCCES);
         } catch (DataAccessLayerException e) {
-//            updateObservers(StringRessources.MSG_ETD_ERREUR);
+            updateObservers(StringRessources.MSG_CHAMBRE_ERREUR);
+        } catch (Exception e){
+            updateObservers(StringRessources.MSG_CHAMBRE_ERREUR);
         }
     }
 
@@ -81,5 +85,17 @@ public class ChambreDAO extends DAO {
      */
     public List<Chambre> findAll() throws DataAccessLayerException {
         return super.findAll(Chambre.class);
+    }
+
+    public List<Chambre> createAll(int debut, int fin, Categorie categorie, int etage) {
+
+//            Chambre chambre = new Chambre();
+//            chambre.setNumeroChambre(i);
+//            chambre.setEtage(Integer.valueOf(etage.getText()));
+//            chambre.setCheck(false);
+//            chambre.setCategorie(categorie.getValue());
+//            ChambreDAO chambreDAO = (ChambreDAO) DAOFactory.getDAO(StringRessources.CHAMBRE);
+
+        return null;
     }
 }

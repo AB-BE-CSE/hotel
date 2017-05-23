@@ -15,6 +15,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Table(name = "client", catalog = "hotel")
 public class Client implements java.io.Serializable {
 
+
+
     private IntegerProperty idClient;
     private StringProperty nom;
     private StringProperty prenom;
@@ -28,6 +30,7 @@ public class Client implements java.io.Serializable {
         this.prenom = new SimpleStringProperty();
         this.dateNaissance = new SimpleObjectProperty<>();
         this.tel = new SimpleStringProperty();
+        numeroPieceIdentite = new SimpleStringProperty();
     }
 
     public Client(int idClient) {
@@ -36,6 +39,7 @@ public class Client implements java.io.Serializable {
         this.prenom = new SimpleStringProperty();
         this.dateNaissance = new SimpleObjectProperty<>();
         this.tel = new SimpleStringProperty();
+        numeroPieceIdentite = new SimpleStringProperty();
     }
 
     public Client(int idClient, String nom, String prenom, Date dateNaissance, String tel) {
@@ -44,6 +48,7 @@ public class Client implements java.io.Serializable {
         this.prenom = new SimpleStringProperty(prenom);
         this.dateNaissance = new SimpleObjectProperty<>(dateNaissance);
         this.tel = new SimpleStringProperty(tel);
+        numeroPieceIdentite = new SimpleStringProperty();
 
     }
 

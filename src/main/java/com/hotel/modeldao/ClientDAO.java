@@ -1,5 +1,6 @@
 package main.java.com.hotel.modeldao;
 
+import main.java.com.hotel.metier.StringRessources;
 import main.java.com.hotel.model.Client;
 
 import java.util.ArrayList;
@@ -40,9 +41,10 @@ public class ClientDAO extends DAO {
 
         try {
             super.saveOrUpdate(client);
-//            updateObservers(StringRessource.MSG_ETD_SUCCES);
+            updateObservers(StringRessources.MSG_CLIENT_SUCCES);
         } catch (DataAccessLayerException e) {
-//            updateObservers(StringRessources.MSG_ETD_ERREUR);
+            e.printStackTrace();
+            updateObservers(StringRessources.MSG_CLIENT_ERREUR);
         }
     }
 

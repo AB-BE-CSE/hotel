@@ -1,5 +1,6 @@
 package main.java.com.hotel.modeldao;
 
+import main.java.com.hotel.metier.StringRessources;
 import main.java.com.hotel.model.Categorie;
 
 import java.util.ArrayList;
@@ -40,9 +41,10 @@ public class CategorieDAO extends DAO {
 
         try {
             super.saveOrUpdate(categorie);
-//            updateObservers(StringRessource.MSG_ETD_SUCCES);
+            updateObservers(StringRessources.MSG_CATEGORIE_SUCCES);
+            updateObservers(categorie);
         } catch (DataAccessLayerException e) {
-//            updateObservers(StringRessources.MSG_ETD_ERREUR);
+            updateObservers(StringRessources.MSG_CATEGORIE_ERREUR);
         }
     }
 

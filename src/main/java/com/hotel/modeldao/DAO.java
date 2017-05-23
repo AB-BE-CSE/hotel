@@ -27,6 +27,7 @@ public abstract class DAO {
         }
     }
 
+
     protected void delete(Object obj) {
         try {
             startOperation();
