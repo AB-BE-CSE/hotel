@@ -8,6 +8,7 @@ import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import io.datafx.controller.util.VetoException;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -60,17 +61,27 @@ public class CompteController implements Observer, Gestion {
 //        typeColumn.setCellValueFactory(param -> param.getValue().typeProperty());
         userTable.getItems().addAll(utilisateurDAO.findAll());
         userTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showDetails(newValue));
-        typeColumn.setCellValueFactory(i -> {
-            StringProperty value = i.getValue().typeProperty();
-            // binding to constant value
-            return Bindings.createObjectBinding(() -> value);
-        });
 
         userColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         userColumn.setOnEditCommit(event -> {
             Utilisateur utilisateur = event.getRowValue();
             utilisateur.setUsername(event.getNewValue());
             modifier(utilisateur);
+        });
+        typeColumn.setCellValueFactory(i -> {
+            StringProperty value = new SimpleStringProperty(i.getValue().getType());
+            switch (value.get()) {
+                case "A":
+                    value.set(Utilisateur.Type.ADMIN.toString());
+                    break;
+                case "C":
+                    value.set(Utilisateur.Type.CHEF.toString());
+                    break;
+                case "R":
+                    value.set(Utilisateur.Type.RECEPTIONISTE.toString());
+                    break;
+            }
+            return Bindings.createObjectBinding(() -> value);
         });
 
         typeColumn.setCellFactory(col -> {
@@ -82,7 +93,11 @@ public class CompteController implements Observer, Gestion {
                     Utilisateur.Type.RECEPTIONISTE.toString());
 
             comboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+
                 Utilisateur utilisateur = (Utilisateur) c.getTableRow().getItem();
+                if (utilisateur == null)
+                    return;
+                System.out.println(newValue);
                 utilisateur.setType(newValue.charAt(0) + "");
                 modifier(utilisateur);
 
@@ -114,6 +129,8 @@ public class CompteController implements Observer, Gestion {
     @Override
     public void update(Observable observable, Object o) {
         if (o instanceof Utilisateur) {
+            Utilisateur utilisateur =(Utilisateur) o;
+            if (utilisateur.getIdUser()!=0)
             userTable.getItems().add((Utilisateur) o);
         }
     }

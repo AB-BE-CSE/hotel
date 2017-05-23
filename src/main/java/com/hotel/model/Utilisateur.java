@@ -93,8 +93,9 @@ public class Utilisateur implements java.io.Serializable {
         this.tel.set(tel);
     }
 
-    @Column(name = "type", length = 2, nullable = false)
+    @Column(name = "type", nullable = false)
     public String getType() {
+
         return type.get();
 
     }
