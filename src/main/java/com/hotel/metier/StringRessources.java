@@ -59,6 +59,7 @@ public class StringRessources {
     public static final String MSG_CHAMBRE_ERREUR = "L'enregistrement a échoué";
     public static final String MSG_CATEGORIE_SUCCES = "La chambre a été enregistrer avec succès";
     public static final String MSG_CATEGORIE_ERREUR = "L'enregistrement a échoué";
+    public static final String MSG_PRIVILEGES = "Vous n'avez pas le privilège pour exécuter cette tache";
 
     public static final String USER = "Utilisateur";
     public static final String PASSWORD = "Mot de passe";
@@ -74,6 +75,9 @@ public class StringRessources {
     public static final String DEUXSEMAINE = "Deux semaine";
     public static final String UNESEMAINE = "Une semaine";
     public static final String ERR_LOGIN = "Utilisateur ou mot de passe incorrect";
+    public static final String DEBUT = "DEBUT";
+    public static final String FIN = "FIN";
+
 
 }
 

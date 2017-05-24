@@ -49,8 +49,9 @@ public class ChambreDAO extends DAO {
             try {
                 Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("CHAMBRE", Permission.CREATE));
                 super.saveOrUpdate(chambre);
+                updateObservers(StringRessources.MSG_CHAMBRE_SUCCES);
             } catch (AccessControlException e) {
-                e.printStackTrace();
+                updateObservers(StringRessources.MSG_PRIVILEGES);
             }
         } catch (DataAccessLayerException e) {
             updateObservers(StringRessources.MSG_CHAMBRE_ERREUR);

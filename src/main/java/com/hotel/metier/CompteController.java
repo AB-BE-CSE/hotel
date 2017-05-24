@@ -18,6 +18,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import main.java.com.hotel.metier.dialogs.CompteDialogController;
+import main.java.com.hotel.metier.menus.DeleteContextMenu;
 import main.java.com.hotel.model.Permission;
 import main.java.com.hotel.model.Utilisateur;
 import main.java.com.hotel.modeldao.DAOFactory;

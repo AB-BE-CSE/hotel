@@ -22,7 +22,7 @@
                         <content>
                             <AnchorPane >
                                 <children>
-                                    <MonthPlanning AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                    <MonthPlanning fx:id="monthPlanning" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
                                                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
                                     </MonthPlanning>
@@ -37,7 +37,7 @@
                         <content>
                             <AnchorPane >
                                 <children>
-                                    <TwoWeekPlanning AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                    <TwoWeekPlanning fx:id="twoWeekPlanning" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
                                                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
                                     </TwoWeekPlanning>
@@ -52,7 +52,7 @@
                         <content>
                             <AnchorPane >
                                 <children>
-                                    <OneWeekPlanning AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                    <OneWeekPlanning fx:id="oneWeekPlanning" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
                                                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
                                     </OneWeekPlanning>

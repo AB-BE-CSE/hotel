@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXListView?>
+<?import de.jensd.fx.fontawesome.Icon?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.StackPane?>
 <?import main.java.com.hotel.metier.*?>
@@ -14,26 +15,46 @@
             <text>
                 <StringRessources fx:constant="RESERVATION"/>
             </text>
+            <graphic>
+                <Icon awesomeIcon="CALENDAR" size="0.9em" style=";"
+                      styleClass="option-jfx-list-view-icon" />
+            </graphic>
         </Label>
         <Label fx:id="client">
             <text>
                 <StringRessources fx:constant="CLIENT"/>
             </text>
+            <graphic>
+                <Icon awesomeIcon="USER" size="0.9em" style=";"
+                      styleClass="option-jfx-list-view-icon" />
+            </graphic>
         </Label>
         <Label fx:id="compte">
             <text>
                 <StringRessources fx:constant="COMPTE"/>
             </text>
+            <graphic>
+                <Icon awesomeIcon="USERS" size="0.9em" style=";"
+                      styleClass="option-jfx-list-view-icon" />
+            </graphic>
         </Label>
         <Label fx:id="chambre">
             <text>
                 <StringRessources fx:constant="CHAMBRE"/>
             </text>
+            <graphic>
+                <Icon awesomeIcon="HOME" size="0.9em" style=";"
+                      styleClass="option-jfx-list-view-icon" />
+            </graphic>
         </Label>
         <Label fx:id="historique">
             <text>
                 <StringRessources fx:constant="HISTORIQUE"/>
             </text>
+            <graphic>
+                <Icon awesomeIcon="BAR_CHART" size="0.9em" style=";"
+                      styleClass="option-jfx-list-view-icon" />
+            </graphic>
         </Label>
     </JFXListView>
 </StackPane>

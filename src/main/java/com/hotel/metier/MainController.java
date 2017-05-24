@@ -16,11 +16,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import main.java.com.hotel.metier.dialogs.CompteDialogController;
-import main.java.com.hotel.modeldao.UtilisateurDAO;
-import main.java.com.hotel.model.Client;
-import main.java.com.hotel.modeldao.ClientDAO;
 import main.java.com.hotel.modeldao.CategorieDAO;
 import main.java.com.hotel.modeldao.ChambreDAO;
+import main.java.com.hotel.modeldao.ClientDAO;
+import main.java.com.hotel.modeldao.UtilisateurDAO;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
@@ -107,13 +106,20 @@ public class MainController implements Observer {
         ChambreDAO.addObserver(this);
         CategorieDAO.addObserver(this);
         ClientDAO.addObserver(this);
+
+
+        SideMenu.setObs(this);
     }
 
     @Override
     public void update(Observable o, Object arg) {
         if (arg instanceof String) {
             snackbar.fireEvent(new JFXSnackbar.SnackbarEvent(arg.toString()));
-        }
+        }/*else if(arg instanceof SideMenu){
+            drawer.close();
+            titleBurger.getAnimation().setRate(-1);
+            titleBurger.getAnimation().play();
+        }*/
     }
 
     public class InputController {

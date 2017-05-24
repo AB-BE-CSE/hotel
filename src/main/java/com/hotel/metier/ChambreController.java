@@ -21,6 +21,7 @@ import javafx.scene.layout.StackPane;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import main.java.com.hotel.metier.dialogs.ChambreDialogController;
+import main.java.com.hotel.metier.menus.DeleteContextMenu;
 import main.java.com.hotel.model.Categorie;
 import main.java.com.hotel.model.Chambre;
 import main.java.com.hotel.modeldao.CategorieDAO;

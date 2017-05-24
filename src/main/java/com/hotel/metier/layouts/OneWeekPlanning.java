@@ -12,27 +12,25 @@ public class OneWeekPlanning extends Planning {
     public OneWeekPlanning() {
         super();
         nbrCol = 7;
+        width = 170;
         IntStream.range(0, nbrCol).forEach(value -> {
             header.add(createRippler(
                     String.format("%02d", LocalDate
                             .now()
                             .plusDays(value)
-                            .getDayOfMonth()), 170), value, 0);
+                            .getDayOfMonth()), width,"WHITE"), value, 0);
 
 
         });
 
         IntStream.range(0, nbrCol).forEach(value -> {
             ColumnConstraints columnConstraints = new ColumnConstraints();
-            columnConstraints.setPrefWidth(170);
+            columnConstraints.setPrefWidth(width);
             plannig.getColumnConstraints().add(columnConstraints);
         });
 
 
     }
 
-    @Override
-    public void setMouseListener() {
 
-    }
 }
