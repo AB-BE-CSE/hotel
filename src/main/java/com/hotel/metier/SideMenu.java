@@ -14,13 +14,14 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 
 import javax.annotation.PostConstruct;
+import java.util.Observer;
 
 @FXMLController(value = "/main/java/com/hotel/presentation/SideMenu.fxml", title = "")
 public class SideMenu {
 
+    private static Observer obs;
     @FXMLViewFlowContext
     private ViewFlowContext context;
-
     @FXML
     @ActionTrigger("buttons")
     private Label reservation;
@@ -36,10 +37,12 @@ public class SideMenu {
     @FXML
     @ActionTrigger("buttons")
     private Label historique;
-
-
     @FXML
     private JFXListView<Label> sideList;
+
+    public static void setObs(Observer obs) {
+        SideMenu.obs = obs;
+    }
 
     @PostConstruct
     public void init() throws FlowException, VetoException {
@@ -49,6 +52,7 @@ public class SideMenu {
             if (newVal != null) {
                 try {
                     contentFlowHandler.handle(newVal.getId());
+//                    obs.update(null, this);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

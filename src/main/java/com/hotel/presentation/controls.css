@@ -1103,3 +1103,28 @@
 .table-view .corner{
     -fx-background-color:transparent;
 }
+
+/** Menus **/
+
+.context-menu{
+    -fx-padding: 0;
+    -fx-effect: dropshadow( gaussian,rgba(0,0,0,0.30),13,0,0,6);
+    -fx-background-radius: 3px;
+    -fx-background-color: white;
+}
+.menu-item{
+    -fx-padding: 8 16  8  16;
+    -fx-background-color: transparent;
+}
+.menu-item:focused{
+    -fx-text-fill:black;
+}
+.menu-item:hover:focused {
+    -fx-background-color: rgba(0,0,0,0.06);
+    -fx-text-fill:-color-primary;
+}
+.menu-item .label
+{
+    -fx-font-size: 16;
+    -fx-text-fill: -color-primary;
+}

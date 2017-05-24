@@ -44,13 +44,14 @@ public class ChambreDAO extends DAO {
      * @param chambre
      */
     public void create(Chambre chambre) {
-
         try {
             try {
                 Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("CHAMBRE", Permission.CREATE));
                 super.saveOrUpdate(chambre);
+                updateObservers(StringRessources.MSG_CHAMBRE_SUCCES);
             } catch (AccessControlException e) {
                 e.printStackTrace();
+                updateObservers(StringRessources.MSG_PRIVILEGES);
             }
         } catch (DataAccessLayerException e) {
             updateObservers(StringRessources.MSG_CHAMBRE_ERREUR);
@@ -65,7 +66,15 @@ public class ChambreDAO extends DAO {
      * @param chambre
      */
     public void delete(Chambre chambre) throws DataAccessLayerException {
-        super.delete(chambre);
+
+        try {
+            Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("CHAMBRE", Permission.DELETE));
+            updateObservers(StringRessources.MSG_SUPPRESSION_SUCCES);
+            super.delete(chambre);
+        } catch (AccessControlException e) {
+            e.printStackTrace();
+            updateObservers(StringRessources.MSG_PRIVILEGES);
+        }
     }
 
     /**
@@ -75,7 +84,13 @@ public class ChambreDAO extends DAO {
      * @return
      */
     public Chambre find(int id) throws DataAccessLayerException {
-        return (Chambre) super.find(Chambre.class, id);
+        try {
+            Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("CHAMBRE", Permission.READ));
+            return (Chambre) super.find(Chambre.class, id);
+        } catch (AccessControlException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
@@ -84,7 +99,14 @@ public class ChambreDAO extends DAO {
      * @param chambre
      */
     public void update(Chambre chambre) throws DataAccessLayerException {
-        super.saveOrUpdate(chambre);
+        try {
+            Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("CHAMBRE", Permission.UPDATE));
+            super.saveOrUpdate(chambre);
+            updateObservers(StringRessources.MSG_MODIFICATION_SUCCES);
+        } catch (AccessControlException e) {
+            e.printStackTrace();
+            updateObservers(StringRessources.MSG_PRIVILEGES);
+        }
     }
 
     /**
@@ -93,7 +115,14 @@ public class ChambreDAO extends DAO {
      * @return
      */
     public List<Chambre> findAll() throws DataAccessLayerException {
-        return super.findAll(Chambre.class);
+        try {
+            Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("CHAMBRE", Permission.READ));
+            return super.findAll(Chambre.class);
+        } catch (AccessControlException e) {
+            e.printStackTrace();
+
+        }
+        return new ArrayList<>();
     }
 
     public List<Chambre> createAll(int debut, int fin, Categorie categorie, int etage) {

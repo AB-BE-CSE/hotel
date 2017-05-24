@@ -25,6 +25,9 @@
         </heading>
         <body>
             <VBox  prefWidth="300.0" spacing="35.0">
+                <padding>
+                    <Insets top="30" left="30" right="30" bottom="30"></Insets>
+                </padding>
                 <children>
                     <JFXTextField labelFloat="true" fx:id="nomCategorie">
                         <validators>

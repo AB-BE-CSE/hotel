@@ -1,10 +1,15 @@
 package main.java.com.hotel.modeldao;
 
-import main.java.com.hotel.model.Utilisateur;
-import main.java.com.hotel.metier.StringRessources;
 import main.java.com.hotel.login.HashPassword;
+import main.java.com.hotel.login.LoginController;
+import main.java.com.hotel.metier.StringRessources;
+import main.java.com.hotel.model.Permission;
+import main.java.com.hotel.model.Utilisateur;
+import main.java.com.hotel.permission.MyPrivilegedAction;
 import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
 
+import javax.security.auth.Subject;
+import java.security.AccessControlException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -46,9 +51,17 @@ public class UtilisateurDAO extends DAO {
     public void create(Utilisateur utilisateur) {
 
         try {
-            super.saveOrUpdate(utilisateur);
-            updateObservers(StringRessources.MSG_USER_SUCCES);
+            try {
+                Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("USER", Permission.CREATE));
+                super.saveOrUpdate(utilisateur);
+                updateObservers(StringRessources.MSG_USER_SUCCES);
+            } catch (AccessControlException e) {
+                e.printStackTrace();
+                updateObservers(StringRessources.MSG_PRIVILEGES);
+            }
         } catch (DataAccessLayerException e) {
+            updateObservers(StringRessources.MSG_USER_ERREUR);
+        } catch (Exception e) {
             updateObservers(StringRessources.MSG_USER_ERREUR);
         }
     }
@@ -59,7 +72,14 @@ public class UtilisateurDAO extends DAO {
      * @param utilisateur
      */
     public void delete(Utilisateur utilisateur) throws DataAccessLayerException {
-        super.delete(utilisateur);
+        try {
+            Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("USER", Permission.DELETE));
+            super.delete(utilisateur);
+            updateObservers(StringRessources.MSG_SUPPRESSION_SUCCES);
+        } catch (AccessControlException e) {
+            e.printStackTrace();
+            updateObservers(StringRessources.MSG_PRIVILEGES);
+        }
     }
 
     /**
@@ -69,7 +89,14 @@ public class UtilisateurDAO extends DAO {
      * @return
      */
     public Utilisateur find(int id) throws DataAccessLayerException {
-        return (Utilisateur) super.find(Utilisateur.class, id);
+        try {
+            Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("USER", Permission.READ));
+            return (Utilisateur) super.find(Utilisateur.class, id);
+        } catch (AccessControlException e) {
+            e.printStackTrace();
+            updateObservers(StringRessources.MSG_PRIVILEGES);
+        }
+        return null;
     }
 
     /**
@@ -78,7 +105,14 @@ public class UtilisateurDAO extends DAO {
      * @param utilisateur
      */
     public void update(Utilisateur utilisateur) throws DataAccessLayerException {
-        super.saveOrUpdate(utilisateur);
+        try {
+            Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("USER", Permission.UPDATE));
+            super.saveOrUpdate(utilisateur);
+            updateObservers(StringRessources.MSG_MODIFICATION_SUCCES);
+        } catch (AccessControlException e) {
+            e.printStackTrace();
+            updateObservers(StringRessources.MSG_PRIVILEGES);
+        }
     }
 
     /**
@@ -87,7 +121,14 @@ public class UtilisateurDAO extends DAO {
      * @return
      */
     public List<Utilisateur> findAll() throws DataAccessLayerException {
-        return super.findAll(Utilisateur.class);
+        try {
+            Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("USER", Permission.READ));
+            return super.findAll(Utilisateur.class);
+        } catch (AccessControlException e) {
+            e.printStackTrace();
+            updateObservers(StringRessources.MSG_PRIVILEGES);
+        }
+        return new ArrayList<>();
     }
 
     public boolean isExist(String username) {
@@ -128,7 +169,7 @@ public class UtilisateurDAO extends DAO {
                 pw = null;
                 ResultSet resultSet = preparedStatement.executeQuery();
                 if (resultSet.first()) {
-                    return find(resultSet.getInt("idUser"));
+                    return (Utilisateur) super.find(Utilisateur.class, resultSet.getInt("idUser"));
                 }
 
             } catch (SQLException e) {

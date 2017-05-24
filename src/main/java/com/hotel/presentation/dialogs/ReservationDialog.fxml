@@ -1,0 +1,72 @@
+<?import com.jfoenix.controls.*?>
+<?import com.jfoenix.validation.DoubleValidator?>
+<?import de.jensd.fx.fontawesome.Icon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import main.java.com.hotel.metier.*?>
+<JFXDialog xmlns:fx="http://javafx.com/fxml/1"
+           xmlns="http://javafx.com/javafx/8"
+           fx:controller="main.java.com.hotel.metier.dialogs.ReservationDialogController" fx:id="dialog">
+    <JFXDialogLayout>
+        <heading>
+            <Label>
+                <text>
+                    <StringRessources fx:constant="TITRE"/>
+                </text>
+            </Label>
+        </heading>
+        <body>
+            <VBox prefWidth="400.0" spacing="20.0">
+                <padding>
+                    <Insets top="30" left="30" right="30" bottom="30"></Insets>
+                </padding>
+                <children>
+
+                    <JFXButton onAction="#ajouterClient">
+                        <graphic>
+                            <HBox prefHeight="40" maxHeight="40" spacing="30" alignment="CENTER_LEFT">
+                                <Icon awesomeIcon="USER" size="1.5em" style=";" maxWidth="40"
+                                      styleClass="option-jfx-list-view-icon"/>
+                                <Label>
+                                    <text>
+                                        <StringRessources fx:constant="CLIENT"/>
+                                    </text>
+                                </Label>
+                            </HBox>
+                        </graphic>
+                    </JFXButton>
+                    <JFXListView fx:id="clients" prefHeight="200" prefWidth="300">
+                    </JFXListView>
+
+                    <JFXTextField labelFloat="true" fx:id="somme">
+                        <validators>
+                            <DoubleValidator message="Veuillez entrer un chiffre">
+                                <Icon awesomeIcon="WARNING" style="-fx-font-family: fontawesome"/>
+                            </DoubleValidator>
+                        </validators>
+                        <promptText>
+                            <StringRessources fx:constant="PRIX"/>
+                        </promptText>
+                    </JFXTextField>
+
+                </children>
+            </VBox>
+        </body>
+
+        <actions>
+            <JFXButton styleClass="dialog-accept" onAction="#enregistrer">
+                <text>
+                    <StringRessources fx:constant="ENREGISTRER"/>
+                </text>
+            </JFXButton>
+            <JFXButton styleClass="dialog-accept" onAction="#annuler">
+                <text>
+                    <StringRessources fx:constant="ANNULER"/>
+
+                </text>
+            </JFXButton>
+        </actions>
+    </JFXDialogLayout>
+</JFXDialog>

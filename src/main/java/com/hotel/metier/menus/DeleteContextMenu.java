@@ -1,10 +1,12 @@
-package main.java.com.hotel.metier;
+package main.java.com.hotel.metier.menus;
 
 import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import main.java.com.hotel.metier.Gestion;
+import main.java.com.hotel.metier.StringRessources;
 
 
 /**
@@ -30,7 +32,6 @@ public class DeleteContextMenu {
     public static DeleteContextMenu getInstance(Gestion gestion) {
         if (deleteContextMenu == null)
             deleteContextMenu = new DeleteContextMenu();
-        deleteContextMenu.gestion = gestion;
 
         deleteContextMenu.gestion = gestion;
         return deleteContextMenu;

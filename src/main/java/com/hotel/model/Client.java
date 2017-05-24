@@ -16,7 +16,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Client implements java.io.Serializable {
 
 
-
     private IntegerProperty idClient;
     private StringProperty nom;
     private StringProperty prenom;
@@ -97,6 +96,10 @@ public class Client implements java.io.Serializable {
         return this.tel.get();
     }
 
+    public void setTel(String tel) {
+        this.tel.set(tel);
+    }
+
     @Column(name = "numeroPieceIdentite", length = 25)
     public String getNumeroPieceIdentite() {
         return numeroPieceIdentite.get();
@@ -108,10 +111,6 @@ public class Client implements java.io.Serializable {
 
     public StringProperty numeroPieceIdentiteProperty() {
         return numeroPieceIdentite;
-    }
-
-    public void setTel(String tel) {
-        this.tel.set(tel);
     }
 
     public IntegerProperty idClientProperty() {
@@ -132,5 +131,11 @@ public class Client implements java.io.Serializable {
 
     public StringProperty telProperty() {
         return tel;
+    }
+
+
+    @Override
+    public String toString() {
+        return getNom() + " " + getPrenom();
     }
 }
