@@ -5,6 +5,9 @@ import main.java.com.hotel.metier.StringRessources;
 import main.java.com.hotel.model.Permission;
 import main.java.com.hotel.model.Reservation;
 import main.java.com.hotel.permission.MyPrivilegedAction;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import javax.security.auth.Subject;
 import java.security.AccessControlException;
@@ -135,7 +138,24 @@ public class ReservationDAO extends DAO {
 
         d1 = asDate(date1);
         d2 = asDate(date2);
+        List objects = new ArrayList();
+        Session session = null;
+        try {
+            session = HibernateFactory.openSession();
+            Transaction tx = session.beginTransaction();
+            objects = session.createQuery("from Reservation r where r.dateReservation >= :d1 and r.dateReservation <= :d2")
+                    .setParameter("d1", d1)
+                    .setParameter("d2", d2)
+                    .list();
+            tx.commit();
+        } catch (HibernateException e) {
+            handleException(e);
+        } finally {
+            if (session != null)
+                HibernateFactory.close(session);
+        }
+        return objects;
 
-        return new ArrayList<>();
+
     }
 }

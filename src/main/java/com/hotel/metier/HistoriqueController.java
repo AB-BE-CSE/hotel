@@ -64,21 +64,23 @@ public class HistoriqueController {
         totalColumn.setCellValueFactory(param -> param.getValue().getFacture().sommeProperty().asObject());
         dateDebutPicker.setValue(LocalDate.now());
         dateFinPicker.setValue(LocalDate.now());
-        findBetween();
+        update();
 
         dateDebutPicker.setOnAction(e -> {
-            findBetween();
+            update();
         });
         dateFinPicker.setOnAction(e -> {
-            findBetween();
+            update();
         });
     }
 
-    private void findBetween() {
+    private void update() {
 
         ReservationDAO reservationDAO = (ReservationDAO) DAOFactory.getDAO(StringRessources.RESERVATION);
         historiqueTable.getItems().clear();
-//        historiqueTable.getItems().addAll(reservationDAO.findBetween(null, null));
+        historiqueTable.getItems().addAll(reservationDAO.findBetween(dateDebutPicker.getValue(), dateFinPicker.getValue()));
+        double somme = historiqueTable.getItems().stream().mapToDouble(i -> i.getFacture().getSomme()).sum();
+        totalLabel.setText("Total: "+String.format("%.2f",somme)+" DZD");
 
     }
 
