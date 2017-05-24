@@ -67,7 +67,7 @@ public class MainController implements Observer {
             titleBurger.getAnimation().play();
         });
         titleBurgerContainer.setOnMouseClicked((e) -> {
-            if (drawer.isHidden() || drawer.isHidding()) drawer.open();
+            if (drawer.isHidden() || drawer.isHidden()) drawer.open();
             else drawer.close();
         });
 

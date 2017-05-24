@@ -1,18 +1,21 @@
 package main.java.com.hotel.metier;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
 import io.datafx.controller.FXMLController;
 import io.datafx.controller.flow.FlowException;
 import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import io.datafx.controller.util.VetoException;
-import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
@@ -46,7 +49,7 @@ public class CompteController implements Observer, Gestion {
     @FXML
     private TableColumn<Utilisateur, String> userColumn;
     @FXML
-    private TableColumn<Utilisateur, StringProperty> typeColumn;
+    private TableColumn<Utilisateur, String> typeColumn;
     @FXML
     private Label nomUser;
     @FXML
@@ -97,39 +100,56 @@ public class CompteController implements Observer, Gestion {
                     value.set(Utilisateur.Type.RECEPTIONISTE.toString());
                     break;
             }
-            return Bindings.createObjectBinding(() -> value);
+            return value;
+        });
+//
+//        typeColumn.setCellFactory(col -> {
+//            TableCell<Utilisateur, StringProperty> c = new TableCell<>();
+//            final JFXComboBox<String> comboBox = new JFXComboBox<>();
+//            comboBox.getItems().addAll(
+//                    Utilisateur.Type.ADMIN.toString(),
+//                    Utilisateur.Type.CHEF.toString(),
+//                    Utilisateur.Type.RECEPTIONISTE.toString());
+//
+//            comboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//
+//                Utilisateur utilisateur = (Utilisateur) c.getTableRow().getItem();
+//                if (utilisateur == null)
+//                    return;
+//
+//                utilisateur.setType(newValue.charAt(0) + "");
+//                modifier(utilisateur);
+//
+//            });
+//            c.itemProperty().addListener((observable, oldValue, newValue) -> {
+//                if (oldValue != null) {
+//                    comboBox.valueProperty().unbindBidirectional(oldValue);
+//                }
+//                if (newValue != null) {
+//                    comboBox.valueProperty().bindBidirectional(newValue);
+//                }
+//            });
+//            c.graphicProperty().bind(Bindings.when(c.emptyProperty()).then((Node) null).otherwise(comboBox));
+//            return c;
+//        });
+        ObservableList<String> types = FXCollections.observableArrayList();
+        types.addAll(
+                Utilisateur.Type.ADMIN.toString(),
+                Utilisateur.Type.CHEF.toString(),
+                Utilisateur.Type.RECEPTIONISTE.toString());
+
+        typeColumn.setCellFactory(ComboBoxTableCell.forTableColumn(types));
+        typeColumn.setOnEditCommit(event -> {
+            Utilisateur utilisatuer = event.getRowValue();
+            if (utilisatuer == null)
+                return;
+
+            utilisatuer.setType(event.getNewValue().charAt(0) + "");
+            modifier(utilisatuer);
+            userTable.refresh();
         });
 
-        typeColumn.setCellFactory(col -> {
-            TableCell<Utilisateur, StringProperty> c = new TableCell<>();
-            final JFXComboBox<String> comboBox = new JFXComboBox<>();
-            comboBox.getItems().addAll(
-                    Utilisateur.Type.ADMIN.toString(),
-                    Utilisateur.Type.CHEF.toString(),
-                    Utilisateur.Type.RECEPTIONISTE.toString());
-
-            comboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-
-                Utilisateur utilisateur = (Utilisateur) c.getTableRow().getItem();
-                if (utilisateur == null)
-                    return;
-
-                utilisateur.setType(newValue.charAt(0) + "");
-                modifier(utilisateur);
-
-            });
-            c.itemProperty().addListener((observable, oldValue, newValue) -> {
-                if (oldValue != null) {
-                    comboBox.valueProperty().unbindBidirectional(oldValue);
-                }
-                if (newValue != null) {
-                    comboBox.valueProperty().bindBidirectional(newValue);
-                }
-            });
-            c.graphicProperty().bind(Bindings.when(c.emptyProperty()).then((Node) null).otherwise(comboBox));
-            return c;
-        });
-
+        userTable.setEditable(true);
         CompteDialogController.addObserver(this);
 
         userTable.setRowFactory(param -> {
@@ -168,7 +188,7 @@ public class CompteController implements Observer, Gestion {
                 return new SimpleStringProperty("NON");
         });
         function.setCellValueFactory(param -> {
-                return new SimpleStringProperty(param.getValue().getId().getInformation());
+            return new SimpleStringProperty(param.getValue().getId().getInformation());
         });
 
     }
@@ -177,7 +197,7 @@ public class CompteController implements Observer, Gestion {
     public void update(Observable observable, Object o) {
         if (o instanceof Utilisateur) {
             Utilisateur utilisateur = (Utilisateur) o;
-            if (utilisateur.getIdUser() != 0){
+            if (utilisateur.getIdUser() != 0) {
                 UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
                 userTable.getItems().add(utilisateurDAO.find(utilisateur.getIdUser()));
             }

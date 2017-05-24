@@ -32,7 +32,7 @@
                                 </promptText>
                             </JFXDatePicker>
 
-                            <Label fx:id="totaleLabel" >
+                            <Label fx:id="totalLabel" >
                                 <text>
                                     <StringRessources fx:constant="TOTAL"/>
                                 </text>

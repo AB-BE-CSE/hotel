@@ -1,7 +1,16 @@
 package main.java.com.hotel.modeldao;
 
+import main.java.com.hotel.login.LoginController;
+import main.java.com.hotel.metier.StringRessources;
+import main.java.com.hotel.model.Permission;
 import main.java.com.hotel.model.Reservation;
+import main.java.com.hotel.permission.MyPrivilegedAction;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
+import javax.security.auth.Subject;
+import java.security.AccessControlException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -49,12 +58,19 @@ public class ReservationDAO extends DAO {
      * @param reservation
      */
     public void create(Reservation reservation) {
-
         try {
-            super.saveOrUpdate(reservation);
-//            updateObservers(StringRessource.MSG_ETD_SUCCES);
+            try {
+                Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("RESERVATION", Permission.CREATE));
+                super.saveOrUpdate(reservation);
+                updateObservers(StringRessources.MSG_RESEVRATION_SUCCES);
+            } catch (AccessControlException e) {
+                e.printStackTrace();
+                updateObservers(StringRessources.MSG_PRIVILEGES);
+            }
         } catch (DataAccessLayerException e) {
-//            updateObservers(StringRessources.MSG_ETD_ERREUR);
+            updateObservers(StringRessources.MSG_RESERVATION_ERREUR);
+        } catch (Exception e) {
+            updateObservers(StringRessources.MSG_RESERVATION_ERREUR);
         }
     }
 
@@ -64,7 +80,14 @@ public class ReservationDAO extends DAO {
      * @param reservation
      */
     public void delete(Reservation reservation) throws DataAccessLayerException {
-        super.delete(reservation);
+        try {
+            Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("RESERVATION", Permission.DELETE));
+            super.delete(reservation);
+            updateObservers(StringRessources.MSG_SUPPRESSION_SUCCES);
+        } catch (AccessControlException e) {
+            e.printStackTrace();
+            updateObservers(StringRessources.MSG_PRIVILEGES);
+        }
     }
 
     /**
@@ -74,7 +97,13 @@ public class ReservationDAO extends DAO {
      * @return
      */
     public Reservation find(int id) throws DataAccessLayerException {
-        return (Reservation) super.find(Reservation.class, id);
+        try {
+            Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("RESERVATION", Permission.READ));
+            return (Reservation) super.find(Reservation.class, id);
+        } catch (AccessControlException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
@@ -83,11 +112,24 @@ public class ReservationDAO extends DAO {
      * @param reservation
      */
     public void update(Reservation reservation) throws DataAccessLayerException {
-        super.saveOrUpdate(reservation);
+        try {
+            Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("RESERVATION", Permission.UPDATE));
+            super.saveOrUpdate(reservation);
+            updateObservers(StringRessources.MSG_MODIFICATION_SUCCES);
+        } catch (AccessControlException e) {
+            e.printStackTrace();
+            updateObservers(StringRessources.MSG_PRIVILEGES);
+        }
     }
 
     public List<Reservation> findAll() throws DataAccessLayerException {
-        return super.findAll(Reservation.class);
+        try {
+            Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("RESERVATION", Permission.READ));
+            return super.findAll(Reservation.class);
+        } catch (AccessControlException e) {
+            e.printStackTrace();
+        }
+        return new ArrayList<>();
     }
 
     public List<Reservation> findBetween(LocalDate date1, LocalDate date2) {
@@ -96,7 +138,24 @@ public class ReservationDAO extends DAO {
 
         d1 = asDate(date1);
         d2 = asDate(date2);
+        List objects = new ArrayList();
+        Session session = null;
+        try {
+            session = HibernateFactory.openSession();
+            Transaction tx = session.beginTransaction();
+            objects = session.createQuery("from Reservation r where r.dateReservation >= :d1 and r.dateReservation <= :d2")
+                    .setParameter("d1", d1)
+                    .setParameter("d2", d2)
+                    .list();
+            tx.commit();
+        } catch (HibernateException e) {
+            handleException(e);
+        } finally {
+            if (session != null)
+                HibernateFactory.close(session);
+        }
+        return objects;
 
-        return new ArrayList<>();
+
     }
 }
