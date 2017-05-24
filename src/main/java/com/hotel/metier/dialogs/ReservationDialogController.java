@@ -46,7 +46,7 @@ public class ReservationDialogController implements Observer {
                     ((ClientDAO) DAOFactory.getDAO(StringRessources.CLIENT))
                             .findAll());
 
-            ClientDialogController.addObserver(this);
+            ClientDAO.addObserver(this);
             clear();
             dialog.setOnDialogClosed(e -> {
                 clear();

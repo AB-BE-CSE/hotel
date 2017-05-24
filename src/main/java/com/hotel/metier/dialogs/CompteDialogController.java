@@ -16,9 +16,6 @@ import main.java.com.hotel.modeldao.DAOFactory;
 import main.java.com.hotel.modeldao.UtilisateurDAO;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Observer;
 
 /**
  * Created by Admin on 22/03/2017.
@@ -103,7 +100,7 @@ public class CompteDialogController {
         if (erreur)
             return;
         if (!password.getText().equals(confirmPass.getText())) {
-            updateObservers(StringRessources.MSG_USER_INVALIDE);
+
             return;
         }
 
@@ -117,7 +114,6 @@ public class CompteDialogController {
 
         UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
         utilisateurDAO.create(utilisateur);
-        updateObservers(utilisateur);
         dialog.close();
     }
 
@@ -140,7 +136,7 @@ public class CompteDialogController {
         type.setValue("");
         numTel.setText("");
     }
-
+/*
     private static List<Observer> observers = new ArrayList<>();
 
 
@@ -156,5 +152,5 @@ public class CompteDialogController {
 
     public static void deleteObservers() {
         observers = new ArrayList<>();
-    }
+    }*/
 }

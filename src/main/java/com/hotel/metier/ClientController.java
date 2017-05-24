@@ -54,7 +54,7 @@ public class ClientController implements Observer, Gestion {
 
     @PostConstruct
     public void init() throws FlowException, VetoException {
-        ClientDialogController.addObserver(this);
+        ClientDAO.addObserver(this);
         ajouterClient.setButtonType(JFXButton.ButtonType.RAISED);
         ajouterClient.setOnAction(e -> ajouter());
         ClientDAO clientDAO = (ClientDAO) DAOFactory.getDAO(StringRessources.CLIENT);

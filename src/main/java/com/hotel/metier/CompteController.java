@@ -150,7 +150,7 @@ public class CompteController implements Observer, Gestion {
         });
 
         userTable.setEditable(true);
-        CompteDialogController.addObserver(this);
+        UtilisateurDAO.addObserver(this);
 
         userTable.setRowFactory(param -> {
             TableRow<Utilisateur> row = new TableRow<>();

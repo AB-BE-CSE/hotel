@@ -24,7 +24,7 @@ import java.util.Observer;
  * Created by Admin on 22/03/2017.
  */
 public class ClientDialogController {
-    private static List<Observer> observers = new ArrayList<>();
+   /* private static List<Observer> observers = new ArrayList<>();
 
 
     public static void addObserver(Observer obs) {
@@ -39,7 +39,7 @@ public class ClientDialogController {
 
     public static void deleteObservers() {
         observers = new ArrayList<>();
-    }
+    }*/
 
     private static ClientDialogController clientDialogController = null;
     @FXML
@@ -106,7 +106,6 @@ public class ClientDialogController {
         ClientDAO clientDAO = (ClientDAO) DAOFactory.getDAO(StringRessources.CLIENT);
 
         clientDAO.create(client);
-        updateObservers(client);
         dialog.close();
     }
 

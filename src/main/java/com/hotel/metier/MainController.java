@@ -102,7 +102,6 @@ public class MainController implements Observer {
 
         // add the main controller as an observer to DAO Model
         UtilisateurDAO.addObserver(this);
-        CompteDialogController.addObserver(this);
         ChambreDAO.addObserver(this);
         CategorieDAO.addObserver(this);
         ClientDAO.addObserver(this);

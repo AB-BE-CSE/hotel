@@ -55,6 +55,7 @@ public class UtilisateurDAO extends DAO {
                 Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("USER", Permission.CREATE));
                 super.saveOrUpdate(utilisateur);
                 updateObservers(StringRessources.MSG_USER_SUCCES);
+                updateObservers(utilisateur);
             } catch (AccessControlException e) {
                 e.printStackTrace();
                 updateObservers(StringRessources.MSG_PRIVILEGES);

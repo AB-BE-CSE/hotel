@@ -49,6 +49,7 @@ public class CategorieDAO extends DAO {
                 Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("CHAMBRE", Permission.CREATE));
                 super.saveOrUpdate(categorie);
                 updateObservers(StringRessources.MSG_CATEGORIE_SUCCES);
+                updateObservers(categorie);
             } catch (AccessControlException e) {
                 e.printStackTrace();
                 updateObservers(StringRessources.MSG_PRIVILEGES);

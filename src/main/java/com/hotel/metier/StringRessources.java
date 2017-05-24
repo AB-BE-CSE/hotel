@@ -59,7 +59,7 @@ public class StringRessources {
     public static final String MSG_CHAMBRE_ERREUR = "L'enregistrement a échoué";
     public static final String MSG_RESEVRATION_SUCCES = "La reservation a été enregister avec succès";
     public static final String MSG_RESERVATION_ERREUR = "La reservation a échoué";
-    public static final String MSG_CATEGORIE_SUCCES = "La chambre a été enregistrer avec succès";
+    public static final String MSG_CATEGORIE_SUCCES = "La catégorie a été enregistrer avec succès";
     public static final String MSG_CATEGORIE_ERREUR = "L'enregistrement a échoué";
     public static final String MSG_PRIVILEGES = "Vous n'avez pas le privilège pour exécuter cette tache";
     public static final String MSG_MODIFICATION_SUCCES ="Modification réussie";

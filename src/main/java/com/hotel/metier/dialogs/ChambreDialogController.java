@@ -15,8 +15,6 @@ import main.java.com.hotel.modeldao.ChambreDAO;
 import main.java.com.hotel.modeldao.DAOFactory;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -27,20 +25,17 @@ import java.util.Observer;
  */
 public class ChambreDialogController implements Observer {
     private static ChambreDialogController chambreDialogController = null;
+//    private static List<Observer> observers = new ArrayList<>();
     @FXML
     private JFXDialog dialog;
-
-
     @FXML
     private JFXTextField numDebut;
     @FXML
     private JFXTextField numFIN;
-
     @FXML
     private JFXTextField etage;
     @FXML
     private JFXComboBox<Categorie> categorie;
-
 
     public ChambreDialogController() {
 
@@ -84,6 +79,20 @@ public class ChambreDialogController implements Observer {
 
     }
 
+  /*  public static void addObserver(Observer obs) {
+        observers.add(obs);
+    }
+
+    public static void updateObservers(Object o) {
+        for (Observer obs : observers) {
+            obs.update(null, o);
+        }
+    }
+
+    public static void deleteObservers() {
+        observers = new ArrayList<>();
+    }*/
+
     @FXML
     private void enregistrer() {
         boolean erreur = false;
@@ -98,7 +107,7 @@ public class ChambreDialogController implements Observer {
 
         int fin = Integer.valueOf(numFIN.getText());
         int debut = Integer.valueOf(numDebut.getText());
-        int etage= Integer.valueOf(this.etage.getText());
+        int etage = Integer.valueOf(this.etage.getText());
 
         for (int i = debut; i <= fin; i++) {
             Chambre chambre = new Chambre();
@@ -108,7 +117,7 @@ public class ChambreDialogController implements Observer {
             chambre.setCategorie(categorie.getValue());
             ChambreDAO chambreDAO = (ChambreDAO) DAOFactory.getDAO(StringRessources.CHAMBRE);
             chambreDAO.create(chambre);
-            updateObservers(chambre);
+
         }
 
         dialog.close();
@@ -138,26 +147,9 @@ public class ChambreDialogController implements Observer {
         categorie.setValue(null);
     }
 
-
     @Override
     public void update(Observable o, Object arg) {
         if (arg instanceof Categorie)
             categorie.getItems().add((Categorie) arg);
-    }
-
-    private static List<Observer> observers = new ArrayList<>();
-
-    public static void addObserver(Observer obs) {
-        observers.add(obs);
-    }
-
-    public static void updateObservers(Object o) {
-        for (Observer obs : observers) {
-            obs.update(null, o);
-        }
-    }
-
-    public static void deleteObservers() {
-        observers = new ArrayList<>();
     }
 }

@@ -49,6 +49,7 @@ public class ClientDAO extends DAO {
                 Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("CLIENT", Permission.CREATE));
                 super.saveOrUpdate(client);
                 updateObservers(StringRessources.MSG_CLIENT_SUCCES);
+                updateObservers(client);
             } catch (AccessControlException e) {
                 e.printStackTrace();
                 updateObservers(StringRessources.MSG_PRIVILEGES);

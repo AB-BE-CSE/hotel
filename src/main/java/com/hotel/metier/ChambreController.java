@@ -107,7 +107,7 @@ public class ChambreController implements Observer, Gestion {
             chambre.getCategorie().setPrix(event.getNewValue());
             modifier(chambre);
         });
-        ChambreDialogController.addObserver(this);
+        ChambreDAO.addObserver(this);
         DeleteContextMenu.getInstance(this);
 
         chambreTableau.setRowFactory(tv -> {
