@@ -1,6 +1,9 @@
 package main.java.com.hotel.modeldao;
 
 import main.java.com.hotel.model.Reservation;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -96,7 +99,24 @@ public class ReservationDAO extends DAO {
 
         d1 = asDate(date1);
         d2 = asDate(date2);
+        List objects = new ArrayList();
+        Session session = null;
+        try {
+            session = HibernateFactory.openSession();
+            Transaction tx = session.beginTransaction();
+            objects = session.createQuery("from Reservation r where r.dateReservation >= :d1 and r.dateReservation <= :d2")
+                    .setParameter("d1", d1)
+                    .setParameter("d2", d2)
+                    .list();
+            tx.commit();
+        } catch (HibernateException e) {
+            handleException(e);
+        } finally {
+            if (session != null)
+                HibernateFactory.close(session);
+        }
+        return objects;
 
-        return new ArrayList<>();
+
     }
 }
