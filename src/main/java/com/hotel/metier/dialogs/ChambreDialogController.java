@@ -19,9 +19,8 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * @author Ilies bouyacoub
- *         <p>
- *         Created by Admin on 22/03/2017.
+ * @author Ilyas Bouyacoub
+ * Created by Ilyas Bouyacoub on 22/03/2017.
  */
 public class ChambreDialogController implements Observer {
     private static ChambreDialogController chambreDialogController = null;

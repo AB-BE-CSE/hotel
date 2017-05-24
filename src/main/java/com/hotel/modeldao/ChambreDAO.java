@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Observer;
 
 /**
- * Created by Admin on 03/04/2017.
+ * Created by Ilyas Bouyacoub on 03/04/2017.
  */
 public class ChambreDAO extends DAO {
     private static List<Observer> observers = new ArrayList<>();

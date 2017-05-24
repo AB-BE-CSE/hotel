@@ -14,7 +14,7 @@ import main.java.com.hotel.modeldao.DAOFactory;
 import java.io.IOException;
 
 /**
- * Created by Admin on 22/03/2017.
+ * Created by Ilyas Bouyacoub on 22/03/2017.
  */
 public class CategorieDialogController {
     private static CategorieDialogController categorieDialogController = null;
