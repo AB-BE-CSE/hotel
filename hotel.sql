@@ -206,11 +206,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `permission` WRITE;
 /*!40000 ALTER TABLE `permission` DISABLE KEYS */;
-<<<<<<< HEAD
-INSERT INTO `permission` VALUES ('A',1,1,1,1,'CHAMBRE'),('A',1,1,1,1,'CLIENT'),('A',1,1,1,1,'HISTORIQUE'),('A',1,1,1,1,'RESERVATION'),('A',1,1,1,1,'USER'),('C',0,0,0,0,'CHAMBRE'),('C',1,1,1,1,'CLIENT'),('C',0,0,0,0,'HISTORIQUE'),('C',1,1,1,1,'RESERVATION'),('C',0,0,0,0,'USER'),('R',0,1,0,0,'CHAMBRE'),('R',1,1,0,0,'CLIENT'),('R',0,0,0,0,'HISTORIQUE'),('R',1,1,0,0,'RESERVATION'),('R',0,0,0,0,'USER');
-=======
 INSERT INTO `permission` VALUES ('A',1,1,1,1,'CHAMBRE'),('A',1,1,1,1,'CLIENT'),('A',1,1,1,1,'HISTORIQUE'),('A',1,1,1,1,'RESERVATION'),('A',1,1,1,1,'USER'),('C',0,1,0,0,'CHAMBRE'),('C',1,1,1,1,'CLIENT'),('C',0,0,0,0,'HISTORIQUE'),('C',1,1,1,1,'RESERVATION'),('C',0,0,0,0,'USER'),('R',0,1,0,0,'CHAMBRE'),('R',1,1,0,0,'CLIENT'),('R',0,0,0,0,'HISTORIQUE'),('R',1,1,0,0,'RESERVATION'),('R',0,0,0,0,'USER');
->>>>>>> origin/master
 /*!40000 ALTER TABLE `permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
