@@ -15,10 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
-import main.java.com.hotel.modeldao.CategorieDAO;
-import main.java.com.hotel.modeldao.ChambreDAO;
-import main.java.com.hotel.modeldao.ClientDAO;
-import main.java.com.hotel.modeldao.UtilisateurDAO;
+import main.java.com.hotel.modeldao.*;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
@@ -106,9 +103,8 @@ public class MainController implements Observer {
         ChambreDAO.addObserver(this);
         CategorieDAO.addObserver(this);
         ClientDAO.addObserver(this);
-
-
         SideMenu.setObs(this);
+        ReservationDAO.addObserver(this);
     }
 
     @Override

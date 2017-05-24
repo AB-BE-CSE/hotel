@@ -23,7 +23,6 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         HibernateFactory.buildSessionFactory();
 
-
         Flow flow = new Flow(LoginController.class);
         DefaultFlowContainer container = new DefaultFlowContainer();
         flowContext = new ViewFlowContext();
