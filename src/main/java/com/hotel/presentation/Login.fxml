@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToolbar?>
 <?import de.jensd.fx.fontawesome.Icon?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
 <?import main.java.com.hotel.metier.StringRessources?>
+<!--@Authour: Abderrahmane Benyettou -->
+
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root"
            xmlns="http://javafx.com/javafx/2.2" prefWidth="400" prefHeight="500">
     <AnchorPane fx:id="content">
         <children>
             <JFXToolbar AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
                         AnchorPane.topAnchor="0">
-                    <leftItems>
-                        <Label>
-                            <text>
-                                <StringRessources fx:constant="TITRE"/>
-                            </text>
-                        </Label>
-                    </leftItems>
+                <leftItems>
+                    <Label>
+                        <text>
+                            <StringRessources fx:constant="TITRE"/>
+                        </text>
+                    </Label>
+                </leftItems>
             </JFXToolbar>
             <VBox
-                  style="-fx-background-color:white; -fx-padding:16px" spacing="8" alignment="CENTER"
-                  AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
-                  AnchorPane.topAnchor="64">
+                    style="-fx-background-color:white; -fx-padding:16px" spacing="8" alignment="CENTER"
+                    AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                    AnchorPane.topAnchor="64">
 
                 <HBox spacing="10" alignment="CENTER">
                     <Icon awesomeIcon="USER" size="1.5em" style=";"

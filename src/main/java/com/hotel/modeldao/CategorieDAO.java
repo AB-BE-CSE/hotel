@@ -12,9 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observer;
 
-/**
- * Created by Admin on 03/04/2017.
- */
+/** @author Ilies Bouyacoub*/
+
 public class CategorieDAO extends DAO {
     private static List<Observer> observers = new ArrayList<>();
 

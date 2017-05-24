@@ -23,7 +23,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * Created by Admin on 22/05/2017.
+ * Created by Nadir Belarouci on 22/05/2017.
  */
 public abstract class Planning extends BorderPane implements Observer {
     protected GridPane header;

@@ -10,9 +10,8 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.Set;
 
-/**
- * Created by Admin on 28/06/2016.
- */
+/** @author Nadir Belarouci*/
+
 public class MyPrivilegedAction implements PrivilegedAction {
 
     private String info;

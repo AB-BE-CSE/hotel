@@ -1,8 +1,5 @@
 package main.java.com.hotel.modeldao;
 
-/**
- * Represents Exceptions thrown by the Data Access Layer.
- */
 public class DataAccessLayerException extends RuntimeException {
     public DataAccessLayerException() {
     }

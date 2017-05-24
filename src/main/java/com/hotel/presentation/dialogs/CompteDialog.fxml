@@ -1,16 +1,12 @@
 <?import com.jfoenix.controls.*?>
+<?import com.jfoenix.validation.*?>
+<?import de.jensd.fx.fontawesome.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.Label?>
-<?import main.java.com.hotel.metier.StringRessources?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import com.jfoenix.validation.ValidationFacade?>
-<?import javax.xml.validation.Validator?>
-<?import com.jfoenix.validation.NumberValidator?>
-<?import de.jensd.fx.fontawesome.Icon?>
-<?import com.jfoenix.validation.RequiredFieldValidator?>
+<?import javafx.scene.layout.*?>
+<?import main.java.com.hotel.metier.*?>
+<!--@Authour: zakaria choukchou-->
+
 <JFXDialog xmlns:fx="http://javafx.com/fxml/1"
            xmlns="http://javafx.com/javafx/8"
            fx:controller="main.java.com.hotel.metier.dialogs.CompteDialogController" fx:id="dialog">
@@ -106,7 +102,8 @@
                                     </RequiredFieldValidator>
                                 </validators>
                             </JFXTextField>
-                            <JFXTextField fx:id="prenom"  labelFloat="true" prefHeight="25.0" prefWidth="212.0" GridPane.columnIndex="1"
+                            <JFXTextField fx:id="prenom" labelFloat="true" prefHeight="25.0" prefWidth="212.0"
+                                          GridPane.columnIndex="1"
                                           GridPane.rowIndex="1">
                                 <padding>
                                     <Insets left="10.0" right="10.0"/>

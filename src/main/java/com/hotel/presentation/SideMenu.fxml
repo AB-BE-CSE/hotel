@@ -6,6 +6,8 @@
 <?import javafx.scene.layout.StackPane?>
 <?import main.java.com.hotel.metier.*?>
 <?import java.lang.String?>
+<!--@Authour: Nadir Belarouci -->
+
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root" xmlns="http://javafx.com/javafx/2.2">
     <styleClass>
         <String fx:value="side-menu"/>

@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+/** @author Hicham Bali*/
 
 public class HibernateFactory {
     private static SessionFactory sessionFactory;

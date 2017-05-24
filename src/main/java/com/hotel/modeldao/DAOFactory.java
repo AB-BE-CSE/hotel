@@ -2,9 +2,8 @@ package main.java.com.hotel.modeldao;
 
 import main.java.com.hotel.metier.StringRessources;
 
-/**
- * Created by Admin on 02/04/2017.
- */
+/** @author Hicham Bali*/
+
 public class DAOFactory {
     public static DAO getDAO(String dao) {
         if (dao.equals(StringRessources.CHAMBRE)) {

@@ -10,7 +10,7 @@ import main.java.com.hotel.metier.StringRessources;
 
 
 /**
- * Created by Admin on 18/05/2017.
+ * Created by Ilies Bouyacoub on 18/05/2017.
  */
 public class DeleteContextMenu {
     private static DeleteContextMenu deleteContextMenu = null;

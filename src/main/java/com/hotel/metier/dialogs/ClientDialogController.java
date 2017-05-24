@@ -15,13 +15,10 @@ import main.java.com.hotel.modeldao.DAOFactory;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Observer;
 
 /**
- * Created by Admin on 22/03/2017.
+ * Created by Hicham Bali on 22/03/2017.
  */
 public class ClientDialogController {
    /* private static List<Observer> observers = new ArrayList<>();

@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.sql.*;
+/** @author Hicham Bali*/
 
 public class HibernateUtil {
 

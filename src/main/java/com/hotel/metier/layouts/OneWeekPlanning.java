@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.stream.IntStream;
 
 /**
- * Created by Admin on 20/05/2017.
+ * Created by Nadir Belarouci on 20/05/2017.
  */
 public class OneWeekPlanning extends Planning {
     public OneWeekPlanning() {

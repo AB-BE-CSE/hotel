@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.security.Principal;
 import java.util.Map;
 
+/** @author Nadir Belarouci*/
+
 //
 // This is a JAAS Login Module that requires both a username and a password.
 // The username must equal the hardcoded "joeuser" and the password

@@ -15,7 +15,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
-import main.java.com.hotel.metier.dialogs.CompteDialogController;
 import main.java.com.hotel.modeldao.CategorieDAO;
 import main.java.com.hotel.modeldao.ChambreDAO;
 import main.java.com.hotel.modeldao.ClientDAO;
@@ -25,6 +24,8 @@ import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
+
+/** @author Nadir Belarouci*/
 
 @FXMLController(value = "/main/java/com/hotel/presentation/Main.fxml", title = StringRessources.TITRE)
 public class MainController implements Observer {

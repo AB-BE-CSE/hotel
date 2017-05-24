@@ -1,17 +1,13 @@
 <?import com.jfoenix.controls.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-<?import main.java.com.hotel.metier.StringRessources?>
-
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.layout.HBox?>
 <?import com.jfoenix.validation.NumberValidator?>
 <?import de.jensd.fx.fontawesome.Icon?>
-<?import com.jfoenix.validation.RequiredFieldValidator?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import main.java.com.hotel.metier.*?>
+<!--@Authour: Ilies Bouyacoub-->
+
 <JFXDialog xmlns:fx="http://javafx.com/fxml/1"
            xmlns="http://javafx.com/javafx/8"
            fx:controller="main.java.com.hotel.metier.dialogs.ChambreDialogController" fx:id="dialog">

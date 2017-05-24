@@ -4,14 +4,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import main.java.com.hotel.metier.StringRessources?>
 
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.text.Font?>
-<?import com.jfoenix.validation.NumberValidator?>
 <?import com.jfoenix.validation.DoubleValidator?>
 <?import de.jensd.fx.fontawesome.Icon?>
 <?import com.jfoenix.validation.RequiredFieldValidator?>
+
+<!--@Authour: Ilies Bouyacoub-->
 <JFXDialog xmlns:fx="http://javafx.com/fxml/1"
            xmlns="http://javafx.com/javafx/8"
            fx:controller="main.java.com.hotel.metier.dialogs.CategorieDialogController" fx:id="dialog">

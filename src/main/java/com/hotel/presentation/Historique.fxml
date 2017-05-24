@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import com.jfoenix.controls.*?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import main.java.com.hotel.metier.StringRessources ?>
+<?import main.java.com.hotel.metier.*?>
+<!--@Authour: Abderrahmane Benyettou -->
 
-
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root"
            xmlns="http://javafx.com/javafx/2.2">
     <AnchorPane fx:id="content">
         <children>
 
-            <VBox  spacing="30.0" AnchorPane.topAnchor="20.0" AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20">
+            <VBox spacing="30.0" AnchorPane.topAnchor="20.0" AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20"
+                  AnchorPane.leftAnchor="20">
                 <children>
                     <HBox prefHeight="31.0" prefWidth="784.0" spacing="25.0">
                         <children>
@@ -26,13 +23,13 @@
                                 </promptText>
                             </JFXDatePicker>
 
-                            <JFXDatePicker fx:id="dateFinPicker" >
+                            <JFXDatePicker fx:id="dateFinPicker">
                                 <promptText>
                                     <StringRessources fx:constant="A"/>
                                 </promptText>
                             </JFXDatePicker>
 
-                            <Label fx:id="totalLabel" >
+                            <Label fx:id="totalLabel">
                                 <text>
                                     <StringRessources fx:constant="TOTAL"/>
                                 </text>
@@ -43,7 +40,7 @@
                             <Insets top="15.0"/>
                         </VBox.margin>
                     </HBox>
-                    <TableView fx:id="historiqueTable"  VBox.vgrow="ALWAYS">
+                    <TableView fx:id="historiqueTable" VBox.vgrow="ALWAYS">
                         <columns>
                             <TableColumn fx:id="idReservationColumn" prefWidth="75.0">
                                 <text>

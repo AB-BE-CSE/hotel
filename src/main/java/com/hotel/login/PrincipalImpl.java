@@ -4,6 +4,7 @@ import main.java.com.hotel.model.Utilisateur;
 
 import java.io.Serializable;
 import java.security.Principal;
+/** @author Nadir Belarouci*/
 
 //
 // This class defines the principle object, which is just an encapsulated

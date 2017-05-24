@@ -6,6 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <?import main.java.com.hotel.metier.*?>
+<!--@Authour: Zakaria Choukchou-->
+
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root" xmlns="http://javafx.com/javafx/8">
 
     <AnchorPane fx:id="content" prefHeight="199.0" prefWidth="260.0">
@@ -91,7 +93,8 @@
                                         <Insets left="10.0"/>
                                     </VBox.margin>
                                 </GridPane>
-                                <TableView fx:id="permissions" layoutX="3.0" layoutY="172.0" prefHeight="390.0" prefWidth="290.0">
+                                <TableView fx:id="permissions" layoutX="3.0" layoutY="172.0" prefHeight="390.0"
+                                           prefWidth="290.0">
                                     <columns>
                                         <TableColumn fx:id="function" prefWidth="56.0">
                                             <text>

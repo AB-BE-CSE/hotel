@@ -18,7 +18,7 @@ import main.java.com.hotel.modeldao.UtilisateurDAO;
 import java.io.IOException;
 
 /**
- * Created by Admin on 22/03/2017.
+ * Created by Zakaria Choukchou Braham on 22/03/2017.
  */
 public class CompteDialogController {
     private static CompteDialogController compteDialogController = null;

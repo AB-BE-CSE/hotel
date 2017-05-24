@@ -7,6 +7,8 @@ import org.hibernate.Transaction;
 import java.io.Serializable;
 import java.util.List;
 
+/** @author Hicham Bali*/
+
 public abstract class DAO {
     private Session session;
     private Transaction tx;

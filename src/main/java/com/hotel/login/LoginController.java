@@ -24,9 +24,8 @@ import javax.annotation.PostConstruct;
 import javax.security.auth.login.LoginContext;
 import javax.security.auth.login.LoginException;
 
-/**
- * Created by marconi on 28/01/16.
- */
+/** @author Abderrahmane Benyettou*/
+
 @FXMLController(value = "/main/java/com/hotel/presentation/Login.fxml", title = "")
 public class LoginController {
     private static int nbrLogin = 3;

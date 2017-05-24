@@ -2,6 +2,7 @@ package main.java.com.hotel.login;
 
 import javax.security.auth.callback.*;
 import java.io.IOException;
+/** @author Nadir Belarouci*/
 
 //
 // This class implements a username/password callback handler that gets
