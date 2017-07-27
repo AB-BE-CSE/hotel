@@ -18,7 +18,7 @@ public class TwoWeekPlanning extends Planning {
                     String.format("%02d", LocalDate
                             .now()
                             .plusDays(value)
-                            .getDayOfMonth()), width,"WHITE"), value, 0);
+                            .getDayOfMonth()), width, "WHITE"), value, 0);
         });
         IntStream.range(0, nbrCol).forEach(value -> {
             ColumnConstraints columnConstraints = new ColumnConstraints();

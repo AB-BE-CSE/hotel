@@ -4,7 +4,9 @@ package main.java.com.hotel.model;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-/** @author Nadir Belarouci*/
+/**
+ * @author Nadir Belarouci
+ */
 
 @Embeddable
 public class PermissionId implements java.io.Serializable {

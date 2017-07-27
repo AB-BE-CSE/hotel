@@ -34,7 +34,7 @@ public class ChambreDAOTest {
 
         ((ChambreDAO) DAOFactory.getDAO(StringRessources.CHAMBRE)).create(chambre);
 
-        Assert.assertNotEquals(0,chambre.getIdChambre());
+        Assert.assertNotEquals(0, chambre.getIdChambre());
     }
 
     @Test

@@ -18,7 +18,7 @@ public class OneWeekPlanning extends Planning {
                     String.format("%02d", LocalDate
                             .now()
                             .plusDays(value)
-                            .getDayOfMonth()), width,"WHITE"), value, 0);
+                            .getDayOfMonth()), width, "WHITE"), value, 0);
 
 
         });

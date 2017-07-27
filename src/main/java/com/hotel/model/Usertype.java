@@ -5,7 +5,9 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-/** @author Zakaria Choukchou*/
+/**
+ * @author Zakaria Choukchou
+ */
 
 @Entity
 @Table(name = "usertype", catalog = "hotel")

@@ -25,8 +25,8 @@ public class StringRessources {
     public static final String User_Details = "User Details";
     public static final String TYPE = "Type";
     public static final String CONFIRMPASSWORD = "Confimez votre mots de passe";
-    public static final String MSG_USER_SUCCES = "Compte a été enregistrer avec succées";
-    public static final String MSG_USER_ERREUR = "L'enreigistrement a échoué !";
+    public static final String MSG_USER_SUCCES = "Le Compte a été enregistrer avec succées";
+    public static final String MSG_USER_ERREUR = "L'enregistrement du compte a échoué";
     public static final String MSG_USER_INVALIDE = "Veuiller tapez le meme mot de passe !";
     public static final String FUNCTION = "Function";
     public static final String SELECT = "Select";
@@ -62,10 +62,10 @@ public class StringRessources {
     public static final String MSG_CATEGORIE_SUCCES = "La catégorie a été enregistrer avec succès";
     public static final String MSG_CATEGORIE_ERREUR = "L'enregistrement a échoué";
     public static final String MSG_PRIVILEGES = "Vous n'avez pas le privilège pour exécuter cette tache";
-    public static final String MSG_MODIFICATION_SUCCES ="Modification réussie";
-    public static final String MSG_MODIFICATION_ERREUR ="Erreur de modification";
-    public static final String MSG_SUPPRESSION_SUCCES ="Suppression réussie";
-    public static final String MSG_SUPPRESSION_ERREUR ="Erreur de suppression";
+    public static final String MSG_MODIFICATION_SUCCES = "Modification réussie";
+    public static final String MSG_MODIFICATION_ERREUR = "Erreur de modification";
+    public static final String MSG_SUPPRESSION_SUCCES = "Suppression réussie";
+    public static final String MSG_SUPPRESSION_ERREUR = "Erreur de suppression";
 
     public static final String USER = "Utilisateur";
     public static final String PASSWORD = "Mot de passe";

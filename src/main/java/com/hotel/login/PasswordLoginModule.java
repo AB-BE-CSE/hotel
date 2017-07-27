@@ -15,7 +15,9 @@ import java.io.IOException;
 import java.security.Principal;
 import java.util.Map;
 
-/** @author Nadir Belarouci*/
+/**
+ * @author Nadir Belarouci
+ */
 
 //
 // This is a JAAS Login Module that requires both a username and a password.

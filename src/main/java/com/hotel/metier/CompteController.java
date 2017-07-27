@@ -30,7 +30,10 @@ import main.java.com.hotel.modeldao.UtilisateurDAO;
 import javax.annotation.PostConstruct;
 import java.util.Observable;
 import java.util.Observer;
-/** @author Zakaria Choukchou Braham*/
+
+/**
+ * @author Zakaria Choukchou Braham
+ */
 
 
 @FXMLController(value = "/main/java/com/hotel/presentation/Compte.fxml", title = "")

@@ -7,7 +7,9 @@ import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 
 
-/** @author Abderrahmane Benyettou*/
+/**
+ * @author Abderrahmane Benyettou
+ */
 public class HashPassword {
     private static Size DEFAULT = Size.S224;
 

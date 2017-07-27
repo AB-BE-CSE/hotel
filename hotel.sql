@@ -225,8 +225,5 @@ UNLOCK TABLES;
 --
 
 LOCK TABLES `utilisateur` WRITE;
-/*!40000 ALTER TABLE `utilisateur` DISABLE KEYS */;
 INSERT INTO `utilisateur` VALUES (1,'admin','admin',NULL,'A','admin','fb001dfcffd1c899f3297871406242f097aecf1a5342ccf3ebcd116146188e4b');
-/*!40000 ALTER TABLE `utilisateur` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;-- Dump completed on 2017-05-18 18:33:49

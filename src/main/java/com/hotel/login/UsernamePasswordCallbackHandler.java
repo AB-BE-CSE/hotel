@@ -2,7 +2,10 @@ package main.java.com.hotel.login;
 
 import javax.security.auth.callback.*;
 import java.io.IOException;
-/** @author Nadir Belarouci*/
+
+/**
+ * @author Nadir Belarouci
+ */
 
 //
 // This class implements a username/password callback handler that gets
@@ -28,7 +31,7 @@ public class UsernamePasswordCallbackHandler implements CallbackHandler {
             Callback cb = callbacks[i];
             //
             // Handle username aquisition
-           if (cb instanceof NameCallback) {
+            if (cb instanceof NameCallback) {
                 NameCallback nameCallback = (NameCallback) cb;
                 nameCallback.setName(username);
                 username = null;

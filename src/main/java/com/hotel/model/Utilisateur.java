@@ -11,11 +11,13 @@ import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-/** @author Zakaria Choukchou*/
+/**
+ * @author Zakaria Choukchou
+ */
 
 @Entity
 @Table(name = "utilisateur", catalog = "hotel")
-@Proxy(lazy=false)
+@Proxy(lazy = false)
 public class Utilisateur implements java.io.Serializable {
 
 

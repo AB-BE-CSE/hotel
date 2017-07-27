@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--@Authour: Abderrahmane Benyettou -->
+
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import main.java.com.hotel.metier.*?>
-<!--@Authour: Abderrahmane Benyettou -->
-
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root"
            xmlns="http://javafx.com/javafx/2.2">
     <AnchorPane fx:id="content">

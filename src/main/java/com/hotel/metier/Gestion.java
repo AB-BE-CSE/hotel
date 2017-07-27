@@ -5,7 +5,10 @@ package main.java.com.hotel.metier;
  */
 public interface Gestion {
     void ajouter();
+
     void modifier(Object toModifier);
+
     void supprimer(Object toDelete);
+
     void chercher();
 }

@@ -25,7 +25,9 @@ import java.util.Date;
 import java.util.Observable;
 import java.util.Observer;
 
-/** @author Hihcham Bali*/
+/**
+ * @author Hihcham Bali
+ */
 
 @FXMLController(value = "/main/java/com/hotel/presentation/Client.fxml", title = "")
 public class ClientController implements Observer, Gestion {

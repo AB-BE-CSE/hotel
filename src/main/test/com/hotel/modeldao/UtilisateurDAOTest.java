@@ -37,7 +37,7 @@ public class UtilisateurDAOTest {
     public void find() throws Exception {
         UtilisateurDAO utilisateurDAO = (UtilisateurDAO) DAOFactory.getDAO(StringRessources.USER);
         Usertype usertype = utilisateurDAO.find(1).getUsertype();
-        Assert.assertEquals(5,usertype.getPermissions().size());
+        Assert.assertEquals(5, usertype.getPermissions().size());
         System.out.println(usertype.getPermissions());
     }
 

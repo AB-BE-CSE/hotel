@@ -77,11 +77,11 @@ public abstract class Planning extends BorderPane implements Observer {
 
 
         chambreDAO.findAll().forEach(chambre -> {
-            leftside.addColumn(0,createRippler(
+            leftside.addColumn(0, createRippler(
                     StringRessources.CHAMBRE + ": "
                             + chambre.getEtage()
                             + String.format("%02d", chambre.getNumeroChambre())
-                    , 120,"WHITE"));
+                    , 120, "WHITE"));
             RowConstraints rowConstraints = new RowConstraints();
             rowConstraints.setPrefHeight(45);
             plannig.getRowConstraints().add(rowConstraints);
@@ -98,7 +98,8 @@ public abstract class Planning extends BorderPane implements Observer {
 
         } else {
 
-            ReservationDialogController.getInstance(reservation).ouvrir((StackPane) context.getRegisteredObject("ContentPane"));;
+            ReservationDialogController.getInstance(reservation).ouvrir((StackPane) context.getRegisteredObject("ContentPane"));
+            ;
         }
     }
 
@@ -110,11 +111,12 @@ public abstract class Planning extends BorderPane implements Observer {
         });
         plannig.setOnMouseDragged(event -> {
             if (drawing) {
-                JFXRippler rippler = createRippler("", width, "#00ADB5");
+                JFXRippler rippler = createRippler("", width, "-color-accent");
                 if (getNodeFromGridPane(plannig, (int) (event.getX() * nbrCol / plannig.getWidth()),
                         (int) (event.getY() * plannig.getRowConstraints().size() / plannig.getHeight())) == null) {
 
-                    plannig.add(rippler, (int) (event.getX() * nbrCol / plannig.getWidth()), (int) (event.getY() * plannig.getRowConstraints().size() / plannig.getHeight()));
+                    plannig.add(rippler, (int) (event.getX() * nbrCol / plannig.getWidth()),
+                            (int) (event.getY() * plannig.getRowConstraints().size() / plannig.getHeight()));
                 }
             }
         });

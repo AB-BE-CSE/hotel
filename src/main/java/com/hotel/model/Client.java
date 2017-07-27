@@ -8,7 +8,9 @@ import java.util.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-/** @author Hicham Bali*/
+/**
+ * @author Hicham Bali
+ */
 
 @Entity
 @Table(name = "client", catalog = "hotel")

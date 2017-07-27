@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observer;
 
-/** @author Abderrahmane Benyettou*/
+/**
+ * @author Abderrahmane Benyettou
+ */
 
 public class FactureDAO extends DAO {
     private static List<Observer> observers = new ArrayList<>();

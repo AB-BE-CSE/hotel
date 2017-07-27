@@ -19,7 +19,7 @@ public class MonthPlanning extends Planning {
                     String.format("%02d", LocalDate
                             .now()
                             .plusDays(value)
-                            .getDayOfMonth()), width,"WHITE")
+                            .getDayOfMonth()), width, "WHITE")
                     , value, 0);
         });
 
@@ -28,7 +28,7 @@ public class MonthPlanning extends Planning {
             columnConstraints.setPrefWidth(width);
             plannig.getColumnConstraints().add(columnConstraints);
         });
-       plannig.setGridLinesVisible(true);
+        plannig.setGridLinesVisible(true);
 
 
     }

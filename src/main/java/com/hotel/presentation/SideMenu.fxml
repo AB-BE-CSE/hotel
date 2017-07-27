@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--@Authour: Nadir Belarouci -->
+
 <?import com.jfoenix.controls.JFXListView?>
-<?import de.jensd.fx.fontawesome.Icon?>
+<?import de.jensd.fx.fontawesome.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.StackPane?>
 <?import main.java.com.hotel.metier.*?>
 <?import java.lang.String?>
-<!--@Authour: Nadir Belarouci -->
-
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root" xmlns="http://javafx.com/javafx/2.2">
     <styleClass>
         <String fx:value="side-menu"/>
@@ -19,7 +19,7 @@
             </text>
             <graphic>
                 <Icon awesomeIcon="CALENDAR" size="0.9em" style=";"
-                      styleClass="option-jfx-list-view-icon" />
+                      styleClass="option-jfx-list-view-icon"/>
             </graphic>
         </Label>
         <Label fx:id="client">
@@ -28,7 +28,7 @@
             </text>
             <graphic>
                 <Icon awesomeIcon="USER" size="0.9em" style=";"
-                      styleClass="option-jfx-list-view-icon" />
+                      styleClass="option-jfx-list-view-icon"/>
             </graphic>
         </Label>
         <Label fx:id="compte">
@@ -37,7 +37,7 @@
             </text>
             <graphic>
                 <Icon awesomeIcon="USERS" size="0.9em" style=";"
-                      styleClass="option-jfx-list-view-icon" />
+                      styleClass="option-jfx-list-view-icon"/>
             </graphic>
         </Label>
         <Label fx:id="chambre">
@@ -46,7 +46,7 @@
             </text>
             <graphic>
                 <Icon awesomeIcon="HOME" size="0.9em" style=";"
-                      styleClass="option-jfx-list-view-icon" />
+                      styleClass="option-jfx-list-view-icon"/>
             </graphic>
         </Label>
         <Label fx:id="historique">
@@ -55,7 +55,7 @@
             </text>
             <graphic>
                 <Icon awesomeIcon="BAR_CHART" size="0.9em" style=";"
-                      styleClass="option-jfx-list-view-icon" />
+                      styleClass="option-jfx-list-view-icon"/>
             </graphic>
         </Label>
     </JFXListView>

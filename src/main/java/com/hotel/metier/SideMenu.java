@@ -15,7 +15,10 @@ import javafx.scene.control.Label;
 
 import javax.annotation.PostConstruct;
 import java.util.Observer;
-/** @author Nadir Belarouci*/
+
+/**
+ * @author Nadir Belarouci
+ */
 
 @FXMLController(value = "/main/java/com/hotel/presentation/SideMenu.fxml", title = "")
 public class SideMenu {

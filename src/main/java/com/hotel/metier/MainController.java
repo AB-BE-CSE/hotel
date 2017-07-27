@@ -22,7 +22,9 @@ import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
-/** @author Nadir Belarouci*/
+/**
+ * @author Nadir Belarouci
+ */
 
 @FXMLController(value = "/main/java/com/hotel/presentation/Main.fxml", title = StringRessources.TITRE)
 public class MainController implements Observer {

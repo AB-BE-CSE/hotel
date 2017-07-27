@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--@Authour: Zakaria Choukchou-->
+
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <?import main.java.com.hotel.metier.*?>
-<!--@Authour: Zakaria Choukchou-->
-
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root" xmlns="http://javafx.com/javafx/8">
 
     <AnchorPane fx:id="content" prefHeight="199.0" prefWidth="260.0">

@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observer;
 
-/** @author Ilies Bouyacoub*/
+/**
+ * @author Ilies Bouyacoub
+ */
 
 public class CategorieDAO extends DAO {
     private static List<Observer> observers = new ArrayList<>();
@@ -70,8 +72,7 @@ public class CategorieDAO extends DAO {
             Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("CHAMBRE", Permission.DELETE));
             super.delete(categorie);
             updateObservers(StringRessources.MSG_SUPPRESSION_SUCCES);
-        }
-        catch (AccessControlException e) {
+        } catch (AccessControlException e) {
             e.printStackTrace();
             updateObservers(StringRessources.MSG_PRIVILEGES);
         }
@@ -87,8 +88,7 @@ public class CategorieDAO extends DAO {
         try {
             Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("CHAMBRE", Permission.READ));
             return (Categorie) super.find(Categorie.class, id);
-        }
-        catch (AccessControlException e) {
+        } catch (AccessControlException e) {
             e.printStackTrace();
         }
         return null;
@@ -104,8 +104,7 @@ public class CategorieDAO extends DAO {
             Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("CHAMBRE", Permission.UPDATE));
             super.saveOrUpdate(categorie);
             updateObservers(StringRessources.MSG_MODIFICATION_SUCCES);
-        }
-        catch (AccessControlException e) {
+        } catch (AccessControlException e) {
             e.printStackTrace();
             updateObservers(StringRessources.MSG_PRIVILEGES);
         }
@@ -122,8 +121,7 @@ public class CategorieDAO extends DAO {
         try {
             Subject.doAs(LoginController.getLoginContext().getSubject(), new MyPrivilegedAction("CHAMBRE", Permission.READ));
             return super.findAll(Categorie.class);
-        }
-        catch (AccessControlException e) {
+        } catch (AccessControlException e) {
             e.printStackTrace();
         }
         return new ArrayList<>();

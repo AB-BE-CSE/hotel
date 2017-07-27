@@ -1,15 +1,18 @@
 package main.java.com.hotel.model;
 // Generated 30 avr. 2017 02:56:43 by Hibernate Tools 5.2.0.CR1
 
-import javafx.beans.property.*;
-import org.hibernate.annotations.*;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
-/** @author Ilies Bouyacoub*/
+/**
+ * @author Ilies Bouyacoub
+ */
 
 @Entity
 @Table(name = "chambre", catalog = "hotel")
@@ -101,8 +104,6 @@ public class Chambre implements java.io.Serializable {
         this.checked.set(checked);
 
     }
-
-
 
 
     public IntegerProperty idChambreProperty() {

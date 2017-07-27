@@ -1,3 +1,5 @@
+<!--@Authour: Ilies Bouyacoub-->
+
 <?import com.jfoenix.controls.*?>
 <?import com.jfoenix.validation.NumberValidator?>
 <?import de.jensd.fx.fontawesome.Icon?>
@@ -6,8 +8,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import main.java.com.hotel.metier.*?>
-<!--@Authour: Ilies Bouyacoub-->
-
 <JFXDialog xmlns:fx="http://javafx.com/fxml/1"
            xmlns="http://javafx.com/javafx/8"
            fx:controller="main.java.com.hotel.metier.dialogs.ChambreDialogController" fx:id="dialog">

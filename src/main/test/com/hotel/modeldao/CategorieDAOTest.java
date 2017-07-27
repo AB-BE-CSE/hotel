@@ -24,6 +24,7 @@ public class CategorieDAOTest {
     public void tearDown() throws Exception {
         HibernateFactory.closeFactory();
     }
+
     @Test
     public void create() throws Exception {
         Categorie categorie = new Categorie();
@@ -31,9 +32,9 @@ public class CategorieDAOTest {
         categorie.setPrix(2000.0);
 
         // on va appeler notre DAO mtn, atoi ? vas y utiise catégorie dao comme on a fait le matin
-        CategorieDAO  categorieDAO = (CategorieDAO) DAOFactory.getDAO(StringRessources.CATEGORIE);
+        CategorieDAO categorieDAO = (CategorieDAO) DAOFactory.getDAO(StringRessources.CATEGORIE);
         categorieDAO.create(categorie);
-        Assert.assertNotEquals(new Integer(0),categorie.getIdCategorie());
+        Assert.assertNotEquals(new Integer(0), categorie.getIdCategorie());
     }
 
     @Test

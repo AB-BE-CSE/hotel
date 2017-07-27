@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--@Authour: Nadir Belarouci -->
+
 <?import com.jfoenix.controls.JFXListView?>
 <?import de.jensd.fx.fontawesome.Icon?>
 <?import javafx.scene.control.Label?>
 <?import main.java.com.hotel.metier.StringRessources?>
-<!--@Authour: Nadir Belarouci -->
-
-<JFXListView fx:id="toolbarPopupList" styleClass="option-list-view"
-			 onMouseClicked="#submit" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-	<Label>
-		<text>
-			<StringRessources fx:constant="CONTACT"/>
-		</text>
-		<graphic>
-			<Icon awesomeIcon="USER" size="1.5em" style=";"
-				styleClass="option-jfx-list-view-icon" />
-		</graphic>
-	</Label>
-	<Label>
-		<text>
-			<StringRessources fx:constant="QUIT"/>
-		</text>
-		<graphic>
-			<Icon awesomeIcon="REPLY" size="1.5em" style=";"
-				styleClass="option-jfx-list-view-icon" />
-		</graphic>
-	</Label>
+<JFXListView xmlns:fx="http://javafx.com/fxml/1" fx:id="toolbarPopupList"
+             styleClass="option-list-view" onMouseClicked="#submit" xmlns="http://javafx.com/javafx/8">
+    <Label>
+        <text>
+            <StringRessources fx:constant="CONTACT"/>
+        </text>
+        <graphic>
+            <Icon awesomeIcon="USER" size="1.5em" style=";"
+                  styleClass="option-jfx-list-view-icon"/>
+        </graphic>
+    </Label>
+    <Label>
+        <text>
+            <StringRessources fx:constant="QUIT"/>
+        </text>
+        <graphic>
+            <Icon awesomeIcon="REPLY" size="1.5em" style=";"
+                  styleClass="option-jfx-list-view-icon"/>
+        </graphic>
+    </Label>
 </JFXListView>

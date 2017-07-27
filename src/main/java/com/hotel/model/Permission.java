@@ -3,7 +3,9 @@ package main.java.com.hotel.model;
 
 import javax.persistence.*;
 
-/** @author Nadir Belarouci*/
+/**
+ * @author Nadir Belarouci
+ */
 
 @Entity
 @Table(name = "permission", catalog = "hotel")

@@ -1,13 +1,13 @@
+<!--@Authour: Hicham Bali -->
+
 <?import com.jfoenix.controls.*?>
-<?import main.java.com.hotel.metier.StringRessources?>
+<?import com.jfoenix.validation.NumberValidator?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
+<?import de.jensd.fx.fontawesome.Icon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
-<?import com.jfoenix.validation.NumberValidator?>
-<?import de.jensd.fx.fontawesome.Icon?>
-<?import com.jfoenix.validation.RequiredFieldValidator?>
-<!--@Authour: Hicham Bali -->
-
+<?import main.java.com.hotel.metier.*?>
 <JFXDialog xmlns:fx="http://javafx.com/fxml/1"
            xmlns="http://javafx.com/javafx/8"
            fx:controller="main.java.com.hotel.metier.dialogs.ClientDialogController" fx:id="dialog">

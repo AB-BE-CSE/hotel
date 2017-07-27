@@ -14,7 +14,9 @@ import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-/** @author Abderrahmane Benyettou*/
+/**
+ * @author Abderrahmane Benyettou
+ */
 
 @Entity
 @Table(name = "reservation", catalog = "hotel")
@@ -70,9 +72,9 @@ public class Reservation implements java.io.Serializable {
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "chambre_reservation", catalog = "hotel", joinColumns = {
-            @JoinColumn(name = "id_reservation", nullable = false, updatable = false) },
-            inverseJoinColumns = { @JoinColumn(name = "id_chambre",
-                    nullable = false, updatable = false) })
+            @JoinColumn(name = "id_reservation", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "id_chambre",
+                    nullable = false, updatable = false)})
     public Set<Chambre> getChambre() {
         return this.chambres;
     }

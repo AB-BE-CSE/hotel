@@ -32,7 +32,9 @@ import javax.annotation.PostConstruct;
 import java.util.Observable;
 import java.util.Observer;
 
-/** @author Ilies Bouyacoub*/
+/**
+ * @author Ilies Bouyacoub
+ */
 
 @FXMLController(value = "/main/java/com/hotel/presentation/Chambre.fxml", title = "")
 public class ChambreController implements Observer, Gestion {

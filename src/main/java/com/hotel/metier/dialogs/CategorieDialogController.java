@@ -31,14 +31,12 @@ public class CategorieDialogController {
     private JFXTextField description;
 
 
-
-
     public CategorieDialogController() {
         Platform.runLater(() -> {
 /*            prix.textProperty().addListener((observable, oldValue, newValue) -> {
                 prix.validate();
             });*/
-            dialog.setOnDialogOpened(event->{
+            dialog.setOnDialogOpened(event -> {
                 nomCategorie.requestFocus();
             });
             clear();
@@ -65,12 +63,12 @@ public class CategorieDialogController {
 
     @FXML
     private void enregistrer() {
-        boolean erreur= false;
-        if(!nomCategorie.validate())
-            erreur =true;
+        boolean erreur = false;
+        if (!nomCategorie.validate())
+            erreur = true;
         if (!prix.validate())
             erreur = true;
-        if(erreur)
+        if (erreur)
             return;
 
         Categorie categorie = new Categorie();

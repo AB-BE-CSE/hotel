@@ -18,7 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observer;
 
-/** @author Zakaria Choukchou*/
+/**
+ * @author Zakaria Choukchou
+ */
 
 public class UtilisateurDAO extends DAO {
     private static List<Observer> observers = new ArrayList<>();

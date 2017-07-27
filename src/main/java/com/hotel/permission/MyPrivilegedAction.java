@@ -10,7 +10,9 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.Set;
 
-/** @author Nadir Belarouci*/
+/**
+ * @author Nadir Belarouci
+ */
 
 public class MyPrivilegedAction implements PrivilegedAction {
 

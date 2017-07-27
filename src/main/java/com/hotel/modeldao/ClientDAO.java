@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observer;
 
-/** @author Hicham Bali*/
+/**
+ * @author Hicham Bali
+ */
 
 public class ClientDAO extends DAO {
     private static List<Observer> observers = new ArrayList<>();

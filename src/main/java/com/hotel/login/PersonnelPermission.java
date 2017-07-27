@@ -2,7 +2,9 @@ package main.java.com.hotel.login;
 
 import java.security.BasicPermission;
 
-/** @author Nadir Belarouci*/
+/**
+ * @author Nadir Belarouci
+ */
 
 //
 // Implement a user defined permission for access to the personnel

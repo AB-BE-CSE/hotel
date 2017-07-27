@@ -20,11 +20,11 @@ import java.util.Observer;
 
 /**
  * @author Ilyas Bouyacoub
- * Created by Ilyas Bouyacoub on 22/03/2017.
+ *         Created by Ilyas Bouyacoub on 22/03/2017.
  */
 public class ChambreDialogController implements Observer {
     private static ChambreDialogController chambreDialogController = null;
-//    private static List<Observer> observers = new ArrayList<>();
+    //    private static List<Observer> observers = new ArrayList<>();
     @FXML
     private JFXDialog dialog;
     @FXML

@@ -18,7 +18,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Observer;
 
-/** @author Nadir Belarouci*/
+/**
+ * @author Nadir Belarouci
+ */
 
 public class ReservationDAO extends DAO {
     private static List<Observer> observers = new ArrayList<>();

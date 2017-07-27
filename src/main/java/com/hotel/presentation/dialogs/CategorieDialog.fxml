@@ -1,14 +1,12 @@
+<!--@Authour: Ilies Bouyacoub-->
 <?import com.jfoenix.controls.*?>
+<?import com.jfoenix.validation.DoubleValidator?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
+<?import de.jensd.fx.fontawesome.Icon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
-<?import main.java.com.hotel.metier.StringRessources?>
-
-<?import com.jfoenix.validation.DoubleValidator?>
-<?import de.jensd.fx.fontawesome.Icon?>
-<?import com.jfoenix.validation.RequiredFieldValidator?>
-
-<!--@Authour: Ilies Bouyacoub-->
+<?import main.java.com.hotel.metier.*?>
 <JFXDialog xmlns:fx="http://javafx.com/fxml/1"
            xmlns="http://javafx.com/javafx/8"
            fx:controller="main.java.com.hotel.metier.dialogs.CategorieDialogController" fx:id="dialog">
@@ -21,7 +19,7 @@
             </Label>
         </heading>
         <body>
-            <VBox  prefWidth="300.0" spacing="35.0">
+            <VBox prefWidth="300.0" spacing="35.0">
                 <padding>
                     <Insets top="30" left="30" right="30" bottom="30"></Insets>
                 </padding>
@@ -48,7 +46,7 @@
                         </validators>
                     </JFXTextField>
 
-                    <JFXTextField labelFloat="true" fx:id="description" >
+                    <JFXTextField labelFloat="true" fx:id="description">
 
                         <promptText>
                             <StringRessources fx:constant="DESCRIPTION"/>

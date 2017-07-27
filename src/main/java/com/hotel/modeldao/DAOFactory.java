@@ -2,7 +2,9 @@ package main.java.com.hotel.modeldao;
 
 import main.java.com.hotel.metier.StringRessources;
 
-/** @author Hicham Bali*/
+/**
+ * @author Hicham Bali
+ */
 
 public class DAOFactory {
     public static DAO getDAO(String dao) {

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--@Authour: Nadir Belarouci -->
+
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.layout.*?>
@@ -7,24 +9,23 @@
 <?import main.java.com.hotel.metier.layouts.OneWeekPlanning?>
 <?import main.java.com.hotel.metier.layouts.TwoWeekPlanning?>
 <?import main.java.com.hotel.metier.StringRessources?>
-<!--@Authour: Nadir Belarouci -->
-
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root"
            xmlns="http://javafx.com/javafx/2.2">
     <AnchorPane fx:id="content">
         <children>
             <JFXTabPane
-                        AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                        AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                 <tabs>
                     <Tab>
                         <text>
                             <StringRessources fx:constant="MOIS"/>
                         </text>
                         <content>
-                            <AnchorPane >
+                            <AnchorPane>
                                 <children>
-                                    <MonthPlanning fx:id="monthPlanning" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                    <MonthPlanning fx:id="monthPlanning" AnchorPane.bottomAnchor="0.0"
+                                                   AnchorPane.leftAnchor="0.0"
                                                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
                                     </MonthPlanning>
@@ -37,9 +38,10 @@
                             <StringRessources fx:constant="DEUXSEMAINE"/>
                         </text>
                         <content>
-                            <AnchorPane >
+                            <AnchorPane>
                                 <children>
-                                    <TwoWeekPlanning fx:id="twoWeekPlanning" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                    <TwoWeekPlanning fx:id="twoWeekPlanning" AnchorPane.bottomAnchor="0.0"
+                                                     AnchorPane.leftAnchor="0.0"
                                                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
                                     </TwoWeekPlanning>
@@ -52,9 +54,10 @@
                             <StringRessources fx:constant="UNESEMAINE"/>
                         </text>
                         <content>
-                            <AnchorPane >
+                            <AnchorPane>
                                 <children>
-                                    <OneWeekPlanning fx:id="oneWeekPlanning" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                    <OneWeekPlanning fx:id="oneWeekPlanning" AnchorPane.bottomAnchor="0.0"
+                                                     AnchorPane.leftAnchor="0.0"
                                                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
                                     </OneWeekPlanning>

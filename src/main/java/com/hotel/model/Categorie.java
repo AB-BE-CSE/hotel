@@ -7,7 +7,9 @@ import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-/** @author Ilies Bouyacoub */
+/**
+ * @author Ilies Bouyacoub
+ */
 
 @Entity
 @Table(name = "categorie", catalog = "hotel")
@@ -17,6 +19,7 @@ public class Categorie implements java.io.Serializable {
     private StringProperty nom;
     private DoubleProperty prix;
     private StringProperty description;
+
     public Categorie() {
         idCategorie = new SimpleIntegerProperty();
         description = new SimpleStringProperty();
@@ -25,7 +28,7 @@ public class Categorie implements java.io.Serializable {
         this.prix = new SimpleDoubleProperty();
     }
 
-    public Categorie(String nom, Double prix,String description) {
+    public Categorie(String nom, Double prix, String description) {
         idCategorie = new SimpleIntegerProperty();
         this.nom = new SimpleStringProperty(nom);
         this.prix = new SimpleDoubleProperty(prix);
@@ -70,7 +73,6 @@ public class Categorie implements java.io.Serializable {
     }
 
 
-
     @Column(name = "prix", precision = 22, scale = 0)
     public Double getPrix() {
         return this.prix.get();
@@ -79,6 +81,7 @@ public class Categorie implements java.io.Serializable {
     public void setPrix(Double prix) {
         this.prix.set(prix);
     }
+
     @Column(name = "description", length = 65535)
     public String getDescription() {
         return this.description.get();

@@ -19,7 +19,10 @@ import main.java.com.hotel.modeldao.ReservationDAO;
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.Date;
-/** @author Benyettou Abderrahmane*/
+
+/**
+ * @author Benyettou Abderrahmane
+ */
 
 
 @FXMLController(value = "/main/java/com/hotel/presentation/Historique.fxml", title = "")
@@ -81,7 +84,7 @@ public class HistoriqueController {
         historiqueTable.getItems().clear();
         historiqueTable.getItems().addAll(reservationDAO.findBetween(dateDebutPicker.getValue(), dateFinPicker.getValue()));
         double somme = historiqueTable.getItems().stream().mapToDouble(i -> i.getFacture().getSomme()).sum();
-        totalLabel.setText("Total: "+String.format("%.2f",somme)+" DZD");
+        totalLabel.setText("Total: " + String.format("%.2f", somme) + " DZD");
 
     }
 
